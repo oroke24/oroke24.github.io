@@ -1511,6 +1511,11 @@ blockquote::before {
     padding-top: 50px;
     padding-bottom: 50px;
   }
+    .cta-section .rowCentered {
+        padding-top: 150px;
+        padding-bottom:150px;
+        align-content: center;
+    }
 
   .volunteer-section::after {
     width: 300px;
