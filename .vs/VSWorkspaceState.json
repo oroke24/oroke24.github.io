@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\images"
+    "\\apks",
+    "\\apks\\fitAppApk",
+    "\\css"
   ],
-  "SelectedNode": "\\images\\logo.png",
+  "SelectedNode": "\\fonts",
   "PreviewInSolutionExplorer": false
 }
