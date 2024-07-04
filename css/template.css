@@ -307,6 +307,14 @@ strong {
   object-fit: cover;
 }
 
+/*---------------------------------------
+IMAGE   
+-----------------------------------------*/
+img{
+    max-height: auto;
+    max-width: 100%;
+    object-fit:cover;
+}
 
 /*---------------------------------------
   CUSTOM BUTTON
