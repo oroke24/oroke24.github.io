@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\images\\portfolio"
+    "\\employees",
+    "\\images"
   ],
-  "SelectedNode": "\\index.html",
+  "SelectedNode": "\\employees\\connect.php",
   "PreviewInSolutionExplorer": false
 }
