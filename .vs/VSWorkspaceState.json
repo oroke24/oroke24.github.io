@@ -1,10 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\ai",
-    "\\css",
-    "\\images"
+    "\\PDFs",
+    "\\PDFs\\InspectionSheets"
   ],
-  "SelectedNode": "\\ai\\text.html",
+  "SelectedNode": "\\PDFs",
   "PreviewInSolutionExplorer": false
 }
