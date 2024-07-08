@@ -1,29 +1,29 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <meta name="description" content="">
-        <meta name="author" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-        <!-- tab image -->
-        <link rel="icon" href="images/logo.png">
+    <!-- tab image -->
+    <link rel="icon" href="../images/logo.png">
 
-        <title>Wash n Roll - Book Now</title>
+    <title>Wash n Roll - Book Now</title>
 
-        <!-- CSS FILES -->
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../css/bootstrap-icons.css" rel="stylesheet">
-        <link href="../css/template.css" rel="stylesheet">
-<!--
+    <!-- CSS FILES -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap-icons.css" rel="stylesheet">
+    <link href="../css/template.css" rel="stylesheet">
+    <!--
 
-TemplateMo 581 Kind Heart Charity
+    TemplateMo 581 Kind Heart Charity
 
-https://templatemo.com/tm-581-kind-heart-charity
+    https://templatemo.com/tm-581-kind-heart-charity
 
--->
-    </head>
+    -->
+</head>
 
     <body>
 
@@ -71,11 +71,9 @@ https://templatemo.com/tm-581-kind-heart-charity
                         Employee Home
                     </span>
                 </a>
-
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
@@ -89,53 +87,48 @@ https://templatemo.com/tm-581-kind-heart-charity
             </div>
         </nav>
         <main>
-
             <section class="book_now-section">
                 <div class="section-overlay"></div>
                 <div class="container">
                     <div class="row">
 
                         <div class="col-lg-6 col-12 mx-auto">
-                            <form class="custom-form book_now-form" action="connect.php" method="post" >
+                            <form class="book_now-form" id="book_now-form" action="firestore.php" method="post">
                                 <h5 class="mb-4" style="font-size:40px;">Book Now</h5>
 
                                 <div class="row">
                                     <div class="col-lg-12 col-12">
                                         <h2 class="mb-3" style="font-size:25px;">Fill out and submit this form to get started</h2>
-
                                         <h2 class="mb-3" style="font-size:25px;">(You don't pay until we clean)</h2>
                                     </div>
-
                                     <div class="col-lg-6 col-12 mt-2">
-                                        <input type="text" name="firstName" id="firstName" class="form-control" placeholder="First Name" required>
+                                        <input type="search" name="firstName" id="firstName" class="form-control" placeholder="First Name">
+                                    </div>
+                                    <div class="col-lg-6 col-12 mt-2">
+                                        <input type="text" name="lastName" id="lastName" class="form-control" placeholder="Last Name">
                                     </div>
 
                                     <div class="col-lg-6 col-12 mt-2">
-                                        <input type="text" name="lastName" id="lastName" class="form-control" placeholder="Last Name" required>
+                                        <input type="tel" maxlength="10" name="phone" id="phone" class="form-control" placeholder="Phone Number">
                                     </div>
 
                                     <div class="col-lg-6 col-12 mt-2">
-                                        <input type="tel" maxlength="10" name="phone" id="phone" class="form-control" placeholder="Phone Number" required>
+                                        <input type="text" name="email" id="email" class="form-control" placeholder="Email">
                                     </div>
 
                                     <div class="col-lg-6 col-12 mt-2">
-                                        <input type="text" name="email" id="email" class="form-control" placeholder="Email" required>
+                                        <input type="text" name="city" id="city" class="form-control" placeholder="Address">
                                     </div>
+    
 
                                     <div class="col-lg-6 col-12 mt-2">
-                                        <input type="text" name="city" id="city" class="form-control" placeholder="Address" required>
-                                    </div>
-
-                                    <div class="col-lg-6 col-12 mt-2">
-                                        <textarea name="description" height="400px" maxlength="500" id="description" class="form-control" placeholder="Year Make Model OR description of what needs to be cleaned" required></textarea>
+                                        <textarea name="description" height="400px" maxlength="500" id="description" class="form-control" placeholder="Year Make Model OR description of what needs to be cleaned"></textarea>
                                     </div>
 
                                     <div class="col-lg-6 col-12 mt-2">
                                         <input type="text" name="arrivalTime" id="arrivalTime" class="form-control" placeholder="Date and Time of Arrival" required>
                                     </div>
-
-                                    <button type="submit" class="form-control mt-4">Submit</button>
-
+                                    <button type="submit" id="submit" class="form-control mt-4">Submit</button>
                                 </div>
                             </form>
                         </div>
@@ -149,7 +142,7 @@ https://templatemo.com/tm-581-kind-heart-charity
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3 col-12 mb-4">
-                        <a href="index.html"><img src="images/logo.png" class="logo img-fluid" alt="wash n roll logo"></a>
+                        <a href="index.html"><img src="../images/logo.png" class="logo img-fluid" alt="wash n roll logo"></a>
                     </div>
 
                     <div class="col-lg-4 col-md-6 col-12 mx-auto">
@@ -174,7 +167,7 @@ https://templatemo.com/tm-581-kind-heart-charity
                         <p class="text-white d-flex">
                             <i class="bi-calendar-plus me-2"></i>
                             <a href="book_now.html" class="site-footer-link">
-                              Book Now
+                                Book Now
                             </a>
                         </p>
 
@@ -214,11 +207,12 @@ https://templatemo.com/tm-581-kind-heart-charity
                     <div class="row">
 
                         <div class="col-lg-6 col-md-7 col-12">
-                            <p class="copyright-text mb-0">Copyright © 2022 <a href="#">Wash n Roll Mobile Cleaning</a> Org.
-                        	Design: <a href="https://templatemo.com" target="_blank">TemplateMo</a>
-                          <br>
-                          Editor: Jamie O'Roke
-                          </p>
+                            <p class="copyright-text mb-0">
+                                Copyright © 2022 <a href="#">Wash n Roll Mobile Cleaning</a> Org.
+                                Design: <a href="https://templatemo.com" target="_blank">TemplateMo</a>
+                                <br>
+                                Editor: Jamie O'Roke
+                            </p>
                         </div>
 
                         <div class="col-lg-6 col-md-5 col-12 d-flex justify-content-center align-items-center mx-auto">
@@ -241,14 +235,46 @@ https://templatemo.com/tm-581-kind-heart-charity
                     </div>
                 </div>
             </div>
+            <script type="module">
+                import { initializeApp } from '../node_modules/firebase/app';
+                import { getFirestore, collection, addDoc } from '../node_modules/firebase/firestore';
+                // TODO: Add SDKs for Firebase products that you want to use
+                // https://firebase.google.com/docs/web/setup#available-libraries
+
+                // Your web app's Firebase configuration
+                // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+                const firebaseConfig = {
+                    apiKey: "AIzaSyCDGvCeUX3po6mvddWprnM1HUDipEmHfyE",
+                    authDomain: "wnrmc-e91c3.firebaseapp.com",
+                    projectId: "wnrmc-e91c3",
+                    storageBucket: "wnrmc-e91c3.appspot.com",
+                    messagingSenderId: "832604211915",
+                    appId: "1:832604211915:web:fc2010abad9b65a3bee94e",
+                    measurementId: "G-6QVB8R39SN"
+                };
+
+                // Initialize Firebase
+                const app = initializeApp(firebaseConfig);
+                const db = getFirestore(app);
+
+                //add data
+                db.collection("users").add({
+                    first: "Ada",
+                    last: "Lovelace",
+                    born: 1815
+                });
+            </script>
         </footer>
 
         <!-- JAVASCRIPT FILES -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.sticky.js"></script>
-        <script src="js/counter.js"></script>
-        <script src="js/custom.js"></script>
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/jquery.sticky.js"></script>
+        <script src="../js/counter.js"></script>
+        <script src="../js/custom.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore-compat.js"></script>
+
 
     </body>
 </html>
