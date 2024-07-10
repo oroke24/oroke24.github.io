@@ -1,5 +1,5 @@
-import firebase from '../node_modules/firebase/compat/app';
-import '../node_modules/firebase/compat/firestore';
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 
 //unique firebase object
 const firebaseConfig = {
@@ -11,10 +11,12 @@ const firebaseConfig = {
     appId: "1:832604211915:web:fc2010abad9b65a3bee94e",
     measurementId: "G-6QVB8R39SN"
 };
-//Initialize db
-firebase.initializeApp(firebaseConfig);
-var firestore = firebase.firestore();
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 
+
+// Initialize Cloud Firestore and get a reference to the service
+const db = getFirestore(app);
 //variable to access db collection
 const db = firestore.collection("users");
 db.doc().set({
