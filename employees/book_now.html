@@ -16,6 +16,8 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/bootstrap-icons.css" rel="stylesheet">
     <link href="../css/template.css" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 
     <!-- Firestore links
     <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-app-compat.js"></script>
@@ -106,7 +108,7 @@
                                         <h2 class="mb-3" style="font-size:25px;">(You don't pay until we clean)</h2>
                                     </div>
                                     <div class="col-lg-6 col-12 mt-2">
-                                        <input type="text" name="arrivalTime" id="arrivalTime" class="form-control" placeholder="Date and Time of Arrival" required>
+                                        <input type="text" name="arrivalTime" id="date" class="form-control" placeholder="Date and Time of Arrival" required>
                                     </div>
                                     <div class="col-lg-6 col-12 mt-2" id="firstname">
                                         <input type="search" name="firstName" id="firstName" class="form-control" placeholder="First Name" required>
@@ -215,15 +217,12 @@
 
                         <div class="col-lg-6 col-md-5 col-12 d-flex justify-content-center align-items-center mx-auto">
                             <ul class="social-icon">
-
                                 <li class="social-icon-item">
                                     <a href="https://www.instagram.com/washnroll_mobilecleaning/" class="social-icon-link bi-instagram"></a>
                                 </li>
-
                                 <li class="social-icon-item">
                                     <a href="https://www.linkedin.com/in/jamie-oroke-041692135/" class="social-icon-link bi-linkedin"></a>
                                 </li>
-
                                 <li class="social-icon-item">
                                     <a href="https://www.youtube.com/watch?v=sNo9mWav3Tw" class="social-icon-link bi-youtube"></a>
                                 </li>
@@ -232,6 +231,10 @@
 
                     </div>
                 </div>
+            </div>
+            <div class="col-lg-6 col-12 mx-auto">
+                <h1 style="text-decoration-color:white">Jobs</h1>
+                <div class="book_now-form" id="jobContainer"></div>
             </div>
            
         </footer>
@@ -242,9 +245,8 @@
         <script src="../js/jquery.sticky.js"></script>
         <script src="../js/counter.js"></script>
         <script src="../js/custom.js"></script>
-        <script src="../js/test.js"></script>
-        <script src="../js/firebaseObject.js" type="module"></script>
-
-
+        <script src="../js/firebaseObject.js"></script>
+        <script src="../js/firebaseAddObject.js"></script>
+        <script src="../js/firebaseReadAllAndDelete.js"></script>
     </body>
 </html>

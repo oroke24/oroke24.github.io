@@ -1,7 +1,5 @@
-import { initializeApp } from "../@firebase/app-compat";
-import { getFirestore } from "./@firebase/firestore-compat";
-
-//unique firebase object
+//FIREBASE INITIALIZATION///////
+// Replace with your Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyCDGvCeUX3po6mvddWprnM1HUDipEmHfyE",
     authDomain: "wnrmc-e91c3.firebaseapp.com",
@@ -11,13 +9,5 @@ const firebaseConfig = {
     appId: "1:832604211915:web:fc2010abad9b65a3bee94e",
     measurementId: "G-6QVB8R39SN"
 };
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-
-// Initialize Cloud Firestore and get a reference to the service
-const db = getFirestore(app);
-//variable to access db collection
-db.collections("users").doc().set({
-    name: "hi wurld"})
-
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
