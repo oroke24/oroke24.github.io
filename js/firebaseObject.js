@@ -1,5 +1,5 @@
-import { initializeApp } from "@firebase/app-compat";
-import { getFirestore } from "@firebase/firestore-compat";
+import { initializeApp } from "../@firebase/app-compat";
+import { getFirestore } from "./@firebase/firestore-compat";
 
 //unique firebase object
 const firebaseConfig = {
