@@ -13,7 +13,7 @@ const firebaseConfig = {
 };
 //Initialize db
 firebase.initializeApp(firebaseConfig);
-var firebase = firebase.firestore();
+var firestore = firebase.firestore();
 
 //variable to access db collection
 const db = firestore.collection("users");
