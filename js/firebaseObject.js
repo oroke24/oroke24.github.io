@@ -18,7 +18,6 @@ const app = initializeApp(firebaseConfig);
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(app);
 //variable to access db collection
-const db = firestore.collection("users");
-db.doc().set({
+db.collections("users").doc().set({
     name: "hi wurld"})
 
