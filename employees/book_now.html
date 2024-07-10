@@ -16,6 +16,9 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/bootstrap-icons.css" rel="stylesheet">
     <link href="../css/template.css" rel="stylesheet">
+    <!-- Firestore links-->
+    <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore-app-compat.js"></script>
     <!--
 
     TemplateMo 581 Kind Heart Charity
@@ -93,9 +96,8 @@
                     <div class="row">
 
                         <div class="col-lg-6 col-12 mx-auto">
-                            <form class="book_now-form" id="book_now-form" action="firestore.php" method="post">
+                            <form class="custom-form" id="book_now-form">
                                 <h5 class="mb-4" style="font-size:40px;">Book Now</h5>
-
                                 <div class="row">
                                     <div class="col-lg-12 col-12">
                                         <h2 class="mb-3" style="font-size:25px;">Fill out and submit this form to get started</h2>
@@ -104,6 +106,7 @@
                                     <div class="col-lg-6 col-12 mt-2">
                                         <input type="search" name="firstName" id="firstName" class="form-control" placeholder="First Name">
                                     </div>
+                                    <!--
                                     <div class="col-lg-6 col-12 mt-2">
                                         <input type="text" name="lastName" id="lastName" class="form-control" placeholder="Last Name">
                                     </div>
@@ -128,8 +131,9 @@
                                     <div class="col-lg-6 col-12 mt-2">
                                         <input type="text" name="arrivalTime" id="arrivalTime" class="form-control" placeholder="Date and Time of Arrival" required>
                                     </div>
-                                    <button type="submit" id="submit" class="form-control mt-4">Submit</button>
+                                        -->
                                 </div>
+                                <button type="submit" id="submit">Submit</button>
                             </form>
                         </div>
 
@@ -235,35 +239,7 @@
                     </div>
                 </div>
             </div>
-            <script type="module">
-                import { initializeApp } from '../node_modules/firebase/app';
-                import { getFirestore, collection, addDoc } from '../node_modules/firebase/firestore';
-                // TODO: Add SDKs for Firebase products that you want to use
-                // https://firebase.google.com/docs/web/setup#available-libraries
-
-                // Your web app's Firebase configuration
-                // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-                const firebaseConfig = {
-                    apiKey: "AIzaSyCDGvCeUX3po6mvddWprnM1HUDipEmHfyE",
-                    authDomain: "wnrmc-e91c3.firebaseapp.com",
-                    projectId: "wnrmc-e91c3",
-                    storageBucket: "wnrmc-e91c3.appspot.com",
-                    messagingSenderId: "832604211915",
-                    appId: "1:832604211915:web:fc2010abad9b65a3bee94e",
-                    measurementId: "G-6QVB8R39SN"
-                };
-
-                // Initialize Firebase
-                const app = initializeApp(firebaseConfig);
-                const db = getFirestore(app);
-
-                //add data
-                db.collection("users").add({
-                    first: "Ada",
-                    last: "Lovelace",
-                    born: 1815
-                });
-            </script>
+           
         </footer>
 
         <!-- JAVASCRIPT FILES -->
@@ -272,8 +248,7 @@
         <script src="../js/jquery.sticky.js"></script>
         <script src="../js/counter.js"></script>
         <script src="../js/custom.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-app-compat.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore-compat.js"></script>
+        <script src="../js/test.js" type="module"></script>
 
 
     </body>
