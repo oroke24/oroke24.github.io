@@ -7,7 +7,19 @@ https://templatemo.com/tm-581-kind-heart-charity
 */
 
 
-
+.marg-pad{
+    margin: 10px;
+    padding: 10px;
+}
+.dotted-border{
+    border:dotted
+}
+/*
+div{
+    border:dotted
+}
+    */
+}
 @font-face {
     font-family: 'Metropolis';
     src: url('../fonts/Metropolis/Metropolis-Regular.woff2') format('woff2'),
@@ -16,7 +28,6 @@ https://templatemo.com/tm-581-kind-heart-charity
     font-style: normal;
     font-display: swap;
 }
-
 @font-face {
     font-family: 'Metropolis';
     src: url('../fonts/Metropolis/Metropolis-Light.woff2') format('woff2'),
@@ -25,7 +36,6 @@ https://templatemo.com/tm-581-kind-heart-charity
     font-style: normal;
     font-display: swap;
 }
-
 @font-face {
     font-family: 'Metropolis';
     src: url('../fonts/Metropolis/Metropolis-SemiBold.woff2') format('woff2'),
@@ -34,7 +44,6 @@ https://templatemo.com/tm-581-kind-heart-charity
     font-style: normal;
     font-display: swap;
 }
-
 @font-face {
     font-family: 'Metropolis';
     src: url('../fonts/Metropolis/Metropolis-Bold.woff2') format('woff2'),
@@ -43,7 +52,6 @@ https://templatemo.com/tm-581-kind-heart-charity
     font-style: normal;
     font-display: swap;
 }
-
 /*---------------------------------------
   CUSTOM PROPERTIES ( VARIABLES )
 -----------------------------------------*/
@@ -249,8 +257,6 @@ strong {
 .custom-icon {
   color: var(--secondary-color);
 }
-
-
 /*---------------------------------------
   CUSTOM LIST
 -----------------------------------------*/
@@ -258,14 +264,11 @@ strong {
   margin-bottom: 0;
   padding-left: 0;
 }
-
 .custom-list-item {
   list-style: none;
   margin-top: 10px;
   margin-bottom: 10px;
 }
-
-
 /*---------------------------------------
   CUSTOM TEXT BOX
 -----------------------------------------*/
@@ -275,14 +278,12 @@ strong {
   margin-bottom: 24px;
   padding: 40px;
 }
-
 .custom-text-box-image {
   border-radius: var(--border-radius-medium);
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
 .custom-text-box-icon {
   background: var(--section-bg-color);
   border-radius: var(--border-radius-large);
@@ -295,8 +296,6 @@ strong {
   height: 25px;
   line-height: 30px;
 }
-
-
 /*---------------------------------------
   AVATAR IMAGE - TESTIMONIAL, AUTHOR
 -----------------------------------------*/

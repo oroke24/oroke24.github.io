@@ -21,6 +21,7 @@
     -->
 </head>
 <body>
+<!--//////////////////HEADER OF BODY//////////////////////-->
     <header class="site-header">
         <div class="container">
             <div class="row">
@@ -50,6 +51,7 @@
         </div><!-- end container-->
     </header>
 
+<!--//////////////////NAVBAR//////////////////////-->
     <nav class="navbar navbar-expand-lg bg-light shadow-lg">
         <div class="container">
             <a class="navbar-brand" href="index.html">
@@ -77,88 +79,69 @@
         </div>
     </nav>
     <main>
-        <div class="col-lg-6 col-12 mx-auto">
-            <h1>Upcoming</h1>
-            <div class="book_now-form" id="jobContainer"></div>
+        <!--//////////////////MAIN//////////////////////-->
+        <div class="row marg-pad">
+            <div style="width: 45%;">
+                <h1 style="text-align:center">Upcoming</h1>
+                <div class="book_now-form dotted-border" id="jobContainer"></div>
+            </div>
+            <div name="margin" style="width:10%;"></div>
+            <div style="width: 45%;">
+                <h1 style="text-align:center">Past</h1>
+                <div class="book_now-form dotted-border" id="pastContainer"></div>
+            </div>
         </div>
-        <!--
-        <div class="col-lg-6 col-12 mx-auto">
-            <h1>Past</h1>
-            <div class="book_now-form" id="pastContainer"></div>
-        </div>
-            -->
     </main>
+<!--//////////////////FOOTER//////////////////////-->
     <footer class="site-footer">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-12 mb-4">
                     <a href="index.html"><img src="../images/logo.png" class="logo img-fluid" alt="wash n roll logo"></a>
                 </div>
-
                 <div class="col-lg-4 col-md-6 col-12 mx-auto">
                     <h5 class="site-footer-title mb-4">Navigate</h5>
-
-                    <p class="text-white d-flex mb-3">
-                        <i class="bi-youtube me-2"></i>
-
-                        <a href="videos.html" class="site-footer-link">
-                            DIY videos
-                        </a>
-                    </p>
-
                     <p class="text-white d-flex">
                         <i class="bi-cash me-2"></i>
-
                         <a href="prices.html" class="site-footer-link">
                             Prices
                         </a>
                     </p>
-
                     <p class="text-white d-flex">
                         <i class="bi-calendar-plus me-2"></i>
                         <a href="book_now.html" class="site-footer-link">
                             Book Now
                         </a>
                     </p>
-
                 </div>
-
                 <div class="col-lg-4 col-md-6 col-12 mx-auto">
                     <h5 class="site-footer-title mb-4">Contact Infomation</h5>
-
                     <p class="text-white d-flex mb-3">
                         <i class="bi-telephone me-2"></i>
-
-                        <a href="tel: 971-303-8904" class="site-footer-link">
-                            (971) 303-8904
+                        <a href="tel: 971-448-4232" class="site-footer-link">
+                            (971) 448-4232
                         </a>
                     </p>
-
                     <p class="text-white d-flex">
                         <i class="bi-envelope me-2"></i>
-
                         <a href="mailto:washnrollmobilecleaning@gmail.com" class="site-footer-link">
                             washnrollmobilecleaning@gmail.com
                         </a>
                     </p>
-
                     <p class="text-white d-flex mt-3">
                         <i class="bi-geo-alt me-2"></i>
                         Colton, OR, USA
                     </p>
-
                     <a href="book_now.html" class="custom-btn btn mt-3">Book Now</a>
                 </div>
             </div>
         </div>
-
         <div class="site-footer-bottom">
             <div class="container">
                 <div class="row">
-
                     <div class="col-lg-6 col-md-7 col-12">
                         <p class="copyright-text mb-0">
-                            Copyright © 2022 <a href="#">Wash n Roll Mobile Cleaning</a> Org.
+                            Copyright Â© 2022 <a href="#">Wash n Roll Mobile Cleaning</a> Org.
                             Design: <a href="https://templatemo.com" target="_blank">TemplateMo</a>
                             <br>
                             Editor: Jamie O'Roke
@@ -182,13 +165,10 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-6 col-12 mx-auto">
-            <h1 style="text-decoration-color:white">Jobs</h1>
-            <div class="book_now-form" id="jobContainer"></div>
-        </div>
-
     </footer>
     <script src="../js/firebaseObject.js"></script>
-    <script src="../js/firebaseReadAllAndDelete.js"></script>
+    <script src="../js/firebaseUpcomingAndPastJobs.js"></script>
+    <script src="../js/firebaseDeleteData.js"></script>
+    <script src="../js/firebaseRenderJobs.js"></script>
 </body>
 </html>
