@@ -21,7 +21,7 @@ function fetchData() {
                     });
                 }
                 else {
-                    pastDataArray.push({
+                    pastDataArray.unshift({
                         id: doc.id,
                         ...doc.data()
                     });
