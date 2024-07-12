@@ -18,9 +18,9 @@ document.querySelector("#btn").addEventListener("click", (e) => {
         description: description
     };
     // Test connection
-    db.collection('jobs').add(formData)
+    db.collection('jobs').doc(formData.date).set(formData)
         .then(docRef => {
-            console.log("Document written with ID: ", docRef.id);
+            console.log("Document written with ID: ", formData.date);
             alert('Firestore connection successful!');
             location.reload();
         })

@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\pdfs"
+    "\\css",
+    "\\employees",
+    "\\js"
   ],
-  "SelectedNode": "\\js",
+  "SelectedNode": "\\employees\\book_now.html",
   "PreviewInSolutionExplorer": false
 }

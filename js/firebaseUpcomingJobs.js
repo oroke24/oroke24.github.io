@@ -1,4 +1,16 @@
 let formDataArray = [];
+const today = new Date();
+/*TESTING 
+console.log("today = new Date() = : ", today);
+console.log("year: ",today.getFullYear().toString());
+console.log("month: ",(today.getMonth()+1).toString());
+console.log("day: ",today.getDate().toString());
+*/
+let year = today.getFullYear().toString();
+let month = ((today.getMonth() + 1).toString().length == 1) ? "0" + (today.getMonth() + 1).toString() : (today.getMonth() + 1).toString(); 
+let day = today.getDate().toString();
+let todayFormatted = year + "-" + month + "-" + day;
+console.log("todayFormatted: ",todayFormatted);
 
 // Function to fetch data from Firestore and populate the array
 function fetchData() {
@@ -6,10 +18,13 @@ function fetchData() {
         .then(snapshot => {
             formDataArray = [];
             snapshot.forEach(doc => {
-                formDataArray.push({
-                    id: doc.id, // Store the document ID
-                    ...doc.data()
-                });
+                console.log("date: ", doc.data().date)
+                if (doc.data().date >= todayFormatted) {
+                    formDataArray.push({
+                        id: doc.id, // Store the document ID
+                        ...doc.data()
+                    });
+                }
             });
             renderData();
         })
