@@ -1,9 +1,7 @@
 function openPageWithMasterPassword(pathString) {
-    // Prompt the user for their master password
     let userEnteredPassword = prompt("Please enter admin password:");
-    // Assuming you have a stored master password
+    // Todo: store master password somewhere else
     let storedMasterPassword = "Drinkcoffee";
-    // Check if the entered password matches the stored master password
     if (userEnteredPassword === storedMasterPassword) {
         // Proceed
         window.location.href = pathString;
