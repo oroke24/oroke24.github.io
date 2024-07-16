@@ -1,18 +1,24 @@
 document.getElementById('generateImageButton').addEventListener('click', async () => {
     const imagePrompt = document.getElementById('imagePrompt').value;
     const imageElement = document.getElementById('generatedImage');
+    const loadingSpinner = document.getElementById('loadingSpinner');
+
 
     if (!imageElement) {
         console.error('Image element not found');
         return;
     }
 
+    loadingSpinner.style.display = 'block'; // Show the spinner
+    imageElement.style.display = 'none'; // Hide the image while loading
+
+
     try {
         const response = await fetch('https://api.openai.com/v1/images/generations', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer sk-proj-6det7T6sknOlEui0RLaeT3BlbkFJ6kyhQyx4NQw3vjoRLKtv`
+                'Authorization': `Bearer sk-proj-aY2fnokYXEqs6LwVzEfXT3BlbkFJ3WKoabB4j50QXF46tHJI`
             },
             body: JSON.stringify({
                 prompt: imagePrompt,
@@ -29,6 +35,7 @@ document.getElementById('generateImageButton').addEventListener('click', async (
         const imageUrl = data.data[0].url;
         imageElement.src = imageUrl;
         imageElement.style.display = 'block';
+        loadingSpinner.style.display = 'none';
     } catch (error) {
         console.error(`Error: ${error.message}`);
     }

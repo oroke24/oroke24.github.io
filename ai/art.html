@@ -1,18 +1,58 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../css/ai.css" rel="stylesheet"/>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap-icons.css" rel="stylesheet">
+    <link href="../css/template.css" rel="stylesheet">
 </head>
 <body>
-    <div class="row marg-pad">
-        <div class="col-lg-6 col-12">
-            <textarea id="imagePrompt" placeholder="Describe the image you want..."></textarea>
-            <button id="generateImageButton">Generate Image</button>
-         </div>
-        <div class="col-lg-6 col-12 justify-content">
-            <img id="generatedImage" alt="Generated Image" style="display:none;" />
-            <script src="../js/aiArt.js"></script>
-         </div>
-    </div>
+    <!--/////////////////NAVIGATION/////////////////////-->
+    <nav class="navbar navbar-expand-lg bg-light shadow-lg">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../images/logo.png" class="logo img-fluid" alt="Wash n Roll Mobile Cleaning" />
+                <span>wnrmc.com<small>For customers</small></span>
+            </a>
+        </div>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="index.html">AI Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="text.html">AI Text</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="code.html">AI Code</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--////////////////////MAIN////////////////////////-->
+    <main>
+        <div class="container">
+            <div class="col-12">
+                <textarea id="imagePrompt" placeholder="Describe the image you want..."></textarea>
+                <button id="generateImageButton">Generate Image</button>
+            </div>
+            <div class="col-12 spinner-container">
+                <div id="loadingSpinner" class="spinner-border text-primary" role="status" style="display: none;">
+                    <span class="sr"></span>
+                </div>
+                <img id="generatedImage" alt="Generated Image" style="display:none;" />
+            </div>
+        </div>
+    </main>
+    <!--////////////////////SCRIPTS////////////////////////-->
+    <script src="../js/aiArt.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
 </body>
 </html>

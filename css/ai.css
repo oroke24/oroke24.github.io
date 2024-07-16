@@ -1,3 +1,4 @@
+/*
 body {
     display: flex;
     justify-content: center;
@@ -6,6 +7,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
 }
+    */
 textarea {
     width: 100%;
     height: 100px;
@@ -17,6 +19,17 @@ button {
 }
 img {
     margin-top: 20px;
+    width: 100%;
     max-width: 100%;
     height: auto;
+}
+.spinner-container{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    margin-top:25px;
+}
+.large-spinner{
+    width: 25rem;
+    height: 25rem;
 }
