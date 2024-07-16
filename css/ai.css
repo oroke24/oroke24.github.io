@@ -19,6 +19,8 @@ button {
 }
 img {
     margin-top: 20px;
+    border:groove;
+    padding:10px;
     width: 100%;
     max-width: 100%;
     height: auto;
