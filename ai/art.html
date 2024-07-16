@@ -3,10 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="../css/ai.css" rel="stylesheet"/>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/bootstrap-icons.css" rel="stylesheet">
     <link href="../css/template.css" rel="stylesheet">
+    <link href="../css/ai.css" rel="stylesheet"/>
+    <title>Wash n Roll Mobile Cleaning - AI Art</title>
+    <link rel="icon" href="../images/logo.png"><!--Tab image-->
     <!--Linking Firebase-->
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
@@ -31,7 +33,7 @@
                     <a class="nav-link click-scroll" href="index.html">AI Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link click-scroll" href="text.html">AI Text</a>
+                    <a class="nav-link click-scroll" href="text.html">AI Chat</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link click-scroll" href="code.html">AI Code</a>
@@ -41,10 +43,10 @@
     </nav>
     <!--////////////////////MAIN////////////////////////-->
     <main>
-        <div class="container">
+        <div class="container" style="margin-top:20px; ">
             <div class="col-12">
                 <textarea id="imagePrompt" placeholder="Describe the image you want..."></textarea>
-                <button id="generateImageButton">Generate Image</button>
+                <button class="custom-border-btn"id="generateImageButton">Generate Image</button>
             </div>
             <div class="col-12 spinner-container">
                 <div id="loadingSpinner" class="spinner-border text-primary" role="status" style="display: none;">
