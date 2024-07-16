@@ -1,43 +1,22 @@
-body{
-    background: #000000;
+body {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: #808080;
+    font-family: Arial, sans-serif;
+    margin: 0;
 }
-div{
-    border: 1px solid #000000;
-    overflow: auto;
-}
-table{
+textarea {
     width: 100%;
-    height: 100%;
-    align-content:center;
+    height: 100px;
+    margin-bottom: 10px;
 }
-td{
-    padding: 5px;
-    border: 1px solid #000000;
+button {
+    width: 100%;
+    padding: 20px;
 }
-.white{
-    background: #FFFFFF;
-}
-.half{
-    width: 50%;
-}
-.center{
-    margin-left: auto;
-    margin-right: auto;
-}
-.img-container img{
+img {
+    margin-top: 20px;
     max-width: 100%;
-    max-height: 100%;
+    height: auto;
 }
-.left{
-    text-align: start;
-}
-.middle{
-    text-align: center;
-}
-.right{
-    text-align: end;
-}
-.small{
-    width: 5%;
-}
-
