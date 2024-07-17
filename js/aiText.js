@@ -24,7 +24,7 @@ document.getElementById('sendButton').addEventListener('click', async () => {
     // Appending user message to chat history
     const userMessageElement = document.createElement('div');
     userMessageElement.classList.add('message', 'user-message');
-    userMessageElement.textContent = `User: ${inputText.value}`;
+    userMessageElement.textContent = inputText.value};
     chatHistory.appendChild(userMessageElement);
 
     // Add user message to conversation history
@@ -52,7 +52,7 @@ document.getElementById('sendButton').addEventListener('click', async () => {
         // Add assistant message to conversation history
         conversationHistory.push({ role: "assistant", content: assistantMessage });
 
-        responseElement.textContent = `Assistant: ${assistantMessage}`;
+        responseElement.textContent = assistantMessage;
         responseElement.classList.add('message', 'assistant-message');
         chatHistory.appendChild(responseElement);
         loadingSpinner.style.display = 'none';
