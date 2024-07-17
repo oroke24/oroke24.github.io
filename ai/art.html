@@ -43,6 +43,7 @@
     </nav>
     <!--////////////////////MAIN////////////////////////-->
     <main>
+        <h1 style="text-align:center">----------512x512----------</h1>
         <div class="container" style="margin-top:20px; ">
             <div class="col-12">
                 <textarea id="imagePrompt" placeholder="Describe the image you want..."></textarea>
@@ -55,9 +56,47 @@
                 <img id="generatedImage" alt="Generated Image" style="display:none;" />
             </div>
         </div>
+        <br />
+        <br />
+        <br />
+        <h1 style="text-align:center">----------1024x1024----------</h1>
+        <div class="container" style="margin-top:20px; ">
+            <div class="col-12">
+                <textarea id="imagePrompt2" placeholder="Describe the image you want..."></textarea>
+                <button class="custom-border-btn"id="generateImageButton2">Generate Image</button>
+            </div>
+            <div class="col-12 spinner-container">
+                <div id="loadingSpinner2" class="spinner-border text-primary" role="status" style="display: none;">
+                    <span class="sr"></span>
+                </div>
+                <img id="generatedImage2" alt="Generated Image" style="display:none;" />
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <!--TODO: create a specific model to categorize the style of photo
+        <h1 style="text-align:center">----------1024x1792----------</h1>
+        <div class="container" style="margin-top:20px; ">
+            <div class="col-12">
+                <textarea id="imagePrompt3" placeholder="Describe the image you want..."></textarea>
+                <button class="custom-border-btn"id="generateImageButton3">Generate Image</button>
+            </div>
+            <div class="col-12 spinner-container">
+                <div id="loadingSpinner3" class="spinner-border text-primary" role="status" style="display: none;">
+                    <span class="sr"></span>
+                </div>
+                <img id="generatedImage3" alt="Generated Image" style="display:none;" />
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+            -->
     </main>
     <!--////////////////////SCRIPTS////////////////////////-->
     <script src="../js/aiArt.js"></script>
+    <script src="../js/aiArt2.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/firebaseObject.js"></script>
     <script src="../js/firebaseKeys.js"></script>

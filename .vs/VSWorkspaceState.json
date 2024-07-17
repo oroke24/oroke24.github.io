@@ -2,8 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\ai",
-    "\\css"
+    "\\css",
+    "\\images",
+    "\\images\\avatar"
   ],
-  "SelectedNode": "\\ai\\code.html",
+  "SelectedNode": "\\veterans.html",
   "PreviewInSolutionExplorer": false
 }
