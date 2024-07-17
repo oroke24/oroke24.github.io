@@ -13,13 +13,13 @@ button.addEventListener('click', async (e) => {
     const chatHistory = document.getElementById('chatHistory');
     const loadingSpinner = document.getElementById('loadingSpinner');
     const resolution = document.getElementById('resolution').value;
+    const style = document.getElementById('style');
+    const quality = document.getElementById('quality');
     
-    if (inputText.value.trim() == "") {
-        alert("Input can't be empty");
+    if (inputText.value.trim() == "" && conversationHistory.trim() == "") {
+        alert("Train of thought can't be empty");
         return;
     }
-
-    
 
     let myKey = "";
     try {
@@ -41,6 +41,7 @@ button.addEventListener('click', async (e) => {
     chatHistory.insertBefore(userMessageElement, loadingSpinner);
 
     // Add user message to conversation history
+    if(conversationHistory.trim() != "" && inputText.value.trim() != "") conversationHistory += ", ";
     conversationHistory += inputText.value;
     trainOfThought.textContent = conversationHistory;
 
@@ -55,7 +56,9 @@ button.addEventListener('click', async (e) => {
             body: JSON.stringify({
                 prompt: conversationHistory,
                 n: 1,
-                size: resolution
+                size: resolution,
+                style: style.value,
+                quality: quality.value
             })
         });
 
@@ -68,10 +71,9 @@ button.addEventListener('click', async (e) => {
 
         const imageContainer = document.createElement('div');
         imageContainer.classList.add('assistant-message');
-        imageContainer.textContent = `${resolution} : ${conversationHistory}`;
+        imageContainer.textContent = `${resolution}, ${style.value}, ${quality.value}  : ${conversationHistory}`;
         imageContainer.appendChild(imageElement);
 
-        conversationHistory += ", ";
 
         chatHistory.insertBefore(imageContainer, loadingSpinner);
         loadingSpinner.style.display = 'none';
