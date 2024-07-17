@@ -9,7 +9,7 @@ body{
 textarea {
     color: #FAFAFA;
     width: 100%;
-    min-height:100px;
+    min-height:150px;
     height: 100%;
     background-color: #707070;
     margin-top: 10px;
@@ -22,7 +22,8 @@ textarea::placeholder{
 button {
     width: 100%;
     padding: 20px;
-    margin-top: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 img {
     margin-top: 20px;
@@ -51,10 +52,16 @@ pre{
     white-space:pre-wrap;
     word-wrap:break-word;
 }
+select{
+    color:#FFFFFF;
+    background-color:#666666;
+    padding: 10px;
+}
 .user-message {
     background-color: #707070;
     margin-bottom:15px;
     padding: 10px;
+    width: auto;
     max-width: 80%;
     align-self: flex-end;
     margin-left: auto;
@@ -89,4 +96,11 @@ pre{
     align-self: flex-start;
     margin-right: auto;
     border-radius:15px;
+}
+#trainOfThought{
+    border: dotted;
+    border-width:1px;
+    border-radius:15px;
+    border-color: #999999;
+    padding: 5px;
 }

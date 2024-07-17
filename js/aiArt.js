@@ -1,21 +1,50 @@
-document.getElementById('generateImageButton').addEventListener('click', async () => {
-    const imagePrompt = document.getElementById('imagePrompt').value;
-    const imageElement = document.getElementById('generatedImage');
+let conversationHistory = "";
+let trainOfThought = document.getElementById('trainOfThought');
+const clearBuffer = document.getElementById('clearButton');
+clearBuffer.addEventListener('click', async () => {
+    conversationHistory = "";
+    trainOfThought.textContent = conversationHistory;
+});
+
+const button = document.getElementById('sendButton');
+button.addEventListener('click', async (e) => {
+    e.preventDefault();
+    const inputText = document.getElementById('inputText');
+    const chatHistory = document.getElementById('chatHistory');
     const loadingSpinner = document.getElementById('loadingSpinner');
+    const resolution = document.getElementById('resolution').value;
+    
+    if (inputText.value.trim() == "") {
+        alert("Input can't be empty");
+        return;
+    }
+
+    
+
     let myKey = "";
     try {
         myKey = await findMyKey("openAiArt");
-        if (!imageElement) {
-            console.error('Image element not found');
+        if (!myKey) {
+            console.error('API key not found');
             return;
         }
     } catch (error) {
-        console.error("Error in aiArt try block line 7: ", error.message);
+        console.error("Error in try block: ", error.message);
     }
-
     loadingSpinner.style.display = 'block'; // Show the spinner
-    imageElement.style.display = 'none'; // Hide the image while loading
+    button.style.display = 'none';
 
+    // Appending user message to chat history
+    const userMessageElement = document.createElement('div');
+    userMessageElement.classList.add('message', 'user-message');
+    userMessageElement.textContent = inputText.value;
+    chatHistory.insertBefore(userMessageElement, loadingSpinner);
+
+    // Add user message to conversation history
+    conversationHistory += inputText.value;
+    trainOfThought.textContent = conversationHistory;
+
+    inputText.value = "";
     try {
         const response = await fetch('https://api.openai.com/v1/images/generations', {
             method: 'POST',
@@ -24,22 +53,36 @@ document.getElementById('generateImageButton').addEventListener('click', async (
                 'Authorization': myKey
             },
             body: JSON.stringify({
-                prompt: imagePrompt,
+                prompt: conversationHistory,
                 n: 1,
-                size: "512x512"
+                size: resolution
             })
         });
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
         const data = await response.json();
         const imageUrl = data.data[0].url;
+
+        const imageElement = document.createElement('img');
         imageElement.src = imageUrl;
-        imageElement.style.display = 'block';
+        imageElement.classList.add('generated-image')
+
+        const imageContainer = document.createElement('div');
+        imageContainer.classList.add('assistant-message');
+        imageContainer.textContent = `${resolution} : ${conversationHistory}`;
+        imageContainer.appendChild(imageElement);
+
+        conversationHistory += ", ";
+
+        chatHistory.insertBefore(imageContainer, loadingSpinner);
         loadingSpinner.style.display = 'none';
+        button.style.display = 'block';
+        chatHistory.scrollTop = chatHistory.scrollHeight;
+
     } catch (error) {
-        console.error(`Error aiArt try block line 23: ${error.message}`);
+        const imageContainer = document.createElement('div');
+        imageContainer.textContent = `Error: ${error.message}`;
+        chatHistory.appendChild(imageContainer);
+        loadingSpinner.style.display = 'none';
+        button.style.display = 'block';
     }
 });

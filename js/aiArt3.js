@@ -1,14 +1,21 @@
 let conversationHistory = "";
+let trainOfThought = document.getElementById('trainOfThought');
 const clearBuffer = document.getElementById('clearButton');
 clearBuffer.addEventListener('click', async () => {
     conversationHistory = "";
+    trainOfThought.textContent = conversationHistory;
 });
 
 const button = document.getElementById('sendButton');
-button.addEventListener('click', async () => {
+button.addEventListener('click', async (e) => {
+    e.preventDefault();
     const inputText = document.getElementById('inputText');
     const chatHistory = document.getElementById('chatHistory');
     const loadingSpinner = document.getElementById('loadingSpinner3');
+    const resolution = document.getElementById('resolution').value;
+    
+    if (inputText.value.trim() == "") { return; }
+    
 
     let myKey = "";
     try {
@@ -31,9 +38,9 @@ button.addEventListener('click', async () => {
 
     // Add user message to conversation history
     conversationHistory += inputText.value;
+    trainOfThought.textContent = conversationHistory;
 
     inputText.value = "";
-
     try {
         const response = await fetch('https://api.openai.com/v1/images/generations', {
             method: 'POST',
@@ -44,7 +51,7 @@ button.addEventListener('click', async () => {
             body: JSON.stringify({
                 prompt: conversationHistory,
                 n: 1,
-                size: "512x512"
+                size: resolution
             })
         });
 
@@ -57,7 +64,7 @@ button.addEventListener('click', async () => {
 
         const imageContainer = document.createElement('div');
         imageContainer.classList.add('assistant-message');
-        imageContainer.textContent = conversationHistory;
+        imageContainer.textContent = `${resolution} : ${conversationHistory}`;
         imageContainer.appendChild(imageElement);
 
         // Add assistant message to conversation history
@@ -71,6 +78,7 @@ button.addEventListener('click', async () => {
         // Scroll to the bottom of chat history
         chatHistory.scrollTop = chatHistory.scrollHeight;
     } catch (error) {
+        const imageContainer = document.createElement('div');
         imageContainer.textContent = `Error: ${error.message}`;
         chatHistory.appendChild(imageContainer);
         loadingSpinner.style.display = 'none';
