@@ -26,11 +26,11 @@ button.addEventListener('click', async () => {
     // Appending user message to chat history
     const userMessageElement = document.createElement('div');
     userMessageElement.classList.add('message', 'user-message');
-    userMessageElement.textContent = `User: ${inputText.value}`;
+    userMessageElement.textContent = inputText.value;
     chatHistory.appendChild(userMessageElement);
 
     // Add user message to conversation history
-    conversationHistory += `, ${inputText.value}`;
+    conversationHistory += inputText.value;
 
     inputText.value = "";
 
@@ -62,8 +62,9 @@ button.addEventListener('click', async () => {
 
         // Add assistant message to conversation history
         //conversationHistory.push({ role: "assistant", content: assistantMessage });
+        conversationHistory += ", ";
 
-        chatHistory.appendChild(imageElement);
+        chatHistory.appendChild(imageContainer);
         loadingSpinner.style.display = 'none';
         button.style.display = 'block';
 

@@ -65,7 +65,7 @@ pre{
     background-color: #444444;
     margin-bottom:15px;
     padding: 10px;
-    max-width: 80%;
+    max-width: 95%;
     align-self: flex-start;
     margin-right: auto;
     text-align: left;
@@ -85,7 +85,7 @@ pre{
     background-color: #444444;
     margin-bottom:15px;
     padding: 10px;
-    max-width: 95%;
+    max-width: 100%;
     align-self: flex-start;
     margin-right: auto;
     border-radius:15px;

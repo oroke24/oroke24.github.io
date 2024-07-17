@@ -27,7 +27,7 @@ const button2 = document.getElementById('sendButton2');
     // Appending user message to chat history
     const userMessageElement = document.createElement('div');
     userMessageElement.classList.add('message', 'user-message');
-    userMessageElement.textContent = `User: ${inputText.value}`;
+    userMessageElement.textContent = inputText.value;
     chatHistory.appendChild(userMessageElement);
 
     // Add user message to conversation history
@@ -63,7 +63,7 @@ const button2 = document.getElementById('sendButton2');
         imageContainer.appendChild(imageElement);
         // Add assistant message to conversation history
         //conversationHistory.push({ role: "assistant", content: assistantMessage });
-        conversationHistory2 += ", "
+        conversationHistory2 += ", ";
 
         chatHistory.appendChild(imageContainer);
         loadingSpinner.style.display = 'none';
