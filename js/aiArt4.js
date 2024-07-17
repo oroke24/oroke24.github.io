@@ -1,14 +1,14 @@
-let conversationHistory = "";
-const clearBuffer = document.getElementById('clearButton');
-clearBuffer.addEventListener('click', async () => {
-    conversationHistory = "";
+let conversationHistory2 = "";
+const clearBuffer2 = document.getElementById('clearButton2');
+clearBuffer2.addEventListener('click', async() => {
+    conversationHistory2 = "";
 });
-
-const button = document.getElementById('sendButton');
-button.addEventListener('click', async () => {
-    const inputText = document.getElementById('inputText');
-    const chatHistory = document.getElementById('chatHistory');
-    const loadingSpinner = document.getElementById('loadingSpinner3');
+const button2 = document.getElementById('sendButton2');
+    button2.addEventListener('click', async () => {
+    const inputText = document.getElementById('inputText2');
+    const chatHistory = document.getElementById('chatHistory2');
+    const loadingSpinner = document.getElementById('loadingSpinner4');
+ 
 
     let myKey = "";
     try {
@@ -20,8 +20,9 @@ button.addEventListener('click', async () => {
     } catch (error) {
         console.error("Error in try block: ", error.message);
     }
-    loadingSpinner3.style.display = 'block'; // Show the spinner
-    button.style.display = 'none';
+    loadingSpinner.style.display = 'block'; // Show the spinner
+        button2.style.display = 'none';
+    
 
     // Appending user message to chat history
     const userMessageElement = document.createElement('div');
@@ -30,9 +31,10 @@ button.addEventListener('click', async () => {
     chatHistory.appendChild(userMessageElement);
 
     // Add user message to conversation history
-    conversationHistory += `, ${inputText.value}`;
+    conversationHistory2 += inputText.value;
 
     inputText.value = "";
+    
 
     try {
         const response = await fetch('https://api.openai.com/v1/images/generations', {
@@ -42,9 +44,9 @@ button.addEventListener('click', async () => {
                 'Authorization': myKey
             },
             body: JSON.stringify({
-                prompt: conversationHistory,
+                prompt: conversationHistory2,
                 n: 1,
-                size: "512x512"
+                size: "1024x1024"
             })
         });
 
@@ -57,22 +59,22 @@ button.addEventListener('click', async () => {
 
         const imageContainer = document.createElement('div');
         imageContainer.classList.add('assistant-message');
-        imageContainer.textContent = conversationHistory;
+        imageContainer.textContent = conversationHistory2;
         imageContainer.appendChild(imageElement);
-
         // Add assistant message to conversation history
         //conversationHistory.push({ role: "assistant", content: assistantMessage });
+        conversationHistory2 += ", "
 
-        chatHistory.appendChild(imageElement);
+        chatHistory.appendChild(imageContainer);
         loadingSpinner.style.display = 'none';
-        button.style.display = 'block';
+        button2.style.display = 'block';
 
         // Scroll to the bottom of chat history
         chatHistory.scrollTop = chatHistory.scrollHeight;
     } catch (error) {
-        imageContainer.textContent = `Error: ${error.message}`;
+        ImageContainer.textContent = `Error: ${error.message}`;
         chatHistory.appendChild(imageContainer);
         loadingSpinner.style.display = 'none';
-        button.style.display = 'block';
+        button2.style.display = 'block';
     }
 });

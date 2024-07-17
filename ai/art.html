@@ -33,7 +33,7 @@
                     <a class="nav-link click-scroll" href="index.html">AI Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link click-scroll" href="text.html">AI Chat</a>
+                    <a class="nav-link click-scroll" href="art.html">AI Art</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link click-scroll" href="code.html">AI Code</a>
@@ -43,27 +43,27 @@
     </nav>
     <!--////////////////////MAIN////////////////////////-->
     <main>
-        <h1 style="text-align:center">512x512</h1>
+        <h1 style="text-align:center; margin-top:25px;">AI Art Chat</h1>
+        <!--
         <div class="container" style="margin-top:20px; ">
-            <div class="col-12">
-                <textarea id="imagePrompt" placeholder="Describe the image you want..."></textarea>
-                <button class="custom-border-btn"id="generateImageButton">Generate Image</button>
+            <h2 style="text-align:center">512x512</h2>
+            <textarea id="imagePrompt" placeholder="Describe the image you want..."></textarea>
+            <button class="custom-border-btn" id="generateImageButton">Generate Image</button>
+        </div>
+        <div class="col-12 spinner-container">
+            <div id="loadingSpinner" class="spinner-border text-primary" role="status" style="display: none;">
+                <span class="sr"></span>
             </div>
-            <div class="col-12 spinner-container">
-                <div id="loadingSpinner" class="spinner-border text-primary" role="status" style="display: none;">
-                    <span class="sr"></span>
-                </div>
-                <img id="generatedImage" alt="Generated Image" style="display:none;" />
-            </div>
+            <img id="generatedImage" alt="Generated Image" style="display:none;" />
         </div>
         <br />
         <br />
         <br />
-        <h1 style="text-align:center">1024x1024</h1>
         <div class="container" style="margin-top:20px; ">
+            <h2 style="text-align:center">1024x1024</h2>
             <div class="col-12">
                 <textarea id="imagePrompt2" placeholder="Describe the image you want..."></textarea>
-                <button class="custom-border-btn"id="generateImageButton2">Generate Image</button>
+                <button class="custom-border-btn" id="generateImageButton2">Generate Image</button>
             </div>
             <div class="col-12 spinner-container">
                 <div id="loadingSpinner2" class="spinner-border text-primary" role="status" style="display: none;">
@@ -74,29 +74,50 @@
         </div>
         <br />
         <br />
-        <br />
-        <!--TODO: create a specific model to categorize the style of photo
-        <h1 style="text-align:center">----------1024x1792----------</h1>
+        <br /> -->
         <div class="container" style="margin-top:20px; ">
-            <div class="col-12">
-                <textarea id="imagePrompt3" placeholder="Describe the image you want..."></textarea>
-                <button class="custom-border-btn"id="generateImageButton3">Generate Image</button>
-            </div>
-            <div class="col-12 spinner-container">
+            <h3 style="text-align:center">512x512 model</h3>
+            <div class="chat-container">
+                <div id="chatHistory" class="chat-history"></div>
                 <div id="loadingSpinner3" class="spinner-border text-primary" role="status" style="display: none;">
                     <span class="sr"></span>
                 </div>
-                <img id="generatedImage3" alt="Generated Image" style="display:none;" />
+                <div class="input-container">
+                    <textarea id="inputText" placeholder="type message here.."></textarea>
+                    <button class="custom-border-btn" id="sendButton">Send</button>
+                    <button style ="background-color: #CC7754;"class="btn" id="clearButton">Clear Chain of Thought</button>
+                </div>
             </div>
         </div>
         <br />
         <br />
         <br />
-            -->
+        <div class="container" style="margin-top:20px; ">
+            <h3 style="text-align:center">1024x1024 model</h3>
+            <div class="chat-container">
+                <div id="chatHistory2" class="chat-history"></div>
+                <div id="loadingSpinner4" class="spinner-border text-primary" role="status" style="display: none;">
+                    <span class="sr"></span>
+                </div>
+                <div class="input-container">
+                    <textarea id="inputText2" placeholder="type message here.."></textarea>
+                    <button class="custom-border-btn" id="sendButton2">Send</button>
+                    <button style ="background-color: #CC7754;"class="btn" id="clearButton2">Clear Chain of Thought</button>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
     </main>
     <!--////////////////////SCRIPTS////////////////////////-->
+
+    <!--
     <script src="../js/aiArt.js"></script>
     <script src="../js/aiArt2.js"></script>
+        -->
+    <script src="../js/aiArt3.js"></script>
+    <script src="../js/aiArt4.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/firebaseObject.js"></script>
     <script src="../js/firebaseKeys.js"></script>

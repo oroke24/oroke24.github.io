@@ -22,6 +22,7 @@ textarea::placeholder{
 button {
     width: 100%;
     padding: 20px;
+    margin-top: 30px;
 }
 img {
     margin-top: 20px;
@@ -79,4 +80,13 @@ pre{
 .large-spinner{
     width: 25rem;
     height: 25rem;
+}
+.generated-image{
+    background-color: #444444;
+    margin-bottom:15px;
+    padding: 10px;
+    max-width: 95%;
+    align-self: flex-start;
+    margin-right: auto;
+    border-radius:15px;
 }
