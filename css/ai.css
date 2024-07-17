@@ -2,16 +2,22 @@ header{
     font-size: 1.5em;
 }
 body{
+    color: #FAFAFA;
     background-color: #404040;
-    font-size: 1.5em;
+    font-size: 1em;
 }
 textarea {
+    color: #FAFAFA;
     width: 100%;
-    height: 100px;
-    background-color: #F0F0F0;
+    min-height:100px;
+    height: 100%;
+    background-color: #707070;
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 5px;
+}
+textarea::placeholder{
+    color: #FAFAFA;
 }
 button {
     width: 100%;
@@ -33,6 +39,36 @@ pre{
     margin:5px;
     white-space:pre-wrap;
     word-wrap:break-word;
+}
+.chat-history{
+    color: #FAFAFA;
+    background: #303030;
+    width:100%;
+    max-width:100%;
+    margin:20px auto;
+    padding: 5px;
+    white-space:pre-wrap;
+    word-wrap:break-word;
+}
+.user-message {
+    background-color: #707070;
+    margin-bottom:15px;
+    padding: 10px;
+    max-width: 80%;
+    align-self: flex-end;
+    margin-left: auto;
+    text-align: left;
+    border-radius:15px;
+}
+.assistant-message{
+    background-color: #444444;
+    margin-bottom:15px;
+    padding: 10px;
+    max-width: 80%;
+    align-self: flex-start;
+    margin-right: auto;
+    text-align: left;
+    border-radius:15px;
 }
 .spinner-container{
     display: flex;
