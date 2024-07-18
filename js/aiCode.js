@@ -1,21 +1,13 @@
 let conversationHistory = [
-    { role: "system", content: "You are a helpful assistant." }
+    { role: "system", content: "You are software developer." }
 ];
-const currentAssistant = document.getElementById('currentAssistant');
-currentAssistant.textContent = `Current Role Description: "${conversationHistory[0].content}"`; 
 
-document.getElementById('sendButton').addEventListener('click', async (e) => {
+document.getElementById('sendButton').addEventListener('click', async () => {
     const inputText = document.getElementById('inputText');
-    const assistantType = document.getElementById('assistantType');
     const chatHistory = document.getElementById('chatHistory');
     const loadingSpinner = document.getElementById('loadingSpinner');
     const responseElement = document.createElement('div');
-    e.preventDefault();
     responseElement.classList.add('response');
-    if (inputText.value.trim() == "") {
-        alert("Input can't be empty");
-        return;
-    }
 
     let myKey = "";
     try {
@@ -35,13 +27,8 @@ document.getElementById('sendButton').addEventListener('click', async (e) => {
     userMessageElement.textContent = inputText.value;
     chatHistory.appendChild(userMessageElement);
 
-    conversationHistory.push({ role: "user", content: inputText.value });
     // Add user message to conversation history
-    if (assistantType.value.trim() != "") {
-        conversationHistory[0] = {role: "system", content: assistantType.value};
-        currentAssistant.textContent = `Current Role Description: "${assistantType.value}"`; 
-        assistantType.value = "";
-    }
+    conversationHistory.push({ role: "user", content: inputText.value });
 
     inputText.value = "";
 
