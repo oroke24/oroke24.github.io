@@ -43,7 +43,7 @@
     </nav>
     <!--////////////////////MAIN////////////////////////-->
     <main>
-        <h5 style="text-align:center; margin-top:25px;">AI Art Chat</h5>
+        <h2 style="text-align:center; margin-top:25px;">AI Art Chat</h2>
         <div class="container" style="margin-top:20px; ">
             <div class="chat-container">
                 <div id="chatHistory" class="chat-history">
@@ -85,8 +85,8 @@
             </div>
         </div>
         <!--
-            TODO: Set up fine tuning, see https://platform.openai.com/docs/api-reference/images
-        <br/>
+        TODO: Set up fine tuning, see https://platform.openai.com/docs/api-reference/images
+        <br />
         <h2 style="text-align:center; margin-top:25px;">Fine Tuning Station</h2>
         <div class="container" style="margin-top: 20px;">
             <div class="chat-container">
@@ -95,18 +95,23 @@
                         <span class="sr"></span>
                     </div>
                 </div>
-                <div class="input-container">
-                    <div class="row">
-                        <textarea id="inputText2" placeholder="What would you like changed?" required></textarea>
+                <div class="container">
+                    <div class="row" style="justify-content:center;">
+                        <textarea class="col-md-auto" id="inputTextFineTuning" placeholder="What would you like changed?" required></textarea>
+                        <div class="col-md-auto" id="dropArea">
+                            <input type="file" accept="images/*" id="imageToEdit" />
+                            <h5 style="text-align: center;">drag and drop</h5>
+                        </div>
                     </div>
-                    <button class="custom-btn" id="sendButton">Send</button>
+                    <button class="custom-btn" id="fineTuneButton">Send</button>
                 </div>
             </div>
         </div>
-        -->
+    -->
     </main>
     <!--////////////////////SCRIPTS////////////////////////-->
     <script src="../js/aiArt.js"></script>
+    <!--<script src="../js/aiArtFineTune.js"></script>-->
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/firebaseObject.js"></script>
     <script src="../js/firebaseKeys.js"></script>

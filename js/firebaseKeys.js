@@ -5,7 +5,6 @@ function findMyKey(keyName) {
 			snapshot.forEach(doc => {
 				if (doc.id == keyName) {
 					keyValue = doc.data().key;
-					console.log("Found matching key!: ");
 				}
 			});
 			return keyValue;
