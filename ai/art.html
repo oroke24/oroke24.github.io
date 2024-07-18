@@ -6,7 +6,7 @@
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/bootstrap-icons.css" rel="stylesheet">
     <link href="../css/template.css" rel="stylesheet">
-    <link href="../css/ai.css" rel="stylesheet"/>
+    <link href="../css/ai.css" rel="stylesheet" />
     <title>Wash n Roll Mobile Cleaning - AI Art</title>
     <link rel="icon" href="../images/logo.png"><!--Tab image-->
     <!--Linking Firebase-->
@@ -52,22 +52,30 @@
                     </div>
                 </div>
                 <div class="input-container">
-                    <label for="resolution">Resolution (pixels)</label>
-                    <select id="resolution">
-                        <option value="256x256">256x256</option>
-                        <option value="512x512">512x512</option>
-                        <option value="1024x1024">1024x1024</option>
-                    </select>
-                    <label for="style" style="margin-left:20px;">Style</label>
-                    <select id="style">
-                        <option value="natural">Natural</option>
-                        <option value="vivid">Vivid (hyper-real, dramatic)</option>
-                    </select>
-                    <label for="quality" style="margin-left:20px;">Quality</label>
-                    <select id="quality">
-                        <option value="standard">Standard</option>
-                        <option value="hd">HD</option>
-                    </select>
+                    <div class="row" style="justify-content:center">
+                        <div class="col-md-auto mb-auto" style="padding:10px;">
+                            <label for="resolution" style="margin-left:5px;">Resolution (pixels)</label>
+                            <select id="resolution">
+                                <option value="256x256">256x256</option>
+                                <option value="512x512">512x512</option>
+                                <option value="1024x1024">1024x1024</option>
+                            </select>
+                        </div>
+                        <div class="col-md-auto mb-auto" style="padding:10px;">
+                            <label for="style" style="margin-left:5px;">Style</label>
+                            <select id="style">
+                                <option value="natural">Natural</option>
+                                <option value="vivid">Vivid (hyper-real, dramatic)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-auto mb-auto" style="padding:10px;">
+                            <label for="quality" style="margin-left:5px;">Quality</label>
+                            <select id="quality">
+                                <option value="standard">Standard</option>
+                                <option value="hd">HD</option>
+                            </select>
+                        </div>
+                    </div>
                     <textarea id="inputText" placeholder="Add to train of thought.." required></textarea>
                     <button class="custom-btn" id="sendButton">Send</button>
                     <h6 style="text-align:center;">Train of thought buffer:</h6>
@@ -77,25 +85,25 @@
             </div>
         </div>
         <!--
-        TODO: Set up fine tuning, see https://platform.openai.com/docs/api-reference/images
-    <br/>
-    <h2 style="text-align:center; margin-top:25px;">Fine Tuning Station</h2>
-    <div class="container" style="margin-top: 20px;">
-        <div class="chat-container">
-            <div id="fineTuningHistory">
-                <div id="loadingSpinner2" class="spinner-border text-primary" role="status" style="display: none;">
-                    <span class="sr"></span>
+            TODO: Set up fine tuning, see https://platform.openai.com/docs/api-reference/images
+        <br/>
+        <h2 style="text-align:center; margin-top:25px;">Fine Tuning Station</h2>
+        <div class="container" style="margin-top: 20px;">
+            <div class="chat-container">
+                <div id="fineTuningHistory">
+                    <div id="loadingSpinner2" class="spinner-border text-primary" role="status" style="display: none;">
+                        <span class="sr"></span>
+                    </div>
                 </div>
-            </div>
-            <div class="input-container">
-                <div class="row">
-                    <textarea id="inputText2" placeholder="What would you like changed?" required></textarea>
+                <div class="input-container">
+                    <div class="row">
+                        <textarea id="inputText2" placeholder="What would you like changed?" required></textarea>
+                    </div>
+                    <button class="custom-btn" id="sendButton">Send</button>
                 </div>
-                <button class="custom-btn" id="sendButton">Send</button>
             </div>
         </div>
-    </div>
-    -->
+        -->
     </main>
     <!--////////////////////SCRIPTS////////////////////////-->
     <script src="../js/aiArt.js"></script>
