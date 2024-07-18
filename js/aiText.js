@@ -9,6 +9,7 @@ document.getElementById('sendButton').addEventListener('click', async (e) => {
     const assistantType = document.getElementById('assistantType');
     const chatHistory = document.getElementById('chatHistory');
     const loadingSpinner = document.getElementById('loadingSpinner');
+    const model = document.getElementById('modelSelect');
     const responseElement = document.createElement('div');
     e.preventDefault();
     responseElement.classList.add('response');
@@ -33,7 +34,7 @@ document.getElementById('sendButton').addEventListener('click', async (e) => {
     const userMessageElement = document.createElement('div');
     userMessageElement.classList.add('message', 'user-message');
     userMessageElement.textContent = inputText.value;
-    chatHistory.appendChild(userMessageElement);
+    chatHistory.insertBefore(userMessageElement, loadingSpinner);
 
     conversationHistory.push({ role: "user", content: inputText.value });
     // Add user message to conversation history
@@ -53,9 +54,8 @@ document.getElementById('sendButton').addEventListener('click', async (e) => {
                 'Authorization': myKey
             },
             body: JSON.stringify({
-                model: 'gpt-3.5-turbo',
+                model: model.value,
                 messages: conversationHistory,
-                max_tokens: 1000
             })
         });
 
@@ -67,7 +67,7 @@ document.getElementById('sendButton').addEventListener('click', async (e) => {
 
         responseElement.textContent = assistantMessage;
         responseElement.classList.add('message', 'assistant-message');
-        chatHistory.appendChild(responseElement);
+        chatHistory.insertBefore(responseElement, loadingSpinner);
         loadingSpinner.style.display = 'none';
 
         // Scroll to the bottom of chat history

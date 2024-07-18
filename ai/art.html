@@ -35,9 +35,6 @@
                 <li class="nav-item">
                     <a class="nav-link click-scroll" href="text.html">AI Chat</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link click-scroll" href="code.html">AI Code</a>
-                </li>
             </ul>
         </div>
     </nav>
@@ -75,12 +72,12 @@
                                 <option value="hd">HD</option>
                             </select>
                         </div>
+                        <textarea id="inputText" placeholder="Add to train of thought.." required></textarea>
+                        <button class="custom-btn" id="sendButton">Send</button>
+                        <h6 style="text-align:center;">Train of thought buffer:</h6>
+                        <p id="trainOfThought" style="color:#FFFFFF;"></p>
+                        <button style="background-color: #CC7754; padding: 15px;" class="custom-btn" id="clearButton">Clear Train of Thought</button>
                     </div>
-                    <textarea id="inputText" placeholder="Add to train of thought.." required></textarea>
-                    <button class="custom-btn" id="sendButton">Send</button>
-                    <h6 style="text-align:center;">Train of thought buffer:</h6>
-                    <p id="trainOfThought" style="color:#FFFFFF;"></p>
-                    <button style="background-color: #CC7754; padding: 15px;" class="custom-btn" id="clearButton">Clear Train of Thought</button>
                 </div>
             </div>
         </div>
