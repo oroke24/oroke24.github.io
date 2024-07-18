@@ -25,7 +25,7 @@
         <h2 style="text-align:center; margin-top:25px;">AI Art Chat</h2>
         <div class="container" style="margin-top:20px; ">
             <div class="row" style="width:50%; margin:auto;">
-            <a class="custom-btn" href="art.html" style=" text-align:center; color:#FFFFFF;">Refresh</a>
+                <a class="custom-btn" href="art.html" style=" text-align:center; color:#FFFFFF;">Refresh</a>
             </div>
             <div class="chat-container">
                 <div id="chatHistory" class="chat-history">
@@ -57,8 +57,12 @@
                                 <option value="hd">HD</option>
                             </select>
                         </div>
-                        <textarea id="inputText" placeholder="Add to train of thought.." required></textarea>
-                        <button class="custom-btn" id="sendButton">Send</button>
+                        <div class="input-container">
+                            <textarea id="inputText" placeholder="Add to train of thought.." required></textarea>
+                            <button class="custom-btn" id="sendButton">
+                                <i class="bi-arrow-up-circle"></i>
+                            </button>
+                        </div>
                         <h6 style="text-align:center;">Train of thought buffer:</h6>
                         <p id="trainOfThought" style="color:#FFFFFF;"></p>
                         <button style="background-color: #CC7754; padding: 15px;" class="custom-btn" id="clearButton">Clear Train of Thought</button>
@@ -66,10 +70,10 @@
                 </div>
             </div>
         </div>
-        <!--
-        TODO: Set up fine tuning, see https://platform.openai.com/docs/api-reference/images
+        <!--TODO: Set up openAI API for images, see https://platform.openai.com/docs/api-reference/images-->
         <br />
-        <h2 style="text-align:center; margin-top:25px;">Fine Tuning Station</h2>
+        <h2 style="text-align:center; margin-top:25px;">Variation Station</h2>
+        <h5 style="text-align:center;">creates a variation of image provided</h5>
         <div class="container" style="margin-top: 20px;">
             <div class="chat-container">
                 <div id="fineTuningHistory">
@@ -78,22 +82,28 @@
                     </div>
                 </div>
                 <div class="container">
-                    <div class="row" style="justify-content:center;">
-                        <textarea class="col-md-auto" id="inputTextFineTuning" placeholder="What would you like changed?" required></textarea>
-                        <div class="col-md-auto" id="dropArea">
+                    <div class="row justify-content-center" id="dropArea">
+                        <div class="col-md-6 text-center">
                             <input type="file" accept="images/*" id="imageToEdit" />
-                            <h5 style="text-align: center;">drag and drop</h5>
+                            <h5 style="margin-top:10px;">must be PNG</h5>
                         </div>
                     </div>
-                    <button class="custom-btn" id="fineTuneButton">Send</button>
+                        <div class="col-md-auto mb-auto" style="padding:10px;">
+                            <label for="resolution" style="margin-left:5px;">Resolution (pixels)</label>
+                            <select id="variationResolution">
+                                <option value="256x256">256x256</option>
+                                <option value="512x512">512x512</option>
+                                <option value="1024x1024">1024x1024</option>
+                            </select>
+                        </div>
+                    <button class="custom-btn" id="fineTuneButton">Recreate</button>
                 </div>
             </div>
         </div>
-    -->
     </main>
     <!--////////////////////SCRIPTS////////////////////////-->
     <script src="../js/aiArt.js"></script>
-    <!--<script src="../js/aiArtFineTune.js"></script>-->
+    <script src="../js/aiArtFineTune.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/firebaseObject.js"></script>
     <script src="../js/firebaseKeys.js"></script>
