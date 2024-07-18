@@ -24,7 +24,7 @@ document.getElementById('sendButton').addEventListener('click', async () => {
     // Appending user message to chat history
     const userMessageElement = document.createElement('div');
     userMessageElement.classList.add('message', 'user-message');
-    userMessageElement.textContent = inputText.value};
+    userMessageElement.textContent = inputText.value;
     chatHistory.appendChild(userMessageElement);
 
     // Add user message to conversation history
