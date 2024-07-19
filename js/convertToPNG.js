@@ -1,25 +1,27 @@
-function convertToPNG(file, callback) {
-    const reader = new FileReader();
-    reader.onload = function (event) {
-        const img = new Image();
-        img.src = event.target.result;
+function convertToPng(fileVar) {
+    return fileVar.toDataUrl('image/png');
+}
 
-        img.onload = function () {
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
-            canvas.width = img.width;
-            canvas.height = img.height;
-            ctx.drawImage(img, 0, 0);
+function fileIsToBig(filePath) {
+    var maxSize = 4194304; // 4MB
 
-            // Convert to PNG
-            canvas.toBlob(function (blob) {
-                const pngFile = new File([blob], file.name.replace(/\.[^/.]+$/, '') + '.png', { type: 'image/png' });
-                console.log('PNG file created:', pngFile);
-                if (callback) {
-                    callback(pngFile);
-                }
-            }, 'image/png');
-        };
-    };
-    reader.readAsDataURL(file);
+    if (filePath.size > maxSize) {
+        alert('File size exceeds the maximum limit');
+        return true;
+    } else {
+        return false;
+        // File size is within the limit, further processing can go here
+    }
+}
+function fileTypeIsWrong(filePath) {
+    var allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+    if (!allowedExtensions.exec(filePath)) {
+        alert('Invalid file type');
+        fileInput.value = '';
+        return true;
+    }
+    else {
+        return false;
+        // File size is correct
+    }
 }

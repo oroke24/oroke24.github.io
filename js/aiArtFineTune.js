@@ -5,11 +5,16 @@ button2.addEventListener('click', async (e) => {
     const chatHistory = document.getElementById('chatHistory');
     const loadingSpinner = document.getElementById('loadingSpinner');
     const variationResolution = document.getElementById('variationResolution');
+    let url = file.files[0];
 
+    //Base Case
     if (file.files.length == 0) {
         alert("Image upload can't be empty")
         return;
     }
+    if (fileIsToBig(url)) return;
+    ///////////
+
     let myKey = "";
     try {
         myKey = await findMyKey("openAiArt");
@@ -23,8 +28,12 @@ button2.addEventListener('click', async (e) => {
     loadingSpinner.style.display = 'block'; // Show the spinner
     button2.style.display = 'none';
 
+    console.log("url: ", url);
+
+    url = convertToPng(url);
+
     const formData = new FormData();
-    formData.append('image', file.files[0]);
+    formData.append('image', url);
     formData.append('n', '1');
     formData.append('size', variationResolution.value);
     try {
