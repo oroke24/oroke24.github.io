@@ -6,7 +6,7 @@ function fileIsToBig(filePath) {
     var maxSize = 4194304; // 4MB
 
     if (filePath.size > maxSize) {
-        alert('File size exceeds the maximum limit');
+        alert('File size exceeds the maximum limit (4MB)');
         return true;
     } else {
         return false;

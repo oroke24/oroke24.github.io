@@ -65,8 +65,15 @@ button.addEventListener('click', async (e) => {
         const data = await response.json();
         const imageUrl = data.data[0].url;
 
+        // Fetch the image as a blob
+        const imageResponse = await fetch(imageUrl);
+        const imageBlob = await imageResponse.blob();
+
+        // Convert blob to data URL
+        const imageObjectURL = URL.createObjectURL(imageBlob);
+
         const imageElement = document.createElement('img');
-        imageElement.src = imageUrl;
+        imageElement.src = imageObjectURL;
         imageElement.classList.add('generated-image')
 
         const imageContainer = document.createElement('div');
@@ -78,6 +85,7 @@ button.addEventListener('click', async (e) => {
         loadingSpinner.style.display = 'none';
         button.style.display = 'block';
         chatHistory.scrollTop = chatHistory.scrollHeight;
+
 
     } catch (error) {
         const imageContainer = document.createElement('div');
