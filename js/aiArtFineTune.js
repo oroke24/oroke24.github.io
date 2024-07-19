@@ -28,10 +28,6 @@ button2.addEventListener('click', async (e) => {
     loadingSpinner.style.display = 'block'; // Show the spinner
     button2.style.display = 'none';
 
-    console.log("url: ", url);
-
-    url = convertToPng(url);
-
     const formData = new FormData();
     formData.append('image', url);
     formData.append('n', '1');

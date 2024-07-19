@@ -1,5 +1,5 @@
 function convertToPng(fileVar) {
-    return fileVar.toDataUrl('image/png');
+    const Jimp = require("jimp");
 }
 
 function fileIsToBig(filePath) {
