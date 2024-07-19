@@ -74,7 +74,6 @@ button.addEventListener('click', async (e) => {
         imageContainer.textContent = `${resolution}, ${style.value}, ${quality.value}  : ${conversationHistory}`;
         imageContainer.appendChild(imageElement);
 
-
         chatHistory.insertBefore(imageContainer, loadingSpinner);
         loadingSpinner.style.display = 'none';
         button.style.display = 'block';
