@@ -33,18 +33,18 @@ button2.addEventListener('click', async (e) => {
     loadingSpinner.style.display = 'block'; // Show the spinner
     button2.style.display = 'none';//hide button
 
-    const handledImage= await handleFileSelect(file.files[0]);
-    const originalImageUrl = URL.createObjectURL(handledImage);
-    const originalImageElement = document.createElement('img');
-    originalImageElement.src = originalImageUrl;
-
-    const originalImageContainer = document.createElement('div');
-    originalImageContainer.classList.add('user-message');
-    originalImageContainer.textContent = `original image:`;
-    originalImageContainer.appendChild(originalImageElement);
-    chatHistory.insertBefore(originalImageContainer, loadingSpinner);
-
     try {
+        const handledImage= await handleFileSelect(file.files[0]);
+        const originalImageUrl = URL.createObjectURL(handledImage);
+        const originalImageElement = document.createElement('img');
+        originalImageElement.src = originalImageUrl;
+
+        const originalImageContainer = document.createElement('div');
+        originalImageContainer.classList.add('user-message');
+        originalImageContainer.textContent = `original image:`;
+        originalImageContainer.appendChild(originalImageElement);
+        chatHistory.insertBefore(originalImageContainer, loadingSpinner);
+
         const imageFile = await handleFileSelect(file.files[0]);
 
 
