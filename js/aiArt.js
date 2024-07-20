@@ -82,7 +82,7 @@ button.addEventListener('click', async (e) => {
     } catch (error) {
         const imageContainer = document.createElement('div');
         imageContainer.textContent = `Error: ${error.message}`;
-        chatHistory.appendChild(imageContainer);
+        chatHistory.insertBefore(imageContainer, loadingSpinner);
         loadingSpinner.style.display = 'none';
         button.style.display = 'block';
     }

@@ -4,19 +4,31 @@ function handleFileSelect(file) {
         reader.onload = function (e) {
             const img = new Image();
             img.onload = function () {
+                const maxDimension = 1600;
+                let width = img.width;
+                let height = img.height;
+
+
+                // Calculate the new dimensions while maintaining the aspect ratio
+                if (width > height) {
+                    if (width > maxDimension) {
+                        height = Math.round(height * (maxDimension / width));
+                        width = maxDimension;
+                    }
+                } else {
+                    if (height > maxDimension) {
+                        width = Math.round(width * (maxDimension / height));
+                        height = maxDimension;
+                    }
+                }
+
                 const canvas = document.createElement('canvas');
                 const ctx = canvas.getContext('2d');
+                canvas.width = width;
+                canvas.height = height;
 
-                // Define the size of the square canvas
-                const size = Math.max(img.width, img.height);
-                canvas.width = size;
-                canvas.height = size;
-
-                // Draw the image onto the canvas, centered
-                ctx.fillRect(0, 0, size, size);
-                const x = (size - img.width) / 2;
-                const y = (size - img.height) / 2;
-                ctx.drawImage(img, x, y);
+                // Draw the image onto the canvas with the new dimensions
+                ctx.drawImage(img, 0, 0, width, height);
 
                 // Convert canvas to Blob and resolve with a File object
                 canvas.toBlob((blob) => {
