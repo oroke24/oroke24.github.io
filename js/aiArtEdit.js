@@ -13,7 +13,6 @@ async function sendToEditAPI(file, chatHistory, loadingSpinner, variationResolut
 
         const imageFile = await handleFileSelect(file.files[0]);
 
-
         const formData = new FormData();
         formData.append('image', imageFile); // Use the File object here
         formData.append('prompt', editInput);
@@ -39,7 +38,6 @@ async function sendToEditAPI(file, chatHistory, loadingSpinner, variationResolut
         const imageElement = document.createElement('img');
         imageElement.src = imageUrl;
         imageElement.classList.add('generated-image');
-
 
         const imageContainer = document.createElement('div');
         imageContainer.classList.add('assistant-message');

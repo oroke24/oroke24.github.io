@@ -42,7 +42,7 @@
                             <label for="resolution" style="margin-left:5px;">Resolution (pixels)</label>
                             <select id="resolution">
                                 <option value="256x256">256x256</option>
-                                <option value="512x512">512x512</option>
+                                <option selected value="512x512">512x512</option>
                                 <option value="1024x1024">1024x1024</option>
                             </select>
                         </div>
@@ -60,24 +60,56 @@
                                 <option value="hd">HD</option>
                             </select>
                         </div>
+                        <div class="col-md-auto mb-auto" style="padding:10px;">
+                            <label for="type" style="margin-left:5px;">Type</label>
+                            <select id="type">
+                                <option value="">Default</option>
+                                <option value="Type: Comic; ">Comic</option>
+                                <option value="Type: Digital Art; ">Sketch</option>
+                                <option value="Type: Drawing; ">Drawing</option>
+                                <option value="Type: Painting; ">Painting</option>
+                                <option value="Type: Photo; ">Photo</option>
+                                <option value="Type: Sketch; ">Sketch</option>
+                                <option value="Type: Ultra High Definition; ">UHD</option>
+                            </select>
+                        </div>
+                        <div class="col-md-auto mb-auto" style="padding:10px;">
+                            <label for="theme" style="margin-left:5px;">Theme</label>
+                            <select id="theme">
+                                <option value="">Default</option>
+                                <option value="Theme: Ambient; ">Ambient</option>
+                                <option value="Theme: Apocalypse; ">Apocalypse</option>
+                                <option value="Theme: Futuristic; ">Futuristic</option>
+                                <option value="Theme: Horror; ">Horror</option>
+                                <option value="Theme: Microscopic; ">Microscopic</option>
+                                <option value="Theme: Midieval; ">Midieval</option>
+                                <option value="Theme: Optical Illusion; ">Optical Illusion</option>
+                                <option value="Theme: Religous; ">Religous</option>
+                                <option value="Theme: Romantic">Romantic</option>
+                                <option value="Theme: Science-fiction; ">Sci-fi</option>
+                                <option value="Theme: Telescopic; ">Telescopic</option>
+                                <option value="Theme: Theater; ">Theater</option>
+                            </select>
+                        </div>
                         <div class="input-container">
-                            <textarea id="inputText" placeholder="Add to train of though (use keywords like: concept art, unreal engine, digital art, dramatic lighting, artStation, Detailed, studio, studio lighting, high quality, etc." required></textarea>
+                            <textarea id="inputText" placeholder="Add to train of thought" required></textarea>
                             <button class="custom-btn" id="sendButton">
                                 <i class="bi-arrow-up-circle"></i>
                             </button>
                         </div>
-                        <h6 style="text-align:center;">Train of thought buffer:</h6>
-                        <p id="trainOfThought" style="color:#FFFFFF;"></p>
+                        <h6 style="text-align:center; color:#888888">Train of thought buffer:</h6>
+                        <p id="trainOfThought" style="color:#888888;"></p>
                         <button style="background-color: #CC7754; padding: 15px;" class="custom-btn" id="clearButton">Clear Train of Thought</button>
+                        <textarea id="addText" placeholder="Want to add text to the image?"></textarea>
                     </div>
                 </div>
             </div>
         </div>
         <!--TODO: Set up openAI API for images, see https://platform.openai.com/docs/api-reference/images-->
         <br />
-        <h2 style="text-align:center; margin-top:25px;">Variation Station</h2>
-        <h5 style="text-align:center;">creates a variation of image provided</h5>
-        <div class="container" style="margin-top: 20px;">
+        <div class="container cta-section section-padding" style="margin-top: 20px;">
+            <h2 style="text-align:center; margin-top:25px;">Variation Station</h2>
+            <h5 style="text-align:center;">creates a variation of image provided</h5>
             <div class="chat-container">
                 <div id="fineTuningHistory">
                     <div id="loadingSpinner2" class="spinner-border text-primary" role="status" style="display: none;">

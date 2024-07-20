@@ -9,8 +9,8 @@ body{
 textarea {
     color: #FAFAFA;
     width: 100%;
-    min-height:75px;
-    background-color: #333333;
+    min-height:25px;
+    background-color: #111111;
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 5px;

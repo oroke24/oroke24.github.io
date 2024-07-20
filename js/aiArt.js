@@ -15,6 +15,11 @@ button.addEventListener('click', async (e) => {
     const resolution = document.getElementById('resolution').value;
     const style = document.getElementById('style');
     const quality = document.getElementById('quality');
+    const type = document.getElementById('type');
+    const addText = document.getElementById('addText');
+    const theme = document.getElementById('theme');
+    let textToInclude = "";
+    if(addText.value.trim() != "") textToInclude = `(Include this exact quote, "${addText.value}")`;
     
     if (inputText.value.trim() == "" && conversationHistory.trim() == "") {
         alert("Train of thought can't be empty");
@@ -44,6 +49,7 @@ button.addEventListener('click', async (e) => {
     if(conversationHistory.trim() != "" && inputText.value.trim() != "") conversationHistory += ", ";
     conversationHistory += inputText.value;
     trainOfThought.textContent = conversationHistory;
+    const description = `Description: ${conversationHistory};`
 
     inputText.value = "";
     try {
@@ -54,7 +60,7 @@ button.addEventListener('click', async (e) => {
                 'Authorization': myKey
             },
             body: JSON.stringify({
-                prompt: conversationHistory,
+                prompt: textToInclude + type.value + theme.value + description,
                 n: 1,
                 size: resolution,
                 style: style.value,
