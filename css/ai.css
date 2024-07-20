@@ -16,7 +16,7 @@ textarea {
     padding: 5px;
 }
 textarea::placeholder{
-    color: #FAFAFA;
+    color: #999999;
 }
 button {
     width: 100%;

@@ -5,6 +5,7 @@ button2.addEventListener('click', async (e) => {
     const chatHistory = document.getElementById('chatHistory');
     const loadingSpinner = document.getElementById('loadingSpinner');
     const variationResolution = document.getElementById('variationResolution');
+    const editInput = document.getElementById('editInput');
 
 
     if (!file.files[0]) {
@@ -43,6 +44,13 @@ button2.addEventListener('click', async (e) => {
 
     loadingSpinner.style.display = 'block'; // Show the spinner
     button2.style.display = 'none';//hide button
+
+    console.log("editInput.value: ", editInput.value);
+    if (editInput.value.trim().length != 0) {
+        sendToEditAPI(file, chatHistory, loadingSpinner, variationResolution, editInput, myKey);
+        editInput.value = "";
+        return;
+    }
 
     try {
         const handledImage= await handleFileSelect(file.files[0]);
