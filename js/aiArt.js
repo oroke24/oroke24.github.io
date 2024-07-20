@@ -38,6 +38,7 @@ button.addEventListener('click', async (e) => {
     }
     loadingSpinner.style.display = 'block'; // Show the spinner
     button.style.display = 'none';
+    chatHistory.scrollTop = chatHistory.scrollHeight;
 
     // Appending user message to chat history
     const userMessageElement = document.createElement('div');
@@ -83,7 +84,6 @@ button.addEventListener('click', async (e) => {
         chatHistory.insertBefore(imageContainer, loadingSpinner);
         loadingSpinner.style.display = 'none';
         button.style.display = 'block';
-        chatHistory.scrollTop = chatHistory.scrollHeight;
 
     } catch (error) {
         const imageContainer = document.createElement('div');

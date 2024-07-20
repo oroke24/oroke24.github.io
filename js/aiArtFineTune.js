@@ -44,6 +44,7 @@ button2.addEventListener('click', async (e) => {
 
     loadingSpinner.style.display = 'block'; // Show the spinner
     button2.style.display = 'none';//hide button
+    chatHistory.scrollTop = chatHistory.scrollHeight;
 
     /*
     //handle edit case
@@ -104,7 +105,6 @@ button2.addEventListener('click', async (e) => {
 
         loadingSpinner.style.display = 'none';
         button2.style.display = 'block';
-        chatHistory.scrollTop = chatHistory.scrollHeight;
 
     } catch (error) {
         const imageContainer = document.createElement('div');
