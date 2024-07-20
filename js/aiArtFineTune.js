@@ -6,6 +6,7 @@ button2.addEventListener('click', async (e) => {
     const loadingSpinner = document.getElementById('loadingSpinner');
     const variationResolution = document.getElementById('variationResolution');
 
+
     if (!file.files[0]) {
         alert("Image upload can't be empty");
         return;
@@ -13,11 +14,21 @@ button2.addEventListener('click', async (e) => {
 
     //if (fileIsToBig(file)) return;
     // Check the file type
-    const acceptedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/bmp'];
+    const acceptedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/bmp', 'image/heic', 'image/heif'];
     if (!acceptedTypes.includes(file.files[0].type)) {
         alert("Unsupported file type. Please upload a JPEG or PNG image.");
         return;
     }
+    /*
+        if (file.type === 'image/heic' || file.type === 'image/heif') {
+            try {
+                const heicBlob = await heic2any({ blob: file, toType: 'image/png' });
+                file = new File([heicBlob], file.name.replace(/\.[^.]+$/, '.png'), { type: 'image/png' });
+            } catch (error) {
+                return reject(new Error('Error converting HEIC to PNG'));
+            }
+        }
+    */
 
     let myKey = "";
     try {

@@ -1,5 +1,7 @@
 function handleFileSelect(file) {
     return new Promise((resolve, reject) => {
+
+
         const reader = new FileReader();
         reader.onload = function (e) {
             const img = new Image();
