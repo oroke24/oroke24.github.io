@@ -40,7 +40,7 @@ document.getElementById('sendButton').addEventListener('click', async (e) => {
     // Add user message to conversation history
     if (assistantType.value.trim() != "") {
         conversationHistory[0] = {role: "system", content: assistantType.value};
-        currentAssistant.textContent = `Current Role Description: "${assistantType.value}"`; 
+        currentAssistant.textContent = `Current AI Role: "${assistantType.value}"`; 
         assistantType.value = "";
     }
 
