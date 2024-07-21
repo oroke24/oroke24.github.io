@@ -53,6 +53,8 @@ button.addEventListener('click', async (e) => {
     conversationHistory += inputText.value;
     trainOfThought.textContent = conversationHistory;
     const description = `Description: ${conversationHistory};`
+    const instructions = "No letters; " + type.value + theme.value + description;
+    console.log("instructions: ", instructions);
 
     inputText.value = "";
     try {
@@ -63,7 +65,7 @@ button.addEventListener('click', async (e) => {
                 'Authorization': myKey
             },
             body: JSON.stringify({
-                prompt: type.value + theme.value + description,
+                prompt: instructions,
                 n: 1,
                 size: resolution,
                 style: style.value,
