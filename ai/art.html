@@ -102,7 +102,7 @@
                         <h6 style="text-align:center; color:#888888">Train of thought buffer:</h6>
                         <p id="trainOfThought" style="color:#888888;"></p>
                         <button style="background-color: #CC7754; padding: 15px;" class="custom-btn" id="clearButton">Clear Train of Thought</button>
-                       <!--bound to aiArtEdit.js----<textarea id="addText" placeholder="Want to add text to the image?"></textarea>-->
+                        <!--bound to aiArtEdit.js----<textarea id="addText" placeholder="Want to add text to the image?"></textarea>-->
                     </div>
                 </div>
             </div>
@@ -118,24 +118,25 @@
                         <span class="sr"></span>
                     </div>
                 </div>
-                <div class="container">
-                        <div class="col-md-auto mb-auto" style="padding:10px;">
-                            <label for="resolution" style="margin-left:5px;">Resolution (pixels)</label>
-                            <select id="variationResolution">
-                                <option value="256x256">256x256</option>
-                                <option selected value="512x512">512x512</option>
-                                <option value="1024x1024">1024x1024</option>
-                            </select>
-                        </div>
-                    <div class="row input-container" id="dropArea">
-                        <div class="col-md-auto" style="text-align:center;">
-                            <input type="file" id="imageToEdit"/>
-                            <h5 style="text-align: center; margin-top:10px;">Choose image and upload</h5>
+                <div>
+                    <div class="col-md-auto mb-auto" style="padding:10px;">
+                        <label for="resolution" style="margin-left:5px;">Resolution (pixels)</label>
+                        <select id="variationResolution">
+                            <option value="256x256">256x256</option>
+                            <option selected value="512x512">512x512</option>
+                            <option value="1024x1024">1024x1024</option>
+                        </select>
+                    </div>
+                        <div id="dropArea">
+                    <div class="input-container">
+                            <input type="file" id="imageToEdit" />
+                        <button class="custom-btn" id="fineTuneButton">
+                            <i class="bi-arrow-up-circle"></i>
+                        </button>
                         </div>
                     </div>
-                    <button class="container custom-btn" id="fineTuneButton">
-                        <i class="bi-arrow-up-circle"></i>
-                    </button>
+                    <div class="input-container">
+                    </div>
                     <!--<textarea id="editInput"placeholder="Optional: Add details of what you want. LEAVE BLANK for a more random image. (This input is still in beta and mostly only works on transparent areas)."></textarea>-->
                 </div>
             </div>

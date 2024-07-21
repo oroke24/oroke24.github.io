@@ -118,8 +118,8 @@ label{
     border-width:1px;
     border-radius:15px;
     border-color: #999999;
-    margin:10px;
-    padding: 30px;
+    margin:5px;
+    padding: 5px;
 }
 #dropZone{
     border: 5px solid blue;
