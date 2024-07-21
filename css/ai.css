@@ -106,6 +106,15 @@ label{
     grid-template-columns: 1fr auto; /* One column takes up remaining space, second column is auto-sized */
     gap: 10px; /* Gap between items */
 }
+#maintenanceMessage{
+    background-color: #BB7777;
+    color: #EEEEEE;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align:center;
+}
 #trainOfThought{
     border: dotted;
     border-width:1px;
