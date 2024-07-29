@@ -29,130 +29,131 @@
         </a>
     </div>
     <!--////////////////////MAIN////////////////////////-->
-    <h1 style="text-align:center">AI Art</h1>
-    <div class="container" style="margin-top:20px; ">
-        <div class="row" style="width:50%; margin:auto;">
-            <a class="custom-btn" href="art.html" style=" text-align:center; color:#FFFFFF;">Refresh</a>
-        </div>
-        <div class="chat-container">
-            <div id="chatHistory" class="chat-history">
-                <div id="loadingSpinner" class="spinner-border text-primary" role="status" style="display: none;">
-                    <span class="sr"></span>
+    <main>
+        <h1 style="text-align:center">AI Art</h1>
+        <div class="container" style="margin-top:20px; ">
+            <div class="row" style="width:50%; margin:auto;">
+                <a class="custom-btn" href="art.html" style=" text-align:center; color:#FFFFFF;">Refresh</a>
+            </div>
+            <div class="chat-container">
+                <div id="chatHistory" class="chat-history">
+                    <div id="loadingSpinner" class="spinner-border text-primary" role="status" style="display: none;">
+                        <span class="sr"></span>
+                    </div>
+                </div>
+                <div class="input-container">
+                    <div class="row" style="justify-content:center">
+                        <div class="col-md-auto mb-auto" style="padding:10px;">
+                            <label for="resolution" style="margin-left:5px;">Resolution (pixels)</label>
+                            <select id="resolution">
+                                <option value="256x256">256x256</option>
+                                <option selected value="512x512">512x512</option>
+                                <option value="1024x1024">1024x1024</option>
+                            </select>
+                        </div>
+                        <div class="col-md-auto mb-auto" style="padding:10px;">
+                            <label for="style" style="margin-left:5px;">Style</label>
+                            <select id="style">
+                                <option value="natural">Natural</option>
+                                <option value="vivid">Vivid (hyper-real, dramatic)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-auto mb-auto" style="padding:10px;">
+                            <label for="quality" style="margin-left:5px;">Quality</label>
+                            <select id="quality">
+                                <option value="standard">Standard</option>
+                                <option value="hd">HD</option>
+                            </select>
+                        </div>
+                        <div class="col-md-auto mb-auto" style="padding:10px;">
+                            <label for="type" style="margin-left:5px;">Type</label>
+                            <select id="type">
+                                <option value="">Default</option>
+                                <option value="Type: Comic (as a marvel comic book sytle); ">Comic</option>
+                                <option value="Type: Coloring Book page (an outline of an image, so the user can color it in); ">Coloring book page</option>
+                                <option value="Type: Digital Art (like a detailed, seemingly perfect photoshop image); ">Digital Art</option>
+                                <option value="Type: Drawing (as if done with colored pencils or crayons); ">Drawing</option>
+                                <option value="Type: Microscopic (as if whatever is happening, is happening on throuhg a microscopic lens); ">Microscopic</option>
+                                <option value="Type: Optical Illusion (The details are layered or create an optical illusion); ">Optical Illusion</option>
+                                <option value="Type: Painting(as if painted on a canvas); ">Painting</option>
+                                <option value="Type: Photo (as if taken by a modern HD camera); ">Photograph</option>
+                                <option value="Type: Sketch (as if done with a pencil); ">Sketch</option>
+                                <option value="Type: Telescopic (as if whatever is happening, is happening through a telescopic lens); ">Telescopic</option>
+                            </select>
+                        </div>
+                        <div class="col-md-auto mb-auto" style="padding:10px;">
+                            <label for="theme" style="margin-left:5px;">Theme</label>
+                            <select id="theme">
+                                <option value="">Default</option>
+                                <option value="Theme: Ambient (with a casual or natural setting, resembling ambience); ">Ambient</option>
+                                <option value="Theme: Action (action packed, can have explosions or fighting or whatever else along that theme); ">Action</option>
+                                <option value="Theme: Jurassic (in the jurassic time setting, with dinasours, etc.); ">Jurassic</option>
+                                <option value="Theme: Apocalypse (as if the world or humanity is in chaos, or fallout); ">Apocalypse</option>
+                                <option value="Theme: Futuristic (assume around the year 3000, take exponential growth factors into accout like computing abilities, etc.); ">Futuristic</option>
+                                <option value="Theme: Horror (something scary or spooky); ">Horror</option>
+                                <option value="Theme: Midieval (as if during the middle ages, 500 - 1500AD); ">Midieval</option>
+                                <option value="Theme: Religous (Holy, faithfulness and worship); ">Religous</option>
+                                <option value="Theme: Romantic (as in something that would be fitting for valentines day)">Romantic</option>
+                                <option value="Theme: Science-fiction (like something that would fit well in star-wars); ">Sci-fi</option>
+                                <option value="Theme: Theater (As if on stage, or a movie scene); ">Theater</option>
+                            </select>
+                        </div>
+                        <div class="input-container">
+                            <textarea id="inputText" placeholder="Add to train of thought" required></textarea>
+                            <button class="custom-btn" id="sendButton">
+                                <i class="bi-arrow-up-circle"></i>
+                            </button>
+                        </div>
+                        <h6 style="text-align:center; color:#888888">Train of thought buffer:</h6>
+                        <p id="trainOfThought" style="color:#888888;"></p>
+                        <button style="background-color: #CC7754; padding: 15px;" class="custom-btn" id="clearButton">Clear Train of Thought</button>
+                        <!--bound to aiArtEdit.js----<textarea id="addText" placeholder="Want to add text to the image?"></textarea>-->
+                    </div>
                 </div>
             </div>
-            <div class="input-container">
-                <div class="row" style="justify-content:center">
+        </div>
+        <!--TODO: Set up openAI API for image/edits, see https://platform.openai.com/docs/api-reference/images-->
+        <br />
+        <div class="container cta-section section-padding" style="margin-top: 20px;">
+            <h2 style="text-align:center; margin-top:25px;">Variation Station</h2>
+            <h5 style="text-align:center;">creates a random variation of chosen image</h5>
+            <div class="chat-container">
+                <div id="fineTuningHistory">
+                    <div id="loadingSpinner2" class="spinner-border text-primary" role="status" style="display: none;">
+                        <span class="sr"></span>
+                    </div>
+                </div>
+                <div>
                     <div class="col-md-auto mb-auto" style="padding:10px;">
                         <label for="resolution" style="margin-left:5px;">Resolution (pixels)</label>
-                        <select id="resolution">
+                        <select id="variationResolution">
                             <option value="256x256">256x256</option>
                             <option selected value="512x512">512x512</option>
                             <option value="1024x1024">1024x1024</option>
                         </select>
                     </div>
-                    <div class="col-md-auto mb-auto" style="padding:10px;">
-                        <label for="style" style="margin-left:5px;">Style</label>
-                        <select id="style">
-                            <option value="natural">Natural</option>
-                            <option value="vivid">Vivid (hyper-real, dramatic)</option>
-                        </select>
-                    </div>
-                    <div class="col-md-auto mb-auto" style="padding:10px;">
-                        <label for="quality" style="margin-left:5px;">Quality</label>
-                        <select id="quality">
-                            <option value="standard">Standard</option>
-                            <option value="hd">HD</option>
-                        </select>
-                    </div>
-                    <div class="col-md-auto mb-auto" style="padding:10px;">
-                        <label for="type" style="margin-left:5px;">Type</label>
-                        <select id="type">
-                            <option value="">Default</option>
-                            <option value="Type: Comic (as a marvel comic book sytle); ">Comic</option>
-                            <option value="Type: Coloring Book page (an outline of an image, so the user can color it in); ">Coloring book page</option>
-                            <option value="Type: Digital Art (like a detailed, seemingly perfect photoshop image); ">Digital Art</option>
-                            <option value="Type: Drawing (as if done with colored pencils or crayons); ">Drawing</option>
-                            <option value="Type: Microscopic (as if whatever is happening, is happening on throuhg a microscopic lens); ">Microscopic</option>
-                            <option value="Type: Optical Illusion (The details are layered or create an optical illusion); ">Optical Illusion</option>
-                            <option value="Type: Painting(as if painted on a canvas); ">Painting</option>
-                            <option value="Type: Photo (as if taken by a modern HD camera); ">Photograph</option>
-                            <option value="Type: Sketch (as if done with a pencil); ">Sketch</option>
-                            <option value="Type: Telescopic (as if whatever is happening, is happening through a telescopic lens); ">Telescopic</option>
-                        </select>
-                    </div>
-                    <div class="col-md-auto mb-auto" style="padding:10px;">
-                        <label for="theme" style="margin-left:5px;">Theme</label>
-                        <select id="theme">
-                            <option value="">Default</option>
-                            <option value="Theme: Ambient (with a casual or natural setting, resembling ambience); ">Ambient</option>
-                            <option value="Theme: Action (action packed, can have explosions or fighting or whatever else along that theme); ">Action</option>
-                            <option value="Theme: Jurassic (in the jurassic time setting, with dinasours, etc.); ">Jurassic</option>
-                            <option value="Theme: Apocalypse (as if the world or humanity is in chaos, or fallout); ">Apocalypse</option>
-                            <option value="Theme: Futuristic (assume around the year 3000, take exponential growth factors into accout like computing abilities, etc.); ">Futuristic</option>
-                            <option value="Theme: Horror (something scary or spooky); ">Horror</option>
-                            <option value="Theme: Midieval (as if during the middle ages, 500 - 1500AD); ">Midieval</option>
-                            <option value="Theme: Religous (Holy, faithfulness and worship); ">Religous</option>
-                            <option value="Theme: Romantic (as in something that would be fitting for valentines day)">Romantic</option>
-                            <option value="Theme: Science-fiction (like something that would fit well in star-wars); ">Sci-fi</option>
-                            <option value="Theme: Theater (As if on stage, or a movie scene); ">Theater</option>
-                        </select>
-                    </div>
-                    <div class="input-container">
-                        <textarea id="inputText" placeholder="Add to train of thought" required></textarea>
-                        <button class="custom-btn" id="sendButton">
+                    <div id="dropArea">
+                        <input type="file" id="imageToEdit" />
+                        <button class="custom-btn" id="fineTuneButton" style="margin-top:30px;">
                             <i class="bi-arrow-up-circle"></i>
                         </button>
                     </div>
-                    <h6 style="text-align:center; color:#888888">Train of thought buffer:</h6>
-                    <p id="trainOfThought" style="color:#888888;"></p>
-                    <button style="background-color: #CC7754; padding: 15px;" class="custom-btn" id="clearButton">Clear Train of Thought</button>
-                    <!--bound to aiArtEdit.js----<textarea id="addText" placeholder="Want to add text to the image?"></textarea>-->
+                    <div class="input-container">
+                    </div>
+                    <!--<textarea id="editInput"placeholder="Optional: Add details of what you want. LEAVE BLANK for a more random image. (This input is still in beta and mostly only works on transparent areas)."></textarea>-->
                 </div>
             </div>
         </div>
-    </div>
-    <!--TODO: Set up openAI API for image/edits, see https://platform.openai.com/docs/api-reference/images-->
-    <br />
-    <div class="container cta-section section-padding" style="margin-top: 20px;">
-        <h2 style="text-align:center; margin-top:25px;">Variation Station</h2>
-        <h5 style="text-align:center;">creates a random variation of chosen image</h5>
-        <div class="chat-container">
-            <div id="fineTuningHistory">
-                <div id="loadingSpinner2" class="spinner-border text-primary" role="status" style="display: none;">
-                    <span class="sr"></span>
-                </div>
-            </div>
-            <div>
-                <div class="col-md-auto mb-auto" style="padding:10px;">
-                    <label for="resolution" style="margin-left:5px;">Resolution (pixels)</label>
-                    <select id="variationResolution">
-                        <option value="256x256">256x256</option>
-                        <option selected value="512x512">512x512</option>
-                        <option value="1024x1024">1024x1024</option>
-                    </select>
-                </div>
-                <div id="dropArea">
-                    <input type="file" id="imageToEdit" />
-                    <button class="custom-btn" id="fineTuneButton" style="margin-top:30px;">
-                        <i class="bi-arrow-up-circle"></i>
-                    </button>
-                </div>
-                <div class="input-container">
-                </div>
-                <!--<textarea id="editInput"placeholder="Optional: Add details of what you want. LEAVE BLANK for a more random image. (This input is still in beta and mostly only works on transparent areas)."></textarea>-->
-            </div>
-        </div>
-    </div>
     </main>
     <!--////////////////////SCRIPTS////////////////////////-->
     <script src="../js/aiArt.js"></script>
-    <!--<script src="../js/aiArtEdit.js"></script>-->
+    <!--  <script src="../js/aiArtEdit.js"></script>  -->
     <script src="../js/aiArtFineTune.js"></script>
     <script src="../js/aiArtHandleFile.js"></script>
     <script src="../js/convertToPNG.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/firebaseObject.js"></script>
     <script src="../js/firebaseKeys.js"></script>
-    <script src="../js/downForMaintenance.js"></script>
+    <!--  <script src="../js/downForMaintenance.js"></script>  -->
 </body>
 </html>
