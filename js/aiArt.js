@@ -23,10 +23,12 @@ button.addEventListener('click', async (e) => {
     if(addText.value.trim() != "") textToInclude = `(Include this exact quote, "${addText.value}")`;
     */
     
+   /*
     if (inputText.value.trim() == "" && conversationHistory.trim() == "") {
         alert("Train of thought can't be empty");
         return;
     }
+    */
 
     let myKey = "";
     try {
