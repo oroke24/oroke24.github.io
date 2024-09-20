@@ -1,5 +1,5 @@
 class Fighter {
-    constructor(name, height, weight, reach, stance, age, wins, losses, wlRatio, draws, sigStrLandPm, sigStrLandPct, sigStrAbsPm, sigStrDefPct, tdAvg, tdLandPct, tdDefPct, subAvg, v) {
+    constructor(name, height, weight, reach, age, wins, losses, draws, wlRatio, sigStrLandPm, sigStrLandPct, sigStrAbsPm, sigStrDefPct, tdAvg, tdLandPct, tdDefPct, subAvg, v) {
         this.name = name;
         this.height = height;
         this.weight = weight;
