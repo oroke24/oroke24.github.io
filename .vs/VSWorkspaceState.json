@@ -2,7 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\ai",
-    "\\js"
+    "\\images",
+    "\\js",
+    "\\js\\ufc",
+    "\\ufc"
   ],
+  "SelectedNode": "\\js\\ufc\\ufcGetFighters.js",
   "PreviewInSolutionExplorer": false
 }
