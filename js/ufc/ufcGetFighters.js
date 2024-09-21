@@ -41,7 +41,7 @@ async function getAllFighters() {
 }
 function addFighterToArray(fighter) {
     const wlRatio = (fighter.n_win / fighter.n_loss).toFixed(2);
-    const toAdd = new Fighter(fighter.name, fighter.height, fighter.weight, fighter.reach, fighter.dob, fighter.n_win, fighter.n_loss, fighter.n_draw, wlRatio, fighter.sig_str_land_pM, fighter.sig_str_land_pct, fighter.sig_str_abs_pM, fighter.sig_str_def_pct, fighter.td_avg, fighter.td_land_pct, fighter.def_pct, fighter.sub_avg);
+    const toAdd = new Fighter(fighter.name, fighter.height, fighter.weight, fighter.reach, fighter.dob, fighter.n_win, fighter.n_loss, fighter.n_draw, wlRatio, fighter.sig_str_land_pM, fighter.sig_str_land_pct, fighter.sig_str_abs_pM, fighter.sig_str_def_pct, fighter.td_avg, fighter.td_land_pct, fighter.td_def_pct, fighter.sub_avg);
     allFightersArray.push(toAdd);
     let wtString = fighter.weight.substring(0,3);
     let wt = parseInt(wtString, 10);
