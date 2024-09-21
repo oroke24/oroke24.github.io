@@ -1,5 +1,7 @@
+var matchUp = [];
 var fighter1Div;
 var fighter2Div;
+var winnerDiv;
 var fighter1Search;
 var fighter2Search;
 var list1 = document.createElement('div');
@@ -11,6 +13,7 @@ document.getElementById('matchUp').addEventListener('click', async (e) => {
     fighter2Search.addEventListener("input", findFighter2);
 });
 function findFighter1(fighter) {
+    if(winnerDiv) winnerDiv.textContent = "";
     ClearChildren(list1);
     const searchTerm = fighter.target.value.toLowerCase();
     const filteredFighters = allFightersArray.filter((item) => {
@@ -21,8 +24,10 @@ function findFighter1(fighter) {
         const listItem = listifyFighter(item);
         list1.appendChild(listItem);
     })
+    if (filteredFighters.length == 1) lockInPrompt(list1, filteredFighters[0], 0);
 }
 function findFighter2(fighter) {
+    if(winnerDiv) winnerDiv.textContent = "";
     ClearChildren(list2);
     const searchTerm = fighter.target.value.toLowerCase();
     const filteredFighters = allFightersArray.filter((item) => {
@@ -33,6 +38,18 @@ function findFighter2(fighter) {
         const listItem = listifyFighter(item);
         list2.appendChild(listItem);
     })
+    if (filteredFighters.length == 1) lockInPrompt(list2, filteredFighters[0], 1);
+}
+function lockInPrompt(list, fighter, slotToFill) {
+    matchUp[slotToFill] = fighter;
+    calculateWinner();
+}
+function calculateWinner() {
+    if (matchUp.length == 2) {
+        winnerDiv = document.createElement('div');
+        mainContent.appendChild(winnerDiv);
+        winnerDiv.textContent = compareStats(matchUp[0], matchUp[1]); 
+    }
 }
 function populateMatchUpScreen() {
     ClearChildren(mainContent);
@@ -47,7 +64,6 @@ function populateMatchUpScreen() {
     fighter2Div.style.width = "50%";
     fighter2Div.style.float = "right";
     fighter2Search = document.createElement('input');
-    fighter2Search.style.float = "right";
     fighter2Div.appendChild(fighter2Search);
     fighter2Div.appendChild(list2);
 

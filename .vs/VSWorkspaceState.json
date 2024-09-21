@@ -1,12 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\ai",
-    "\\images",
     "\\js",
     "\\js\\ufc",
     "\\ufc"
   ],
-  "SelectedNode": "\\js\\ufc\\ufcGetFighters.js",
+  "SelectedNode": "\\js\\ufc\\ufcFighter.js",
   "PreviewInSolutionExplorer": false
 }
