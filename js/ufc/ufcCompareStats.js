@@ -32,7 +32,7 @@ function compareStats(f1, f2) {
      subavg = f1.subAvg - f2.subAvg;
     
     return `ageDiff = ${ageDiff},\n
-            heightDiff = ${heightDiff},\n
+            heightDiffInches = ${heightDiff},\n
             reachDiff = ${reachDiff},\n
             winDiff = ${winDiff},\n
             wlRatioDiff = ${wlRatioDiff},\n
