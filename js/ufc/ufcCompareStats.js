@@ -5,6 +5,9 @@ function compareStats(f1, f2) {
     var winDiff;
     var wlRatio;
     var ageDiff;
+    var extraDamage;
+    var takeDownsLanded;
+    var timesTakenDown;
     if(f1.wins-f2.wins > 0 ) winner = f1; 
     else winner = f2;
     
