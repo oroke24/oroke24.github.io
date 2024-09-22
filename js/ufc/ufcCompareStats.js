@@ -3,13 +3,21 @@ function compareStats(f1, f2) {
     var heightDiff;
     var reachDiff;
     var winDiff;
-    var wlRatio;
+    var wlRatioDiff;
     var ageDiff;
     var extraDamage;
     var takeDownsLanded;
     var timesTakenDown;
-    if(f1.wins-f2.wins > 0 ) winner = f1; 
-    else winner = f2;
     
-    return `${winner.name} is the winner`;
+    f1.wins-f2.wins = ageDiff; 
+    f1.height - f2.height = heightDiff;
+    f1.reach - f2.reach = reachDiff;
+    f1.wins -f2.wins = winDiff;
+    f1.wlRatio - f2.wlRatio = wlRatioDiff;
+    
+    return `ageDiff = ${ageDiff}, 
+            heightDiff = ${heightDiff}, 
+            reachDiff = ${reachDiff}, 
+            winDiff = ${winDiff}, 
+            wlRatioDiff = ${wlRatioDiff}`;
 }
