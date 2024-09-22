@@ -2,6 +2,7 @@ class Fighter {
     constructor(name, height, weight, reach, age, wins, losses, draws, wlRatio, sigStrLandPm, sigStrLandPct, sigStrAbsPm, sigStrDefPct, tdAvg, tdLandPct, tdDefPct, subAvg, v) {
         this.name = name;
         this.height = height;
+        this.heightInches = getInches(height);
         this.weight = weight;
         this.reach = reach;
         this.age = age;
@@ -19,6 +20,12 @@ class Fighter {
         this.subAvg = subAvg;
     }
 }
+function getInches(height){
+    var feet = parseInt(height[0]) * 12;
+    var inches = parseInt(height[2]);
+    return feet + inches;
+}
+
 function listifyFighter(fighter) {
     let listItem = document.createElement('ul');
     let winLossRatio = document.createElement('li'); 
