@@ -43,5 +43,5 @@ function compareStats(f1, f2) {
             ssabsDiff = ${ssabs},
             ssdefDiff = ${ssdef},
             tddefDiff = ${tddef},
-            subavgdiff = ${subavg}';
+            subavgdiff = ${subavg}`;
 }
