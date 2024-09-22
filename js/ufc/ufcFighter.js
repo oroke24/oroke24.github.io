@@ -24,7 +24,7 @@ function getInches(height){
     var feet = parseInt(height[0]) * 12;
     var inches;
     if(height[4] == '"') inches = parseInt(height[3]);
-    else inches = parseInt(height.subString(3,5));
+    else inches = parseInt(height.substring(3,5));
     
     return feet + inches;
 }
