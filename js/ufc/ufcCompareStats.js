@@ -21,15 +21,15 @@ function compareStats(f1, f2) {
     heightDiff = f1.heightInches - f2.heightInches;
     reachDiff = f1.reach - f2.reach;
     winDiff = f1.wins -f2.wins;
-    wlRatioDiff = f1.wlRatio - f2.wlRatio;
-     sspm = f1.sigStrLandPm - f2.sigStrLandPm;
-     sspct = f1.sigStrLandPct - f2.sigStrLandPct;
-     tdavg = f1.tdAvg- f2.tdAvg;
-     tdpct = f1.tdLandPct - f2.tdLandPct;
-     ssabs = f1.sigStrAbsPm - f2.sigStrAbsPm;
-     ssdef = f1.sigStrDefPct - f2.sigStrDefPct;
-     tddef = f1.tdDefPct - f2.tdDefPct;
-     subavg = f1.subAvg - f2.subAvg;
+    wlRatioDiff = (f1.wlRatio - f2.wlRatio).toFixed(2);
+     sspm = (f1.sigStrLandPm - f2.sigStrLandPm).toFixed(2);
+     sspct = (f1.sigStrLandPct - f2.sigStrLandPct).toFixed(2);
+     tdavg = (f1.tdAvg- f2.tdAvg).toFixed(2);
+     tdpct = (f1.tdLandPct - f2.tdLandPct).toFixed(2);
+     ssabs = (f1.sigStrAbsPm - f2.sigStrAbsPm).toFixed(2);
+     ssdef = (f1.sigStrDefPct - f2.sigStrDefPct).toFixed(2);
+     tddef = (f1.tdDefPct - f2.tdDefPct).toFixed(2);;
+     subavg = (f1.subAvg - f2.subAvg).toFixed(2);
     
     return `heightDiffInches = ${heightDiff},<br>
             reachDiff = ${reachDiff},<br>
