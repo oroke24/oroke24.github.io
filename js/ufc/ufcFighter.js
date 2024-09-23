@@ -11,12 +11,12 @@ class Fighter {
         this.draws = draws;
         this.wlRatio = wlRatio;
         this.sigStrLandPm = sigStrLandPm;
-        this.sigStrLandPct = (sigStrLandPct * 100).toFixed(0);
+        this.sigStrLandPct = (sigStrLandPct * 100);
         this.sigStrAbsPm = sigStrAbsPm;
-        this.sigStrDefPct = (sigStrDefPct * 100).toFixed(0);
+        this.sigStrDefPct = (sigStrDefPct * 100);
         this.tdAvg = tdAvg;
-        this.tdLandPct = (tdLandPct * 100).toFixed(0);
-        this.tdDefPct = (tdDefPct * 100).toFixed(0);
+        this.tdLandPct = (tdLandPct * 100);
+        this.tdDefPct = (tdDefPct * 100);
         this.subAvg = subAvg;
     }
 }
