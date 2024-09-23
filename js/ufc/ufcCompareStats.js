@@ -31,16 +31,16 @@ function compareStats(f1, f2) {
      tddef = (f1.tdDefPct - f2.tdDefPct).toFixed(2);;
      subavg = (f1.subAvg - f2.subAvg).toFixed(2);
     
-    return `<br> heightDiffInches = ${heightDiff},<br>
-            reachDiff = ${reachDiff},<br>
+    return `<br><br><br> heightDiff = ${heightDiff} in.,<br>
+            reachDiff = ${reachDiff} in.,<br>
             winDiff = ${winDiff},<br>
             wlRatioDiff = ${wlRatioDiff},<br>
-            sspmDiff = ${sspm},<br>
-            sspctDiff = ${sspct},<br>
-            tdavg = ${tdavg},<br>
-            tdpct = ${tdpct},<br> 
-            ssabsDiff = ${ssabs},<br>
-            ssdefDiff = ${ssdef},<br>
-            tddefDiff = ${tddef},<br>
-            subavgdiff = ${subavg}<br>`;
+            strikesLandedPerMin = ${sspm},<br>
+            percentage landed = ${sspct}%,<br>
+            Avg takedowns = ${tdavg},<br>
+            percentage landed = ${tdpct},<br> 
+            strikes absorbed = ${ssabs},<br>
+            percentage blocked = ${ssdef},<br>
+            takedowns defended = ${tddef},<br>
+            avg submissions = ${subavg}<br>`;
 }
