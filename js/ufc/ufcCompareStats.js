@@ -18,9 +18,9 @@ function compareStats(f1, f2) {
     var timesTakenDown;
     
     ageDiff = f1.age - f2.age; 
-    heightDiff = f1.heightInches - f2.heightInches;
-    reachDiff = f1.reach - f2.reach;
-    winDiff = f1.wins -f2.wins;
+    heightDiff = (f1.heightInches - f2.heightInches).toFixed(2);
+    reachDiff = (f1.reach - f2.reach).toFixed(2);
+    winDiff = (f1.wins -f2.wins).toFixed(2);
     wlRatioDiff = (f1.wlRatio - f2.wlRatio).toFixed(2);
      sspm = (f1.sigStrLandPm - f2.sigStrLandPm).toFixed(2);
      sspct = (f1.sigStrLandPct - f2.sigStrLandPct).toFixed(2);
