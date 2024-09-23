@@ -4,7 +4,7 @@ class Fighter {
         this.height = height;
         this.heightInches = getInches(height);
         this.weight = weight;
-        this.reach = parseInt(substring(0,2));
+        this.reach = parseInt(reach.substring(0,2));
         this.age = age;
         this.wins = wins;
         this.losses = losses;
