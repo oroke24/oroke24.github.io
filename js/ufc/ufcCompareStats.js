@@ -31,16 +31,16 @@ function compareStats(f1, f2) {
      tddef = (f1.tdDefPct - f2.tdDefPct).toFixed(2);;
      subavg = (f1.subAvg - f2.subAvg).toFixed(2);
     
-    return `heightDiffInches = ${heightDiff},<br>
+    return `<br> heightDiffInches = ${heightDiff},<br>
             reachDiff = ${reachDiff},<br>
-            winDiff = ${winDiff},\n
-            wlRatioDiff = ${wlRatioDiff},\n
-            sspmDiff = ${sspm},\n
-            sspctDiff = ${sspct},\n
-            tdavg = ${tdavg},\n
-            tdpct = ${tdpct},\n 
-            ssabsDiff = ${ssabs},\n
-            ssdefDiff = ${ssdef},\n
-            tddefDiff = ${tddef},\n
-            subavgdiff = ${subavg}\n`;
+            winDiff = ${winDiff},<br>
+            wlRatioDiff = ${wlRatioDiff},<br>
+            sspmDiff = ${sspm},<br>
+            sspctDiff = ${sspct},<br>
+            tdavg = ${tdavg},<br>
+            tdpct = ${tdpct},<br> 
+            ssabsDiff = ${ssabs},<br>
+            ssdefDiff = ${ssdef},<br>
+            tddefDiff = ${tddef},<br>
+            subavgdiff = ${subavg}<br>`;
 }
