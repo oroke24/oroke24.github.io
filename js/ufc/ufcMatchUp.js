@@ -48,7 +48,7 @@ function calculateWinner() {
     if (matchUp.length == 2) {
         winnerDiv = document.createElement('div');
         mainContent.appendChild(winnerDiv);
-        winnerDiv.textContent = compareStats(matchUp[0], matchUp[1]); 
+        winnerDiv.innerHTML = compareStats(matchUp[0], matchUp[1]); 
     }
 }
 function populateMatchUpScreen() {
