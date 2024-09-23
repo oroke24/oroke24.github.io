@@ -32,7 +32,7 @@ function compareStats(f1, f2) {
      subavg = (f1.subAvg - f2.subAvg).toFixed(2);
     
     
-     let basicCompare = heightDiff; //+ winDiff + sspm + sspct + tdavg + tdpct + ssabs + ssdef + tddef + subavg;
+     let basicCompare = heightDiff + winDiff + sspm + sspct + tdavg + tdpct + ssabs + ssdef + tddef + subavg;
     if(basicCompare > 0) winner = f1.name;
     else if(basicCompare < 0) winner = f2.name;
     else winner = "No Advantage";
