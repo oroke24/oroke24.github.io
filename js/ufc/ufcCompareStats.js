@@ -31,7 +31,14 @@ function compareStats(f1, f2) {
      tddef = (f1.tdDefPct - f2.tdDefPct).toFixed(2);;
      subavg = (f1.subAvg - f2.subAvg).toFixed(2);
     
-    return `<br><br><br> heightDiff = ${heightDiff} in.,<br>
+    
+     let basicCompare = heightDiff + winDiff + sspm + sspct + tdavg + tdpct + ssabs + ssdef + tddef + subavg;
+    if(basicCompare > 0) winner = f1.name;
+    else if(basicCompare < 0) winner = f2.name;
+    else winner = "No Advantage";
+    
+    
+    return `<br><br><br> <strong>Advantage goes to ${winner}</strong><br><br>heightDiff = ${heightDiff} in.,<br>
             reachDiff = ${reachDiff} in.,<br>
             winDiff = ${winDiff},<br>
             wlRatioDiff = ${wlRatioDiff},<br>
