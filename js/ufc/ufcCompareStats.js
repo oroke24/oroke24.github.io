@@ -1,4 +1,5 @@
 function compareStats(f1, f2) {
+    let br = document.createElement("br");
     var winner;
     var heightDiff;
     var reachDiff;
