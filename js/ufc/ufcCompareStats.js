@@ -39,16 +39,16 @@ function compareStats(f1, f2) {
     let absBC = Math.abs(basicCompare).toFixed(2);
     
     
-    return `<br><br><br> <strong>Advantage goes to ${winner}</strong> Basic Comparison = ${absBC}<br><br>heightDiff = ${heightDiff} in.,<br>
-            reachDiff = ${reachDiff} in.,<br>
-            winDiff = ${winDiff},<br>
-            wlRatioDiff = ${wlRatioDiff},<br>
-            strikesLandedPerMin = ${sspm},<br>
-            percentage landed = ${sspct}%,<br>
-            Avg takedowns = ${tdavg},<br>
-            ${tdpct}% of total,<br> <br>
-            strikes absorbed = ${ssabs},<br>
-            percentage blocked = ${ssdef}%,<br>
-            ${tddef}% takedowns defended,<br>
-            avg submissions = ${subavg}<br>`;
+    return `<br><br><br> <strong>Advantage goes to ${winner}</strong> Basic Comparison = ${absBC}<br><br>heightDiff = ${heightDiff.toFixed(2)} in.,<br>
+            reachDiff = ${reachDiff.toFixed(2)} in.,<br>
+            winDiff = ${winDiff.toFixed(2)},<br>
+            wlRatioDiff = ${wlRatioDiff.toFixed(2)},<br>
+            strikesLandedPerMin = ${sspm.toFixed(2)},<br>
+            percentage landed = ${sspct.toFixed(2)}%,<br>
+            Avg takedowns = ${tdavg.toFixed(2)},<br>
+            ${tdpct.toFixed(2)}% of total,<br> <br>
+            strikes absorbed = ${ssabs.toFixed(2)},<br>
+            percentage blocked = ${ssdef.toFixed(2)}%,<br>
+            ${tddef.toFixed(2)}% takedowns defended,<br>
+            avg submissions = ${subavg.toFixed(2)}<br>`;
 }
