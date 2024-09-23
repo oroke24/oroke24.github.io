@@ -38,7 +38,7 @@ function listifyFighter(fighter) {
     let takedowns = document.createElement('li');
     let dmgAndDef = document.createElement('li');
     let subs = document.createElement('li');
-    let inches  = document.createElement('li');
+    
     listItem.textContent = fighter.name;
     winLossRatio.textContent = `${fighter.wins}-${fighter.losses}-${fighter.draws}, ${fighter.wlRatio} W/L`;
     heightWeightReach.textContent = `Weight: ${fighter.weight}, Height: ${fighter.height}, Reach: ${fighter.reach}`;
@@ -47,10 +47,8 @@ function listifyFighter(fighter) {
     takedowns.textContent = `${fighter.tdAvg} avg takedowns (${fighter.tdLandPct}% of total attempted)`
     dmgAndDef.textContent = `${fighter.sigStrAbsPm} Absorbed sig strikes per minute, (${fighter.sigStrDefPct}% Defended)`;
     subs.textContent = `${fighter.subAvg} Sub attempt avg, ${fighter.tdDefPct}% Opponent takedowns defended`;
-    inches.textContent = `(height in inches: ${fighter.heightInches})`;
     listItem.appendChild(winLossRatio);
     listItem.appendChild(heightWeightReach);
-    listItem.appendChild(inches);
     listItem.appendChild(age);
     listItem.appendChild(sigStr);
     listItem.appendChild(takedowns);
