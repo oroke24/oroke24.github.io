@@ -38,9 +38,9 @@ function compareStats(f1, f2) {
             strikesLandedPerMin = ${sspm},<br>
             percentage landed = ${sspct}%,<br>
             Avg takedowns = ${tdavg},<br>
-            percentage landed = ${tdpct},<br> 
+            ${tdpct}% of total,<br> <br>
             strikes absorbed = ${ssabs},<br>
-            percentage blocked = ${ssdef},<br>
-            takedowns defended = ${tddef},<br>
+            percentage blocked = ${ssdef}%,<br>
+            ${tddef}% takedowns defended,<br>
             avg submissions = ${subavg}<br>`;
 }
