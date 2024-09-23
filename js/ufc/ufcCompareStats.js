@@ -36,9 +36,10 @@ function compareStats(f1, f2) {
     if(basicCompare > 0) winner = f1.name;
     else if(basicCompare < 0) winner = f2.name;
     else winner = "No Advantage";
+    let absBC = Math.abs(basicCompare);
     
     
-    return `<br><br><br> <strong>Advantage goes to ${winner}</strong><br><br>heightDiff = ${heightDiff} in.,<br>
+    return `<br><br><br> <strong>Advantage goes to ${winner}</strong> Basic Comparison = ${absBC}<br><br>heightDiff = ${heightDiff} in.,<br>
             reachDiff = ${reachDiff} in.,<br>
             winDiff = ${winDiff},<br>
             wlRatioDiff = ${wlRatioDiff},<br>
