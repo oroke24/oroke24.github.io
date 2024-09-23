@@ -31,8 +31,7 @@ function compareStats(f1, f2) {
      tddef = f1.tdDefPct - f2.tdDefPct;
      subavg = f1.subAvg - f2.subAvg;
     
-    return `ageDiff = ${ageDiff},\n
-            heightDiffInches = ${heightDiff},\n
+    return `heightDiffInches = ${heightDiff},<br>
             reachDiff = ${reachDiff},<br>
             winDiff = ${winDiff},\n
             wlRatioDiff = ${wlRatioDiff},\n
