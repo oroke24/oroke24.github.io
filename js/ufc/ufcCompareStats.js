@@ -33,7 +33,7 @@ function compareStats(f1, f2) {
     
     return `ageDiff = ${ageDiff},\n
             heightDiffInches = ${heightDiff},\n
-            reachDiff = ${reachDiff},\n
+            reachDiff = ${reachDiff},<br>
             winDiff = ${winDiff},\n
             wlRatioDiff = ${wlRatioDiff},\n
             sspmDiff = ${sspm},\n
