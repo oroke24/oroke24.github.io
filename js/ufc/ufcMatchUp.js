@@ -47,6 +47,8 @@ function lockInPrompt(list, fighter, slotToFill) {
 function calculateWinner() {
     if (matchUp.length == 2) {
         winnerDiv = document.createElement('div');
+        let br = document.createElement('br');
+        mainContent.appendChild(br);
         mainContent.appendChild(winnerDiv);
         winnerDiv.innerHTML = compareStats(matchUp[0], matchUp[1]); 
     }
