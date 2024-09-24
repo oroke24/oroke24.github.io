@@ -4,7 +4,6 @@ function compareStats(f1, f2) {
     var reachDiff;
     var winDiff;
     var wlRatioDiff;
-    var ageDiff;
     var sspm; 
     var sspct;
     var tdavg;
@@ -13,11 +12,7 @@ function compareStats(f1, f2) {
     var ssdef;
     var tddef;
     var subavg;
-    var extraDamage;
-    var takeDownsLanded;
-    var timesTakenDown;
     
-     //ageDiff = f1.age - f2.age; 
      heightDiff = f1.heightInches - f2.heightInches;
      reachDiff = f1.reach - f2.reach;
      winDiff = f1.wins - f2.wins;
@@ -32,7 +27,7 @@ function compareStats(f1, f2) {
      subavg = f1.subAvg - f2.subAvg;
     
     
-    let basicCompare = heightDiff + winDiff + sspm + sspct + tdavg + tdpct + ssabs + ssdef + tddef + subavg;
+    let basicCompare = heightDiff + winDiff + sspm + sspct + tdavg + tdpct + ssdef + tddef + subavg - ssabs;
     if(basicCompare > 0) winner = f1.name;
     else if(basicCompare < 0) winner = f2.name;
     else winner = "No Advantage";

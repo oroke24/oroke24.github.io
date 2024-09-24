@@ -62,7 +62,7 @@ function findFighter2(fighter) {
 function lockInPrompt(list, fighter, slotToFill) {
     ClearChildren(list);
     const listItem = listifyFighter(fighter);
-    list.style.width = "75%";
+    list.style.width = "80%";
     list.appendChild(listItem);
     matchUp[slotToFill] = fighter;
     calculateWinner();
