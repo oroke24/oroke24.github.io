@@ -1,7 +1,8 @@
 var matchUp = [];
 var fighter1Div;
 var fighter2Div;
-var winnerDiv;
+var winnerDiv = document.createElement('div');
+var roundsDiv = document.createElement('div');
 var fighter1Search;
 var fighter2Search;
 var list1 = document.createElement('div');
@@ -14,6 +15,7 @@ document.getElementById('matchUp').addEventListener('click', async (e) => {
 });
 function findFighter1(fighter) {
     if(winnerDiv) winnerDiv.textContent = "";
+    if(roundsDiv) roundsDiv.textContent = "";
     ClearChildren(list1);
     const searchTerm = fighter.target.value.toLowerCase();
     const filteredFighters = allFightersArray.filter((item) => {
@@ -21,13 +23,15 @@ function findFighter1(fighter) {
     });
     sortByWinLossRatio(filteredFighters);
     filteredFighters.forEach((item) => {
-        const listItem = listifyFighter(item);
+        const listItem = document.createElement("li");
+        listItem.textContent = item.name;
         list1.appendChild(listItem);
     })
     if (filteredFighters.length == 1) lockInPrompt(list1, filteredFighters[0], 0);
 }
 function findFighter2(fighter) {
     if(winnerDiv) winnerDiv.textContent = "";
+    if(roundsDiv) roundsDiv.textContent = "";
     ClearChildren(list2);
     const searchTerm = fighter.target.value.toLowerCase();
     const filteredFighters = allFightersArray.filter((item) => {
@@ -35,22 +39,27 @@ function findFighter2(fighter) {
     });
     sortByWinLossRatio(filteredFighters);
     filteredFighters.forEach((item) => {
-        const listItem = listifyFighter(item);
+        const listItem = document.createElement("li");
+        listItem.textContent = item.name;
         list2.appendChild(listItem);
     })
     if (filteredFighters.length == 1) lockInPrompt(list2, filteredFighters[0], 1);
 }
 function lockInPrompt(list, fighter, slotToFill) {
+    ClearChildren(list);
+    const listItem = listifyFighter(fighter);
+    list.appendChild(listItem);
     matchUp[slotToFill] = fighter;
     calculateWinner();
 }
 function calculateWinner() {
     if (matchUp.length == 2) {
-        winnerDiv = document.createElement('div');
         let br = document.createElement('br');
         mainContent.appendChild(br);
         mainContent.appendChild(winnerDiv);
+        mainContent.appendChild(roundsDiv);
         winnerDiv.innerHTML = compareStats(matchUp[0], matchUp[1]); 
+        roundsDiv.innerHTML = simulateRound(matchUp[0], matchUp[1]);
     }
 }
 function populateMatchUpScreen() {
