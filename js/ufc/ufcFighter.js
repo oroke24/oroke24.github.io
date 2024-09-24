@@ -48,11 +48,11 @@ function listifyFighter(fighter) {
     reach.textContent = `Reach: ${fighter.reach}`;
     weight.textContent = `Weight: ${fighter.weight}`;
     age.textContent = `Born on ${fighter.age}`;
-    sigStr.textContent = `${fighter.sigStrLandPm} Sig Strikes per minute (${fighter.sigStrLandPct}% of total thrown)`;
-    dmgAndDef.textContent = `${fighter.sigStrAbsPm} Absorbed sig strikes per minute, (${fighter.sigStrDefPct}% Defended)`;
-    takedowns.textContent = `${fighter.tdAvg} avg takedowns (${fighter.tdLandPct}% of total attempted)`
-    takeDownDef.textContent = `${fighter.tdDefPct}% Opponent takedowns defended`;
-    subs.textContent = `${fighter.subAvg} Sub attempt avg, ${fighter.tdDefPct}% Opponent takedowns defended`;
+    sigStr.textContent = `${fighter.sigStrLandPm.toFixed(2)} Sig Strikes per minute (${fighter.sigStrLandPct.toFixed(0)}% of total thrown)`;
+    dmgAndDef.textContent = `${fighter.sigStrAbsPm.toFixed(2)} Absorbed sig strikes per minute, (${fighter.sigStrDefPct.toFixed(0)}% Defended)`;
+    takedowns.textContent = `${fighter.tdAvg.toFixed(2)} avg takedowns (${fighter.tdLandPct.toFixed(0)}% of total attempted)`
+    takeDownDef.textContent = `${fighter.tdDefPct.toFixed(0)}% Opponent takedowns defended`;
+    subs.textContent = `${fighter.subAvg.toFixed(1)} Sub attempt avg.`;
 
     listItem.appendChild(weight);
     listItem.appendChild(winLossRatio);

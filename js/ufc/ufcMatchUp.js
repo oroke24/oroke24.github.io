@@ -11,6 +11,10 @@ var list1 = document.createElement('div');
 var list2 = document.createElement('div');
 
 document.getElementById('matchUp').addEventListener('click', async (e) => {
+    matchUp.length = 0;
+    ClearChildren(mainContent);
+    ClearChildren(winnerDiv);
+    ClearChildren(roundsDiv);
     populateMatchUpScreen();
     ClearChildren(list1);
     ClearChildren(list2);
