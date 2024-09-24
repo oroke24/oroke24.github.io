@@ -15,7 +15,7 @@ function blockedPunches(f1, f2) {return Math.round((f2.sigStrDefPct/100) * total
 function printStandUp(f1, f2) {
     let f1LandedStrikes = Math.round(totalPunchesLanded(f1, f2));
     let f1CriticalStrikes = Math.round(f1LandedStrikes - blockedPunches(f1, f2));
-    let f1SuperCriticalStrikes = Math.round(f1CriticalStrikes / 10);
+    let f1SuperCriticalStrikes = (f1CriticalStrikes / 13);
     return`
             ${f1.name} throws ${totalPunchesThrown(f1).toFixed(0)} total strikes.<br>
             ${f1LandedStrikes.toFixed(0)} land,<br>

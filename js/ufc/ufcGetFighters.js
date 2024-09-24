@@ -1,4 +1,6 @@
 const mainContent = document.getElementById('mainContent');
+const loadingMessage = document.getElementById('loadingMessage');
+const loadingSpinner = document.getElementById('loadingSpinner');
 const list = document.createElement('ul');
 const allFightersArray = [];
 const strawweights = []; //115
@@ -15,6 +17,9 @@ getAllFighters();
 
 
 async function getAllFighters() {
+    loadingMessage.style.display = 'block';
+    loadingSpinner.style.display = 'block';
+
     //Initial Request to get totalPages
     const request = await fetch('https://ufc-api-theta.vercel.app/mma-api/fighters?page=1');
     const data = await request.json(); 
@@ -38,6 +43,8 @@ async function getAllFighters() {
         //if (i % 10 == 0) sizeOfWeightClasses();
         sortAllByWinLossRatio();
     }
+    loadingMessage.style.display = 'none';
+    loadingSpinner.style.display = 'none';
 }
 function addFighterToArray(fighter) {
     const wlRatio = (fighter.n_win / fighter.n_loss).toFixed(2);
