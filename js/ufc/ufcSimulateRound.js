@@ -18,12 +18,22 @@ function totalPunchesLanded(f1, f2) {return Math.round((totalPunchesThrown(f1)+t
 function totalTakedownsLanded(f1, f2) {
     return 
 }
-function roundToHalf(num) {return Math.round(num * 2)/2 }
-function blockedPunches(f1, f2) {return Math.round((f2.sigStrDefPct/100) * totalPunchesLanded(f1, f2)) }
+function roundToHalf(num) { return Math.round(num * 2) / 2; }
+function blockedPunches(f1, f2) { return Math.round((f2.sigStrDefPct / 100) * totalPunchesLanded(f1, f2)); }
+function totalTakedownAttempts(f) { return (f.tdAvg / 3) / (f.tdLandPct / 100); }
+function takedownNotDefendedPct(f) { return 1 - (f.tdDefPct / 100); }
+function splitDiff(a, b) { return (a + b) / 2; }
+function totalTakedowns(f1, f2) {
+    let f1TotalTakedownAttempts = totalTakedownAttempts(f1);
+    let f2TakedownNotDefendedPct = takedownNotDefendedPct(f2);
+    let splitTheDiff = splitDiff((f1.tdLandPct/100),f2TakedownNotDefendedPct);
+    let totalTakedownsCompleted = Math.round(f1TotalTakedownAttempts * splitTheDiff);
+    return totalTakedownsCompleted;
+}
 function printStandUp(f1, f2) {
     let f1LandedStrikes = Math.round(totalPunchesLanded(f1, f2));
     let f1CriticalStrikes = Math.round(f1LandedStrikes - blockedPunches(f1, f2));
-    let f1SuperCriticalStrikes = (f1CriticalStrikes / 20);
+    let f1SuperCriticalStrikes = (f1CriticalStrikes / 6);
     return`
             ${f1.name} throws ${totalPunchesThrown(f1).toFixed(0)} total strikes.<br>
             ${f1LandedStrikes.toFixed(0)} land,<br>
@@ -32,22 +42,14 @@ function printStandUp(f1, f2) {
             `
 }
 function printGroundGame(f1, f2) {
-    console.log("f1.tdAvg/3=", f1.tdAvg / 3);
-    let f1TotalTakedownAttemps = (f1.tdAvg / 3) / (f1.tdLandPct / 100);
-    let f2TakedownNotDefendedPct = 1 - (f2.tdDefPct / 100);
-    let splitTheDiff = (((f1.tdLandPct / 100) + f2TakedownNotDefendedPct) / 2);
-    console.log("split the diff:", splitTheDiff);
-    let totalTakedownsCompleted = Math.round(f1TotalTakedownAttemps * splitTheDiff);
-    console.log("f1TotalTakedownAttempts = ", f1TotalTakedownAttemps);
-    console.log("f1TotalTakedownsCompleted = ",totalTakedownsCompleted);
+    let f1TotalTakedownAttempts = totalTakedownAttempts(f1);
+    let totalTakedownsCompleted = totalTakedowns(f1,f2);
     
 
     let f1TotalSubmissionAttempts = 0;
     let f2TotalSubmissionAttempts = 0;
     let bjj = "";
     if (totalTakedownsCompleted >= 1) {
-        console.log("f1 sub attempts = ", Math.round(f1.subAvg/3));
-        console.log("f2 sub attempts = ", Math.round(f2.subAvg/3));
         f1TotalSubmissionAttempts = Math.round(f1.subAvg) / 3;
         f2TotalSubmissionAttempts = Math.round(f2.subAvg) / 3;
         bjj = `
@@ -55,9 +57,8 @@ function printGroundGame(f1, f2) {
         ${f2.name} attempts ${roundToHalf(f2TotalSubmissionAttempts).toFixed(1)} submissions.<br>
         `
     }
-
     return `
-        ${f1.name} takes ${f1TotalTakedownAttemps.toFixed(0)} shots<br>
+        ${f1.name} takes ${f1TotalTakedownAttempts.toFixed(0)} shots<br>
         completing ${totalTakedownsCompleted.toFixed(0)} takedown(s)<br>
         ${bjj}
         `

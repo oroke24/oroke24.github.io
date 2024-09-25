@@ -35,7 +35,7 @@ function compareStats(f1, f2) {
     
     return `---<br><br><br>
             --------------------------------------------------------<br>
-            Advantage goes to <strong>${winner}</strong><br><br>
+            Stat advantage goes to <strong>${winner}</strong><br><br>
 
             <strong>Misc</strong><br>
             height diff(in) = ${advantage(f1.name, f2.name, heightDiff)},<br>
