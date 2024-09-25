@@ -17,18 +17,24 @@ function compareStats(f1, f2) {
      reachDiff = f1.reach - f2.reach;
      winDiff = checkSignAndLimit(f1.wins - f2.wins);
      wlRatioDiff = checkSignAndLimit(f1.wlRatio - f2.wlRatio);
-     sspm = checkSignAndLimit(f1.sigStrLandPm - f2.sigStrLandPm);
+     sspm = f1.sigStrLandPm - f2.sigStrLandPm;
      sspct = checkSignAndLimit(f1.sigStrLandPct - f2.sigStrLandPct);
-     tdavg = checkSignAndLimit(f1.tdAvg- f2.tdAvg);
+     tdavg = f1.tdAvg- f2.tdAvg;
      tdpct = checkSignAndLimit(f1.tdLandPct - f2.tdLandPct);
-     ssabs = checkSignAndLimit(f1.sigStrAbsPm - f2.sigStrAbsPm);
+     ssabs = f1.sigStrAbsPm - f2.sigStrAbsPm;
      ssdef = checkSignAndLimit(f1.sigStrDefPct - f2.sigStrDefPct);
      tddef = checkSignAndLimit(f1.tdDefPct - f2.tdDefPct);
      subavg = checkSignAndLimit(f1.subAvg - f2.subAvg);
      if (isNaN(wlRatioDiff)) wlRatioDiff = 0;
+     let knockoutDiff = (knockOutOdds(f1, f2) - knockOutOdds(f2, f1)) * 5;
+     let adjustedHeight = heightDiff / 2;
+     let adjustedReach = (f1.reach - f2.reach)/2;
+     let adjustedSsabs = checkSignAndLimit((f1.sigStrAbsPm - f2.sigStrAbsPm)*5);
+     let adjustedSspm = checkSignAndLimit((f1.sigStrLandPm - f2.sigStrLandPm)*5);
+     let adjustedTdavg = checkSignAndLimit((f1.tdAvg- f2.tdAvg)*10);
     
     
-    let basicCompare = heightDiff + winDiff + wlRatioDiff + sspm + sspct + tdavg + tdpct + ssdef + tddef + subavg - ssabs;
+    let basicCompare = adjustedHeight + winDiff + wlRatioDiff + adjustedSspm + sspct + adjustedTdavg + tdpct + ssdef + tddef + subavg + knockoutDiff - adjustedSsabs;
     if(basicCompare > 0) winner = f1.name;
     else if(basicCompare < 0) winner = f2.name;
     else winner = "No Advantage";
@@ -57,16 +63,16 @@ function compareStats(f1, f2) {
             takedown defense diff (%) = ${advantage(f1.name, f2.name, tddef)},<br>
             submission attempt diff = ${advantage(f1.name, f2.name, subavg)}<br><br>
 
-            <strong>Total Diff</strong><br>
+            <strong>Total Diff (adjusted)</strong><br>
             ${advantage(f1.name, f2.name, basicCompare)}<br>
             --------------------------------------------------------<br><br>`;
 }
 function checkSignAndLimit(totalDiff) {
-    console.log("FirstDiff", totalDiff);
+    //console.log("FirstDiff", totalDiff);
     let newDiff = 0;
     if (totalDiff < 0) newDiff -= setValueLimit(Math.abs(totalDiff))
     else newDiff += setValueLimit(totalDiff);
-    console.log("newDiff= ", newDiff);
+    //console.log("newDiff= ", newDiff);
     return newDiff;
 }
 function setValueLimit(total) {
