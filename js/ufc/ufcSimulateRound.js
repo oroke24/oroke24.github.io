@@ -11,22 +11,37 @@ function simulateRound(f1, f2) {
             ${printGroundGame(f2,f1)}
             ---<br>
            `
-}
-function totalPunchesThrown(f1, f2) {
-
-    let total = Math.round((f1.sigStrLandPm * 5) / (f1.sigStrLandPct / 100))
+} 
+function takedownFatigue(f1, f2, total) {
     let timesTakenDown = totalTakedowns(f2,f1);
     let takedowns = totalTakedowns(f1, f2);
     for (let i = 0; i < timesTakenDown; i++) {
-        total = Math.round(total * .75);
+        total = Math.round(total * .70);
     }
     for (let i = 0; i < takedowns; i++) {
         total = Math.round(total * .85);
     }
     return total;
 }
-function totalPunchesAbsorbed(f) { return Math.round(f.sigStrAbsPm * 5)}
-function totalPunchesLanded(f1, f2) {return Math.round((totalPunchesThrown(f1, f2)+totalPunchesAbsorbed(f2))/2)}
+function totalPunchesThrown(f1, f2) {
+    let total = ((f1.sigStrLandPm) / (f1.sigStrLandPct / 100)) * 5;
+    console.log("total thrown before fatigue: ", total);
+    total = takedownFatigue(f1, f2, total);
+    console.log("total thrown after fatigue: ", total);
+    return total;
+}
+function totalPunchesAbsorbed(f1, f2) {
+    let total = Math.round(f1.sigStrAbsPm * 5);
+    console.log("total absorbed before fatigue: ", total);
+    total = takedownFatigue(f2, f1, total);
+    console.log("total absorbed after fatigue: ", total);
+    return total;
+}
+function totalPunchesLanded(f1, f2) {
+    let total = Math.round((totalPunchesThrown(f1, f2) + totalPunchesAbsorbed(f2, f1)) / 2)
+    console.log(f1.name, " punches landed: ", total);
+    return total;
+}
 function roundToHalf(num) { return Math.round(num * 2) / 2; }
 function blockedPunches(f1, f2) { return Math.round((f2.sigStrDefPct / 100) * totalPunchesLanded(f1, f2)); }
 function totalTakedownAttempts(f) { return (f.tdAvg / 3) / (f.tdLandPct / 100); }

@@ -13,7 +13,7 @@ function compareStats(f1, f2) {
     var tddef;
     var subavg;
     
-     heightDiff = f1.heightInches - f2.heightInches;
+     heightDiff = f1.heightInches - f2.heightInches??0;
      reachDiff = f1.reach - f2.reach;
      winDiff = checkSignAndLimit(f1.wins - f2.wins);
      wlRatioDiff = checkSignAndLimit(f1.wlRatio - f2.wlRatio);
@@ -62,6 +62,7 @@ function compareStats(f1, f2) {
             --------------------------------------------------------<br><br>`;
 }
 function checkSignAndLimit(totalDiff) {
+    console.log("FirstDiff", totalDiff);
     let newDiff = 0;
     if (totalDiff < 0) newDiff -= setValueLimit(Math.abs(totalDiff))
     else newDiff += setValueLimit(totalDiff);
@@ -69,7 +70,6 @@ function checkSignAndLimit(totalDiff) {
     return newDiff;
 }
 function setValueLimit(total) {
-    console.log("First", total);
     if (total <= 10) return total;
     if (total > 100) total = 100;
     
