@@ -12,12 +12,21 @@ function simulateRound(f1, f2) {
             ---<br>
            `
 }
-function totalPunchesThrown(f) {return Math.round((f.sigStrLandPm * 5) / (f.sigStrLandPct/100))}
-function totalPunchesAbsorbed(f) { return Math.round(f.sigStrAbsPm * 5)}
-function totalPunchesLanded(f1, f2) {return Math.round((totalPunchesThrown(f1)+totalPunchesAbsorbed(f2))/2)}
-function totalTakedownsLanded(f1, f2) {
-    return 
+function totalPunchesThrown(f1, f2) {
+
+    let total = Math.round((f1.sigStrLandPm * 5) / (f1.sigStrLandPct / 100))
+    let timesTakenDown = totalTakedowns(f2,f1);
+    let takedowns = totalTakedowns(f1, f2);
+    for (let i = 0; i < timesTakenDown; i++) {
+        total = Math.round(total * .75);
+    }
+    for (let i = 0; i < takedowns; i++) {
+        total = Math.round(total * .85);
+    }
+    return total;
 }
+function totalPunchesAbsorbed(f) { return Math.round(f.sigStrAbsPm * 5)}
+function totalPunchesLanded(f1, f2) {return Math.round((totalPunchesThrown(f1, f2)+totalPunchesAbsorbed(f2))/2)}
 function roundToHalf(num) { return Math.round(num * 2) / 2; }
 function blockedPunches(f1, f2) { return Math.round((f2.sigStrDefPct / 100) * totalPunchesLanded(f1, f2)); }
 function totalTakedownAttempts(f) { return (f.tdAvg / 3) / (f.tdLandPct / 100); }
@@ -35,7 +44,7 @@ function printStandUp(f1, f2) {
     let f1CriticalStrikes = Math.round(f1LandedStrikes - blockedPunches(f1, f2));
     let f1SuperCriticalStrikes = (f1CriticalStrikes / 6);
     return`
-            ${f1.name} throws ${totalPunchesThrown(f1).toFixed(0)} total strikes.<br>
+            ${f1.name} throws ${totalPunchesThrown(f1,f2).toFixed(0)} total strikes.<br>
             ${f1LandedStrikes.toFixed(0)} land,<br>
             ${f1CriticalStrikes.toFixed(0)} are unblocked (critical strikes),<br>
             ${Math.ceil(f1SuperCriticalStrikes.toFixed(1))} with KO potential!<br>
