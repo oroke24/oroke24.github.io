@@ -20,45 +20,11 @@ document.getElementById('matchUp').addEventListener('click', async (e) => {
     ClearChildren(list2);
     fighter1Search.value = "";
     fighter2Search.value = "";
-    fighter1Search.addEventListener("input", findFighter1);
-    fighter2Search.addEventListener("input", findFighter2);
+    fighter1Search.addEventListener("click", fighter1Search.focus());
+    fighter2Search.addEventListener("click", fighter2Search.focus());
+    fighter1Search.addEventListener("input", (fighter) => findFighter(fighter1Search, list1, fighter, 0));
+    fighter2Search.addEventListener("input", (fighter) => findFighter(fighter2Search, list2, fighter, 1));
 });
-function findFighter1(fighter) {
-    if(winnerDiv) winnerDiv.textContent = "";
-    if(roundsDiv) roundsDiv.textContent = "";
-    ClearChildren(list1);
-    list1.style.margin = "0 auto";
-
-    const searchTerm = fighter.target.value.toLowerCase();
-    const filteredFighters = allFightersArray.filter((item) => {
-        return item.name.toLowerCase().includes(searchTerm)
-    });
-    sortByWinLossRatio(filteredFighters);
-    filteredFighters.forEach((item) => {
-        const listItem = document.createElement("li");
-        listItem.textContent = item.name;
-        list1.appendChild(listItem);
-    })
-    if (filteredFighters.length == 1) lockInPrompt(list1, filteredFighters[0], 0);
-}
-function findFighter2(fighter) {
-    if(winnerDiv) winnerDiv.textContent = "";
-    if(roundsDiv) roundsDiv.textContent = "";
-    ClearChildren(list2);
-    list2.style.margin = "0 auto";
-
-    const searchTerm = fighter.target.value.toLowerCase();
-    const filteredFighters = allFightersArray.filter((item) => {
-        return item.name.toLowerCase().includes(searchTerm)
-    });
-    sortByWinLossRatio(filteredFighters);
-    filteredFighters.forEach((item) => {
-        const listItem = document.createElement("li");
-        listItem.textContent = item.name;
-        list2.appendChild(listItem);
-    })
-    if (filteredFighters.length == 1) lockInPrompt(list2, filteredFighters[0], 1);
-}
 function lockInPrompt(list, fighter, slotToFill) {
     ClearChildren(list);
     const listItem = listifyFighter(fighter);
@@ -76,6 +42,26 @@ function calculateWinner() {
         winnerDiv.innerHTML = compareStats(matchUp[0], matchUp[1]); 
         roundsDiv.innerHTML = simulateRound(matchUp[0], matchUp[1]);
     }
+}
+function findFighter(fighterSearch, list, fighter, slot) {
+    if(winnerDiv) winnerDiv.textContent = "";
+    if(roundsDiv) roundsDiv.textContent = "";
+    ClearChildren(list);
+    list.style.margin = "0 auto";
+
+    const searchTerm = fighter.target.value.toLowerCase();
+    const filteredFighters = allFightersArray.filter((item) => {
+        return item.name.toLowerCase().includes(searchTerm)
+    });
+    sortByWinLossRatio(filteredFighters);
+    filteredFighters.forEach((item) => {
+        const listItem = document.createElement("li");
+        listItem.textContent = item.name;
+        listItem.style.cursor = "pointer";
+        listItem.addEventListener("click", () => { fighterSearch.value = item.name; fighterSearch.dispatchEvent(new Event('input')); });
+        list.appendChild(listItem);
+    })
+    if (filteredFighters.length == 1) lockInPrompt(list, filteredFighters[0], slot);
 }
 function populateMatchUpScreen() {
     ClearChildren(mainContent);

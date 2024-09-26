@@ -79,6 +79,8 @@ function printGroundGame(f1, f2) {
     let f1TotalSubmissionAttempts = 0;
     let f2TotalSubmissionAttempts = 0;
     let bjj = "";
+
+    if (isNaN(f1TotalTakedownAttempts)) f1TotalTakedownAttempts = 0;
         
     if (totalTakedownsCompleted >= 1) {
         f1TotalSubmissionAttempts = Math.ceil(f1.subAvg) / 3;

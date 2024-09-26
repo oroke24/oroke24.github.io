@@ -1,10 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\js",
-    "\\js\\ufc",
     "\\ufc"
   ],
-  "SelectedNode": "\\js\\ufc\\ufcGetFighters.js",
+  "SelectedNode": "\\ufc\\index.html",
   "PreviewInSolutionExplorer": false
 }
