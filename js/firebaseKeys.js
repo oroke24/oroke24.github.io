@@ -1,5 +1,6 @@
 let keyValue = "no key yet";
 function findMyKey(keyName) {
+	console.log("inside findMyKey");
 	return db.collection('keys').get()
 		.then(snapshot => {
 			snapshot.forEach(doc => {
