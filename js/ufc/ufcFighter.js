@@ -44,9 +44,9 @@ function listifyFighter(fighter) {
     
     listItem.textContent = fighter.name;
     winLossRatio.textContent = `${fighter.wins}-${fighter.losses}-${fighter.draws}, ${fighter.wlRatio} W/L`;
+    weight.textContent = `Weight: ${fighter.weight}`;
     height.textContent = `Height: ${fighter.height}`;
     reach.textContent = `Reach: ${fighter.reach}`;
-    weight.textContent = `Weight: ${fighter.weight}`;
     age.textContent = `Born on ${fighter.age}`;
     sigStr.textContent = `${fighter.sigStrLandPm.toFixed(2)} Sig Strikes per minute (${fighter.sigStrLandPct.toFixed(0)}% of total thrown)`;
     dmgAndDef.textContent = `${fighter.sigStrAbsPm.toFixed(2)} Absorbed sig strikes per minute, (${fighter.sigStrDefPct.toFixed(0)}% Defended)`;
@@ -54,8 +54,8 @@ function listifyFighter(fighter) {
     takeDownDef.textContent = `${fighter.tdDefPct.toFixed(0)}% Opponent takedowns defended`;
     subs.textContent = `${fighter.subAvg.toFixed(1)} Sub attempt avg.`;
 
-    listItem.appendChild(weight);
     listItem.appendChild(winLossRatio);
+    listItem.appendChild(weight);
     listItem.appendChild(height);
     listItem.appendChild(reach);
     listItem.appendChild(age);

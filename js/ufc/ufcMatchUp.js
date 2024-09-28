@@ -5,6 +5,7 @@ var fighter1List;
 var fighter2List;
 var winnerDiv = document.createElement('div');
 var roundsDiv = document.createElement('div');
+var predictionDiv = document.createElement('div');
 var fighter1Search;
 var fighter2Search;
 var list1 = document.createElement('div');
@@ -15,6 +16,7 @@ document.getElementById('matchUp').addEventListener('click', async (e) => {
     ClearChildren(mainContent);
     ClearChildren(winnerDiv);
     ClearChildren(roundsDiv);
+    ClearChildren(predictionDiv);
     populateMatchUpScreen();
     ClearChildren(list1);
     ClearChildren(list2);
@@ -25,27 +27,33 @@ document.getElementById('matchUp').addEventListener('click', async (e) => {
     fighter1Search.addEventListener("input", (fighter) => findFighter(fighter1Search, list1, fighter, 0));
     fighter2Search.addEventListener("input", (fighter) => findFighter(fighter2Search, list2, fighter, 1));
 });
-function lockInPrompt(list, fighter, slotToFill) {
+async function lockInPrompt(list, fighter, slotToFill) {
     ClearChildren(list);
     const listItem = listifyFighter(fighter);
     list.style.width = "80%";
     list.appendChild(listItem);
     matchUp[slotToFill] = fighter;
-    calculateWinner();
+    predictionDiv.innerHTML = `FightAI <strong>predictor</strong> is thinking. . .`;
+    await calculateWinner();
 }
-function calculateWinner() {
+async function calculateWinner() {
     if (matchUp.length == 2) {
         let br = document.createElement('br');
         mainContent.appendChild(br);
         mainContent.appendChild(winnerDiv);
         mainContent.appendChild(roundsDiv);
+        mainContent.appendChild(predictionDiv);
+        winnerDiv.style.display = "inline-block";
+        winnerDiv.style.margin = "0 auto";
         winnerDiv.innerHTML = compareStats(matchUp[0], matchUp[1]); 
         roundsDiv.innerHTML = simulateRound(matchUp[0], matchUp[1]);
+        predictionDiv.innerHTML = await predictFight(matchUp[0], matchUp[1], winnerDiv.innerHTML, roundsDiv.innerHTML);
     }
 }
 function findFighter(fighterSearch, list, fighter, slot) {
     if(winnerDiv) winnerDiv.textContent = "";
     if(roundsDiv) roundsDiv.textContent = "";
+    if(predictionDiv) predictionDiv.textContent = "";
     ClearChildren(list);
     list.style.margin = "0 auto";
 
