@@ -1,10 +1,11 @@
 {
   "ExpandedNodes": [
     "",
+    "\\ai",
     "\\js",
-    "\\js\\ufc",
+    "\\js\\firebase",
     "\\ufc"
   ],
-  "SelectedNode": "\\js\\ufc\\ufcPredictFight.js",
+  "SelectedNode": "\\ufc\\index.html",
   "PreviewInSolutionExplorer": false
 }

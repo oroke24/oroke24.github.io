@@ -43,6 +43,10 @@ function processResponse(str) {
             result += `<br><br>`;
             i++;
         }
+        else if (str.slice(i, i + 3) === `**`) {
+            result += `<br>`;
+            i++;
+        }
         else result += str[i];
     }
     return result;
