@@ -50,7 +50,7 @@ body, ul, li, p, a, label, input, div {
 }
 /* General */
 .logo { font-weight: 500 !important;}
-.text-warning {  color: #ede861 !important;}
+.text-warning {  color: #ff00ff88 !important;}
 .text-muted { color: #bcbcbc !important;}
 .text-success { color: #ff00ff88 !important;}
 .text-light { color: #cfd6e1 !important;}
@@ -71,7 +71,7 @@ body, ul, li, p, a, label, input, div {
 #templatemo_nav_top { min-height: 40px;}
 #templatemo_nav_top * { font-size: .9em !important;}
 #templatemo_main_nav a { color: #212934;}
-#templatemo_main_nav a:hover { color: #69bb7e;}
+#templatemo_main_nav a:hover { color: #ff00ff88;}
 #templatemo_main_nav .navbar .nav-icon { margin-right: 20px;}
 
 /* Hero Carousel */
@@ -80,7 +80,7 @@ body, ul, li, p, a, label, input, div {
 .templatemo-accordion a { color: #000;}
 .templatemo-accordion a:hover { color: #333d4a;}
 /* Shop */
-.shop-top-menu a:hover { color: #69bb7e !important;}
+.shop-top-menu a:hover { color: #ff00ff88 !important;}
 /* Product */
 .product-wap { box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.10);}
 .product-wap .product-color-dot.color-dot-red { background:#f71515;}

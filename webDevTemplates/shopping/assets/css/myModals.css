@@ -1,0 +1,99 @@
+ #registerModal {
+     display: none; /* Hidden by default */
+     position: fixed;
+     z-index: 1;
+     left: 0;
+     top: 0;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(0, 0, 0, 0.5); /* Black overlay */
+     justify-content: center;
+     align-items: center;
+ }
+
+ #loginModal {
+     display: none; /* Hidden by default */
+     position: fixed;
+     z-index: 1;
+     left: 0;
+     top: 0;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(0, 0, 0, 0.5); /* Black overlay */
+     justify-content: center;
+     align-items: center;
+ }
+
+ #registerContainer {
+     background-color: #fff;
+     padding: 30px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     border-radius: 8px;
+     width: 300px;
+     text-align: center;
+ }
+ #loginContainer {
+     background-color: #fff;
+     padding: 30px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     border-radius: 8px;
+     width: 300px;
+     text-align: center;
+ }
+
+ input[type="text"], input[type="password"] {
+     width: 100%;
+     padding: 10px;
+     margin: 10px 0;
+     border: 1px solid #ddd;
+     border-radius: 4px;
+ }
+
+ button {
+     width: 100%;
+     padding: 10px;
+     margin: 5px;
+     background-color: #4CAF50;
+     color: white;
+     border: none;
+    <link rel="stylesheet" href="assets/css/templatemo.css">
+     border-radius: 4px;
+     cursor: pointer;
+ }
+
+ button:hover {
+     background-color: #45a049;
+ }
+
+ .error {
+     color: red;
+     margin-top: 10px;
+ }
+
+ /* Close Button */
+ .close {
+     position: absolute;
+     top: 10px;
+     right: 10px;
+     font-size: 25px;
+     color: #aaa;
+     cursor: pointer;
+ }
+
+ .close:hover {
+     color: black;
+ }
+
+ /* Button to open modal */
+ #loginButton {
+     padding: 10px 20px;
+     background-color: #007BFF;
+     color: white;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+ }
+
+ #loginButton:hover {
+     background-color: #0056b3;
+ }

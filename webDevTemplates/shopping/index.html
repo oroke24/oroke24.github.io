@@ -10,12 +10,18 @@
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/templatemo.css">
     <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="assets/css/myModals.css">
+    <link rel="stylesheet" href="assets/css/templatemo.css">
 
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+
+    <!--Linking Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 <!--
     
 TemplateMo 559 Zay Shop
@@ -91,11 +97,11 @@ https://templatemo.com/tm-559-zay-shop
                     </a>
                     <a class="nav-icon position-relative text-decoration-none" href="#">
                         <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
+                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
                     </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
+                    <a class="nav-icon position-relative text-decoration-none" href="#" data-bs-target="#loginContainer" id="userButton">
                         <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>
+                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
                     </a>
                 </div>
             </div>
@@ -120,8 +126,36 @@ https://templatemo.com/tm-559-zay-shop
             </form>
         </div>
     </div>
-
-
+     <!-- login modal -->
+   <div id="loginModal">
+    <div id="loginContainer">
+        <span class="close" id="closeLoginModal">&times;</span>
+        <h2>Login</h2>
+        <label for="username">Username:</label>
+        <input type="text" id="username" placeholder="Enter username">
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Enter password">
+        <button id="submitLogin">Login</button>
+        <button id="submitRegister">Don't have an account?</button>
+        <div class="error" id="errorLoginMessage"></div>
+    </div>
+   </div>
+    <!-- End login modal -->
+    <!-- register modal -->
+   <div id="registerModal">
+    <div id="registerContainer">
+        <span class="close" id="closeRegisterModal">&times;</span>
+        <h2>register</h2>
+        <label for="email">Email:</label>
+        <input type="text" id="email" placeholder="Enter email">
+        <label for="password">Password:</label>
+        <input type="password" id="newPassword" placeholder="Enter password">
+        <input type="password" id="correctPassword" placeholder="Enter password again">
+        <button id="submit">register</button>
+        <div class="error" id="errorRegisterMessage"></div>
+    </div>
+   </div>
+    <!-- End register modal -->
 
     <!-- Start Banner Hero -->
     <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
@@ -320,7 +354,8 @@ https://templatemo.com/tm-559-zay-shop
         </div>
     </section>
     <!-- End Featured Product -->
-
+     <div id="loginModal">
+   
 
     <!-- Start Footer -->
     <footer class="bg-dark" id="tempaltemo_footer">
@@ -422,6 +457,13 @@ https://templatemo.com/tm-559-zay-shop
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/templatemo.js"></script>
     <script src="assets/js/custom.js"></script>
+    <script src="assets/js/modals/login.js"></script>
+    <script src="assets/js/modals/register.js"></script>
+    <script src="assets/js/firebase/firebaseConnect.js"></script>
+    <script src="assets/js/firebase/login.js"></script>
+    <script src="assets/js/firebase/register.js"></script>
+    <script src="assets/js/firebase/attachObserver.js"></script>
+
     <!-- End Script -->
 </body>
 
