@@ -29,6 +29,7 @@ const errorMessage = document.getElementById('errorLoginMessage');
 const usernameInput = document.getElementById('username');
 const passwordInput = document.getElementById('password');
 const startRegistrationButton = document.getElementById('submitRegister');
+const resendVerificationButton = document.getElementById('resendVerificationButton');
 
 // Step 2: Open the modal
 loginButton.addEventListener('click', function() {
@@ -57,13 +58,24 @@ submitLogin.addEventListener('click', function(event) {
     // Simple validation
     if (username === '' || password === '') {
         errorMessage.textContent = 'Please fill in both fields.';
-    }else if(!login(username, password)) {
-        errorMessage.textContent = 'User not found.';
     }else{
-        errorMessage.textContent = ''; // Clear the error message
-        alert('Login successful!');
-		console.log("login successful");
-        loginModal.style.display = 'none'; // Close the modal on success
+        login(username, password)
+        .then((success) => {
+            if(success){
+                errorMessage.textContent = '';
+                alert('Login successful!');
+                console.log("login successful");
+                loginModal.style.display = 'none';
+            }else{
+                resendVerificationButton.style.display = 'inline-block';
+                errorMessage.textContent = 'try again (make sure email verified)';
+
+            }
+        })
+        .catch((error) => {
+            errorMessage.textContent = 'An error occurred during login.';
+            console.error("Error during login:", error);
+        })
     }
 });
 submitRegister.addEventListener('click', function(event){
@@ -71,4 +83,21 @@ submitRegister.addEventListener('click', function(event){
     loginModal.style.display = 'none';
     registerModal.style.display = 'flex';
     
+});
+
+resendVerificationButton.addEventListener('click', function() {
+    const user = firebase.auth().currentUser; // Get the current logged-in user
+    
+    if (user) {
+        // Send a new verification email
+        user.sendEmailVerification()
+        .then(() => {
+            alert('A new verification email has been sent. Please check your inbox!');
+            console.log('Verification email resent.');
+        })
+        .catch((error) => {
+            console.error('Error resending verification email: ', error);
+            alert('An error occurred while sending the verification email.');
+        });
+    }
 });
