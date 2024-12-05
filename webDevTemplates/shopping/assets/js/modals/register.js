@@ -29,6 +29,13 @@ const errorRegisterMessage = document.getElementById('errorRegisterMessage');
 const emailInput = document.getElementById('email');
 const newPasswordInput = document.getElementById('newPassword');
 const correctPasswordInput = document.getElementById('correctPassword');
+const backButton = document.getElementById('backButton');
+
+//Backbutton
+backButton.addEventListener('click', function(){
+    registerModal.style.display = 'none';
+    loginModal.style.display = 'flex';
+});
 
 // Step 2: Open the modal
 registerButton.addEventListener('click', function() {
@@ -60,12 +67,8 @@ submit.addEventListener('click', function(event) {
         errorRegisterMessage.textContent = 'Fields cannot be blank'    
     }else if (checkPass != password) {
         errorRegisterMessage.textContent = 'passwords must match.';
-    }else if(!register(username, password)) {
-        errorRegisterMessage.textContent = 'Error adding user.';
     }else{
+        register(username, password);
         errorRegisterMessage.textContent = ''; // Clear the error message
-        alert('register successful!');
-		console.log("register successful");
-        registerModal.style.display = 'none'; // Close the modal on success
     }
 });

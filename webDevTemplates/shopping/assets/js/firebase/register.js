@@ -7,6 +7,7 @@ async function register(email, password){
 		.then(() => {
 			alert("Check Email for link (resets in 24hrs)");
 			console.log("Sign up successful, verification email sent.");
+			registerModal.style.display = 'none'; // Close the modal on success
 			return true;
 		}).catch((error) => {
 			console.log("Error sending verification email: ", error.message);
@@ -16,7 +17,8 @@ async function register(email, password){
 	.catch((error) => {
 	    var errorCode = error.code;
 	    var errorMessage = error.message;
-		console.log(email, " already registered.");
+		console.log(email, ":", errorMessage);
+		alert(errorMessage);
 		return false;
 	    // ..
 	});

@@ -3,7 +3,7 @@ function login(email, password){
         .then((userCredential) => {
 			// Signed in
 			var user = userCredential.user;
-			console.log("user exists");
+			console.log("email exists");
         
         if(user.emailVerified){
             console.log("Email is verified.");
@@ -11,15 +11,14 @@ function login(email, password){
             return true;
         }else{
             console.log("Email not verified.");
-            alert("Email is not verified. Please check email for verification link.")
+            resendVerificationButton.style.display = 'inline-block';
+            errorMessage.textContent = 'Email is not verified. Please check email for verification link.';
             return false;
         }
     // ...
         })
   .catch((error) => {
-    var errorCode = error.code;
-    var errorMessage = error.message;
-	console.log("login unsuccessful");
+    alert("Incorrect Email/Password");
     return false;
   });
 }

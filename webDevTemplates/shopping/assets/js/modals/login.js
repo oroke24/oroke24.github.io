@@ -8,9 +8,10 @@
     <div id="loginContainer">
         <span class="close" id="closeModal">&times;</span>
         <h2>Login</h2>
-        <label for="username">Username:</label>
-        <input type="text" id="username" placeholder="Enter username">
+        <label for="email">email:</label>
+        <input type="text" id="email" placeholder="Enter email">
         <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Enter password">
         <input type="password" id="password" placeholder="Enter password">
         <button id="submitLogin">Login</button>
         <div class="error" id="errorMessage"></div>
@@ -26,14 +27,25 @@ const loginModal = document.getElementById('loginModal');
 const closeModal = document.getElementById('closeLoginModal');
 const submitLogin = document.getElementById('submitLogin');
 const errorMessage = document.getElementById('errorLoginMessage');
-const usernameInput = document.getElementById('username');
+const emailLoginInput = document.getElementById('loginEmail');
 const passwordInput = document.getElementById('password');
 const startRegistrationButton = document.getElementById('submitRegister');
 const resendVerificationButton = document.getElementById('resendVerificationButton');
 
-// Step 2: Open the modal
+// Step 2: Handle userbutton clicked logic
 loginButton.addEventListener('click', function() {
-    loginModal.style.display = 'flex';
+    const uid = localStorage.getItem('userUID');
+    //console.log("uid: ", uid);
+    if(uid){
+        //already logged in
+        window.location.href = 'profile.html';
+    }
+    else{
+        //proceed to login
+        loginModal.style.display = 'flex';
+		resendVerificationButton.style.display = 'none';
+		errorMessage.textContent = '';
+    }
 });
 
 // Step 3: Close the modal when the user clicks the close button
@@ -52,14 +64,14 @@ window.addEventListener('click', function(event) {
 submitLogin.addEventListener('click', function(event) {
     event.preventDefault(); // Prevent the form from submitting
         
-    const username = usernameInput.value;
+    const email = emailLoginInput.value;
     const password = passwordInput.value;
 
     // Simple validation
-    if (username === '' || password === '') {
+    if (email === '' || password === '') {
         errorMessage.textContent = 'Please fill in both fields.';
     }else{
-        login(username, password)
+        login(email, password)
         .then((success) => {
             if(success){
                 errorMessage.textContent = '';
@@ -67,8 +79,7 @@ submitLogin.addEventListener('click', function(event) {
                 console.log("login successful");
                 loginModal.style.display = 'none';
             }else{
-                resendVerificationButton.style.display = 'inline-block';
-                errorMessage.textContent = 'try again (make sure email verified)';
+                //errorMessage.textContent = 'Try again';
 
             }
         })
@@ -78,6 +89,7 @@ submitLogin.addEventListener('click', function(event) {
         })
     }
 });
+//Step 6: handle registration 
 submitRegister.addEventListener('click', function(event){
     event.preventDefault();// prevent the form from submitting
     loginModal.style.display = 'none';
@@ -85,6 +97,7 @@ submitRegister.addEventListener('click', function(event){
     
 });
 
+//Step 7: handle resend link option
 resendVerificationButton.addEventListener('click', function() {
     const user = firebase.auth().currentUser; // Get the current logged-in user
     

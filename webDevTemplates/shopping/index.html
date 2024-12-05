@@ -81,6 +81,9 @@ https://templatemo.com/tm-559-zay-shop
                         <li class="nav-item">
                             <a class="nav-link" href="contact.html">Contact</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="logoutButton" style="display:none;" href="index.html">Logout</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="navbar align-self-center d-flex">
@@ -131,8 +134,8 @@ https://templatemo.com/tm-559-zay-shop
     <div id="loginContainer">
         <span class="close" id="closeLoginModal">&times;</span>
         <h2>Login</h2>
-        <label for="username">Username:</label>
-        <input type="text" id="username" placeholder="Enter username">
+        <label for="loginEmail">Email:</label>
+        <input type="text" id="loginEmail" placeholder="Enter email">
         <label for="password">Password:</label>
         <input type="password" id="password" placeholder="Enter password">
         <button id="submitLogin">Login</button>
@@ -145,6 +148,7 @@ https://templatemo.com/tm-559-zay-shop
     <!-- register modal -->
    <div id="registerModal">
     <div id="registerContainer">
+        <i id="backButton" style="color:#000;"class="fa fa-arrow-left"></i>
         <span class="close" id="closeRegisterModal">&times;</span>
         <h2>register</h2>
         <label for="email">Email:</label>
@@ -464,6 +468,7 @@ https://templatemo.com/tm-559-zay-shop
     <script src="assets/js/firebase/login.js"></script>
     <script src="assets/js/firebase/register.js"></script>
     <script src="assets/js/firebase/attachObserver.js"></script>
+    <script src="assets/js/firebase/logout.js"></script>
 
     <!-- End Script -->
 </body>
