@@ -26,7 +26,11 @@ Table of contents
 --------------------------------------------- */
 
 
-
+/*uncomment this part to see all the borders (for editing)
+div{
+    border: 2px solid #FF0000;
+}
+*/
 
 /* Typography */
 body, ul, li, p, a, label, input, div {
@@ -34,6 +38,18 @@ body, ul, li, p, a, label, input, div {
   font-size: 18px !important;
   font-weight: 300 !important;
 }
+ button {
+     padding: 10px;
+     margin: 5px;
+     background-color: #05c3dd88;
+     color: white;
+     border: #ff00ff88;
+     border-radius: 15px;
+     cursor: pointer;
+ }
+ button:hover {
+     background-color: #05c3dd;
+ }
 .h1 {
   font-family: 'Roboto', sans-serif;
   font-size: 48px !important;
@@ -55,12 +71,12 @@ body, ul, li, p, a, label, input, div {
 .text-success { color: #ff00ff88 !important;}
 .text-light { color: #cfd6e1 !important;}
 .bg-dark { background-color: #212934 !important;}
-.bg-light { background-color: #05c3dd !important;}
+.bg-light { background-color: #05c3dd55 !important;}
 .bg-black { background-color: #1d242d !important;}
 .bg-success { background-color: #05c3dd !important;}
 .btn-success {
-  background-color: #59ab6e !important;
-  border-color: #56ae6c !important;
+  background-color: #ff00ff55 !important;
+  border-color: #ff00ff88 !important;
 }
 .pagination .page-link:hover {color: #000;}
 .pagination .page-link:hover, .pagination .page-link.active {
@@ -117,11 +133,11 @@ body, ul, li, p, a, label, input, div {
 /* Carousel Hero */
 #template-mo-zay-hero-carousel .carousel-indicators li {
   margin-top: -50px;
-  background-color: #59ab6e;
+  background-color: #05c3dd;
 }
 #template-mo-zay-hero-carousel .carousel-control-next i,
 #template-mo-zay-hero-carousel .carousel-control-prev i {
-  color: #59ab6e !important;
+  color: #05c3dd !important;
   font-size: 2.8em !important;
 }
 /* Carousel Brand */
@@ -138,7 +154,7 @@ body, ul, li, p, a, label, input, div {
 .form-control { border: 1px solid #e8e8e8;}
 /* Footer */
 #tempaltemo_footer a { color: #dcdde1;}
-#tempaltemo_footer a:hover { color: #68bb7d;}
+#tempaltemo_footer a:hover { color: #05c3dd;}
 #tempaltemo_footer ul.footer-link-list li { padding-top: 10px;}
 #tempaltemo_footer ul.footer-icons li {
   width: 2.6em;

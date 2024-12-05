@@ -1,6 +1,15 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\webDevTemplates",
+    "\\webDevTemplates\\shopping",
+    "\\webDevTemplates\\shopping\\assets",
+    "\\webDevTemplates\\shopping\\assets\\css",
+    "\\webDevTemplates\\shopping\\assets\\js",
+    "\\webDevTemplates\\shopping\\assets\\js\\firebase",
+    "\\webDevTemplates\\shopping\\assets\\js\\items",
+    "\\webDevTemplates\\shopping\\assets\\js\\profile"
   ],
+  "SelectedNode": "\\webDevTemplates\\shopping\\assets\\css\\profile.css",
   "PreviewInSolutionExplorer": false
 }
