@@ -20,6 +20,10 @@
 
 END USE CASE EXAMPLE*/
 
+//step 0: on startup check for user
+const uid = localStorage.getItem('userUID');
+if(uid) logoutButton.style.display = 'inline-block';
+
 
 // Step 1: Get elements
 const loginButton = document.getElementById('userButton');
@@ -33,12 +37,15 @@ const startRegistrationButton = document.getElementById('submitRegister');
 const resendVerificationButton = document.getElementById('resendVerificationButton');
 
 // Step 2: Handle userbutton clicked logic
-loginButton.addEventListener('click', function() {
+loginButton.addEventListener('click', async function() {
     const uid = localStorage.getItem('userUID');
     //console.log("uid: ", uid);
     if(uid){
         //already logged in
-        window.location.href = 'profile.html';
+        const isAdmin = await checkAdminStatus(uid);
+        console.log("isAdmin = ", isAdmin);
+        if(isAdmin) window.location.href = 'admin/index.html'; //send to admin page
+        else window.location.href = 'profile.html'; //send to profile page
     }
     else{
         //proceed to login
@@ -75,9 +82,10 @@ submitLogin.addEventListener('click', function(event) {
         .then((success) => {
             if(success){
                 errorMessage.textContent = '';
-                alert('Login successful!');
+                //alert('Login successful!');
                 console.log("login successful");
                 loginModal.style.display = 'none';
+                window.location.href = 'index.html';
             }else{
                 //errorMessage.textContent = 'Try again';
 

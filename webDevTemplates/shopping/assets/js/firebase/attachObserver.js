@@ -3,7 +3,7 @@ function attachObserver(user){
         if (user) {
 			// User is signed in, see docs for a list of available properties
 			// https://firebase.google.com/docs/reference/js/v8/firebase.User
-			logoutButton.style.display = 'inline-block';
+			//logoutButton.style.display = 'inline-block';
 			var uid = user.uid;
 			console.log("uid: ", uid);
 			localStorage.setItem('userUID', uid);//when retrieving, use: localStorage.getItem('userUID');

@@ -10,7 +10,6 @@
     <link rel="shortcut icon" type="../image/x-icon" href="../assets/img/favicon.ico">
 
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../assets/css/loginModal.css">
     <link rel="stylesheet" href="../assets/css/custom.css">
 
     <!-- Load fonts style after rendering the layout styles -->
@@ -20,6 +19,7 @@
       <!--Linking Firebase-->
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
 <!--
 TemplateMo 559 Zay Shop
 
@@ -29,19 +29,8 @@ https://templatemo.com/tm-559-zay-shop
 </head>
 
 <body>
+  <h1>Welcome to the admin area!</h1>
   <div id="root"></div> 
-  <button id="loginButton">Login</button>
-  <div id="loginModal">
-    <div id="loginContainer">
-        <span class="close" id="closeModal">&times;</span>
-        <h2>Login</h2>
-        <label for="username">Username:</label>
-        <input type="text" id="username" placeholder="Enter username">
-        <label for="password">Password:</label>
-        <input type="password" id="password" placeholder="Enter password">
-        <button id="submitLogin">Login</button>
-        <div class="error" id="errorMessage"></div>
-    </div>
 </div>
 
     <!-- Start Script -->
@@ -50,12 +39,15 @@ https://templatemo.com/tm-559-zay-shop
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/js/templatemo.js"></script>
     <script src="../assets/js/custom.js"></script>
-    <script src="../assets/js/modals/login.js"></script>
     <script src="../assets/js/firebase/firebaseConnect.js"></script>
-    <script src="../assets/js/firebase/login.js"></script>
-    <script src="../assets/js/firebase/registerUser.js"></script>
     <script src="../assets/js/firebase/attachObserver.js"></script>
-    <script src="../assets/js/pages/loginpage.js"></script>
+    <script src="../assets/js/firebase/getAllFromInventory.js"></script>
+    <script src="../assets/js/firebase/addNew.js"></script>
+    <script src="../assets/js/uiElements/createToggleDropdown.js"></script>
+    <script src="../assets/js/uiElements/dropDownArea.js"></script>
+    <script src="../assets/js/items/item.js"></script>
+    <script src="js/mainMenuDiv.js"></script>
+    <script src="js/main.js"></script>
     <!-- End Script -->
 </body>
 

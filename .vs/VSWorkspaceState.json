@@ -1,15 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\webDevTemplates",
     "\\webDevTemplates\\shopping",
-    "\\webDevTemplates\\shopping\\assets",
-    "\\webDevTemplates\\shopping\\assets\\css",
-    "\\webDevTemplates\\shopping\\assets\\js",
-    "\\webDevTemplates\\shopping\\assets\\js\\firebase",
-    "\\webDevTemplates\\shopping\\assets\\js\\items",
-    "\\webDevTemplates\\shopping\\assets\\js\\profile"
+    "\\webDevTemplates\\shopping\\admin",
+    "\\webDevTemplates\\shopping\\assets\\js\\items"
   ],
-  "SelectedNode": "\\webDevTemplates\\shopping\\assets\\css\\profile.css",
+  "SelectedNode": "\\business_plan.pdf",
   "PreviewInSolutionExplorer": false
 }
