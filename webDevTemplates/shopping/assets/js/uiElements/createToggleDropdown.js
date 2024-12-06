@@ -1,4 +1,4 @@
-function createToggleDropdown(name) {
+function createToggleDropdown(name, buttonName) {
     // Create the dropdown div element
     const dropdownDiv = document.createElement('div');
     dropdownDiv.classList.add('dropdown', 'w-100');
@@ -7,7 +7,7 @@ function createToggleDropdown(name) {
     const button = document.createElement('button');
     button.classList.add('btn', 'btn-secondary', 'dropdown-toggle', 'w-100');
     button.type = 'button';
-    button.id = 'dropdownToggleButton';
+    button.id = `${buttonName}`;
     button.setAttribute('aria-expanded', 'false');
     button.textContent = name;
 

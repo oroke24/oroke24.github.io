@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/custom.css">
+    <link rel="stylesheet" href="../assets/css/myModals.css">
 
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
@@ -33,6 +34,23 @@ https://templatemo.com/tm-559-zay-shop
   <div id="root"></div> 
 </div>
 
+<!-- editItem modal -->
+<div id="editItemModal">
+ <div id="editItemContainer">
+     <span class="close" id="closeEditItemModal">&times;</span>
+     <h2>editItem</h2>
+     <label for="name">Name:</label>
+     <input type="text" id="name" placeholder="Enter name">
+     
+     <label for="password">Password:</label>
+     <input type="password" id="password" placeholder="Enter password">
+
+     <button id="saveButton">Save Item</button>
+     <div class="error" id="editItemErrorMessage"></div>
+ </div>
+</div>
+<!-- End editItem modal -->
+
     <!-- Start Script -->
     <script src="../assets/js/jquery-1.11.0.min.js"></script>
     <script src="../assets/js/jquery-migrate-1.2.1.min.js"></script>
@@ -45,8 +63,9 @@ https://templatemo.com/tm-559-zay-shop
     <script src="../assets/js/firebase/addNew.js"></script>
     <script src="../assets/js/uiElements/createToggleDropdown.js"></script>
     <script src="../assets/js/uiElements/dropDownArea.js"></script>
+    <script src="../assets/js/uiElements/createButton.js"></script>
+    <script src="../assets/js/modals/editItem.js"></script>
     <script src="../assets/js/items/item.js"></script>
-    <script src="js/mainMenuDiv.js"></script>
     <script src="js/main.js"></script>
     <!-- End Script -->
 </body>

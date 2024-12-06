@@ -1,26 +1,37 @@
-const rootDiv = document.getElementById('root');
-const dropdownDiv1 = createToggleDropdown("Items for sale");
-const div1group1 = dropDownArea();
-//const items = getAllFromInventory();
-//rootDiv.appendChild(mainMenu());
-rootDiv.appendChild(dropdownDiv1);
-dropdownDiv1.appendChild(div1group1);    
+document.addEventListener('DOMContentLoaded', () =>{
+	const rootDiv = document.getElementById('root');
+	const dropdownDiv1 = createToggleDropdown("Inventory", "dropdownDiv1Button");//in js/uiElements
+	const div1group1 = dropDownArea();
+	const itemList = document.createElement('div');
+	const addNew = createButton("Add New");//in js/uiElements
 
-newItem = new Item("myName", "desc", 0, 0, new Date(), true);
-addNewItem(newItem);
+	rootDiv.appendChild(dropdownDiv1);
+	dropdownDiv1.appendChild(div1group1);    
+	div1group1.appendChild(addNew);
+	div1group1.appendChild(itemList);
 
-getAllFromInventory().then((items) =>{
-	items.forEach(item =>{
-		const listItem = document.createElement('div');
-		listItem.textContent = item.displayInfo();
-		div1group1.appendChild(listItem);
-	})	
+	/*
+	newItem = new Item("myName", "desc", 0, 0, new Date(), true);
+	addNewItem(newItem);
+	*/
+
+	getAllFromInventory().then((items) =>{
+		items.forEach(item =>{
+			const listItem = document.createElement('div');
+			listItem.textContent = item.displayInfo();
+			itemList.appendChild(listItem);
+		})	
+	});
+
+	 dropdownDiv1Button.addEventListener('click', function() {
+	   div1group1.classList.toggle('show');
+	 });
+
+	 addNew.addEventListener('click', function() {
+		 editItem();//in js/modals/editItem
+	 });
+
 });
 
- // Toggle the visibility of the menu when the button is clicked
- dropdownToggleButton.addEventListener('click', function() {
-   // Toggle the class 'show' to control visibility
-   div1group1.classList.toggle('show');
- });
 
 

@@ -1,10 +1,13 @@
 {
   "ExpandedNodes": [
     "",
+    "\\webDevTemplates",
     "\\webDevTemplates\\shopping",
     "\\webDevTemplates\\shopping\\admin",
-    "\\webDevTemplates\\shopping\\assets\\js\\items"
+    "\\webDevTemplates\\shopping\\assets",
+    "\\webDevTemplates\\shopping\\assets\\js",
+    "\\webDevTemplates\\shopping\\assets\\js\\modals",
+    "\\webDevTemplates\\shopping\\assets\\js\\uiElements"
   ],
-  "SelectedNode": "\\business_plan.pdf",
   "PreviewInSolutionExplorer": false
 }
