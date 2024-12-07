@@ -9,7 +9,7 @@ function refreshList() {
         items.forEach(item => {
             const listItem = document.createElement('li');
             listItem.classList.add('editItem');
-            listItem.textContent = item.displayInfo();
+            listItem.textContent = item.displayNameDateActive();
             listItem.addEventListener('click', () => { editItem(item) });
             itemList.appendChild(listItem);
         });

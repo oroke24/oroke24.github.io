@@ -20,12 +20,10 @@ function addNewItem(item){
 
 function updateItem(item){
 	showLoading();
-	console.log('you made it to addNewItem.');
+	console.log('you made it to updateItem.');
 	//const obj = item.jsonObject()
 	return db.collection('inventory').doc(item.id).update(item)
 	.then((success) =>{
-		item.id = success.id;
-		success.update({id:success.id});
 		//console.log("success adding new item.", success.id);
 		hideLoading();
 		refreshList();

@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () =>{
 			listItem.classList.add('editItem');
 			//console.log("during getAllFromInventory, my id is: ", item.id);
 			listItem.addEventListener('click', ()=>{editItem(item)});
-			listItem.textContent = item.displayInfo();
+			listItem.textContent = item.displayNameDateActive();
 			itemList.appendChild(listItem);
 			//itemObjects.push(item);
 		})	

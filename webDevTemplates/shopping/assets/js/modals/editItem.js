@@ -23,7 +23,7 @@ function saveItemHandler(event) {
     currentItem.quantity = quantity.value;
     currentItem.isActive = isActive.checked;
 
-    addNewItem(currentItem.jsonObject());
+    addNewItem(currentItem.jsonObject());//in js/firebase/addNew.js
     editItemModal.style.display = 'none';
 };
 

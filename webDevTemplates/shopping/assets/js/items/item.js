@@ -9,8 +9,15 @@ class Item{
 		this.isActive = isActive;
 	}
 	displayInfo() {
-		//console.log("name: ", this.name);
         return `name: ${this.name}, description: ${this.description}, price: ${this.price}, quantity: ${this.quantity}, createdOn: ${this.createdOn}, isActive: ${this.isActive}`;
+    }
+	displayNameAndDate() {
+        return `name: ${this.name},  as of ${this.createdOn}`;
+    }
+	displayNameDateActive() {
+		let active = "Not Actively Selling";
+		if(this.isActive) active = "Currently For Sale"
+        return `name: ${this.name}, ${this.createdOn}, ${active}`;
     }
 	
 	jsonObject() {
