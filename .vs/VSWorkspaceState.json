@@ -4,13 +4,11 @@
     "\\webDevTemplates",
     "\\webDevTemplates\\shopping",
     "\\webDevTemplates\\shopping\\admin",
+    "\\webDevTemplates\\shopping\\admin\\js",
     "\\webDevTemplates\\shopping\\assets",
-    "\\webDevTemplates\\shopping\\assets\\css",
     "\\webDevTemplates\\shopping\\assets\\js",
-    "\\webDevTemplates\\shopping\\assets\\js\\firebase",
-    "\\webDevTemplates\\shopping\\assets\\js\\items",
-    "\\webDevTemplates\\shopping\\assets\\js\\uiElements"
+    "\\webDevTemplates\\shopping\\assets\\js\\modals"
   ],
-  "SelectedNode": "\\webDevTemplates\\shopping\\assets\\js\\firebase\\delete.js",
+  "SelectedNode": "\\webDevTemplates\\shopping\\assets\\js\\modals\\editItem.js",
   "PreviewInSolutionExplorer": false
 }

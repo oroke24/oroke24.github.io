@@ -1,3 +1,11 @@
+textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    resize: none; /* Disable manual resizing */
+    overflow: hidden; /* Hide the scrollbar */
+}
 
  #registerModal {
      display: none; /* Hidden by default */
@@ -46,8 +54,9 @@
     color: white;
 }
 
-  .editItem{
+ .editItem{
     cursor: pointer;
+    width: max-content;
     margin: 10px;
     padding:5px;
     border: solid 1px magenta;
@@ -66,6 +75,14 @@
      align-items: center;
  }
 
+#editItemContainer {
+    background: white;
+    width: 80%;  /* Set the width of the modal */
+    max-height: 90%; /* Ensure the modal doesn’t exceed the viewport height */
+    padding: 20px;
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds the max height */
+    border-radius: 8px; /* Optional: for rounded corners */
+}
 
  #registerContainer {
      background-color: #fff;
@@ -83,16 +100,6 @@
      width: 300px;
      text-align: center;
  }
- #editItemContainer {
-     background-color: #fff;
-     padding: 30px;
-     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-     border-radius: 8px;
-     width: 80%;
-     text-align: center;
- }
-
-
 
  input[type="text"], input[type="password"] {
      width: 100%;
@@ -153,3 +160,4 @@ button{
      margin-right: 10px;
  }
  */
+  

@@ -22,14 +22,15 @@ document.addEventListener('DOMContentLoaded', () =>{
 			listItem.classList.add('editItem');
 			//console.log("during getAllFromInventory, my id is: ", item.id);
 			listItem.addEventListener('click', ()=>{editItem(item)});
-			listItem.textContent = item.displayNameDateActive();
+			listItem.textContent = item.displayNameDateActiveSold();
 			itemList.appendChild(listItem);
 			//itemObjects.push(item);
 		})	
 	});
-
+	
+	//binding dropdown button to logic for hiding/showing its group(s)
 	 dropdownDiv1Button.addEventListener('click', function() {
-	   div1group1.classList.toggle('show');
+	   div1group1.classList.toggle('show');//in assets/css/custom.css
 	 });
 
 	 addNew.addEventListener('click', function() {

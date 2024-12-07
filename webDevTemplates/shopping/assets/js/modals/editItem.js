@@ -90,7 +90,7 @@ function editItem(item){
     description.value = item.description;
     price.value = item.price;
     quantity.value = item.quantity;
-    item.createdOn = `As of ${todaysDate()}`;
+    item.createdOn = todaysDate();
     createdOn.textContent = item.createdOn;
     isActive.checked = item.isActive;
 
@@ -98,6 +98,12 @@ function editItem(item){
     //Handle opening modal logic
     editItemModal.style.display = 'flex';
     errorMessage.textContent = '';
+
+    //change textArea for description dynamically
+    resizeTextArea(description);
+    description.addEventListener('input', function(){
+        resizeTextArea(this);
+    })
 
     // Reset the modal's event listeners before adding new ones
     saveButton.removeEventListener('click', saveItemHandler);
@@ -120,6 +126,10 @@ function editItem(item){
 			editItemModal.style.display = 'none';
 		}
 	});
+}
+function resizeTextArea(textarea) {
+    textarea.style.height = 'auto'; // Reset height to auto to allow shrinking
+    textarea.style.height = `${textarea.scrollHeight}px`; // Adjust height based on content
 }
 
  
