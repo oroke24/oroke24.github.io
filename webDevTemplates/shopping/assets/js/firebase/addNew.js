@@ -17,3 +17,23 @@ function addNewItem(item){
 		hideLoading();
 	});	
 }
+
+function updateItem(item){
+	showLoading();
+	console.log('you made it to addNewItem.');
+	//const obj = item.jsonObject()
+	return db.collection('inventory').doc(item.id).update(item)
+	.then((success) =>{
+		item.id = success.id;
+		success.update({id:success.id});
+		//console.log("success adding new item.", success.id);
+		hideLoading();
+		refreshList();
+	})
+	.catch((error) =>{
+		console.log("error updating document to db: ", error);
+	})
+	.finally(() =>{
+		hideLoading();
+	});	
+}
