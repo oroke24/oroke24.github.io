@@ -23,6 +23,34 @@
      justify-content: center;
      align-items: center;
  }
+ .myModal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1001;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black overlay */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.myModal .loadingMessage {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 5px;
+    color: white;
+}
+
+  .editItem{
+    cursor: pointer;
+    margin: 10px;
+    padding:5px;
+    border: solid 1px magenta;
+ }
  #editItemModal {
      display: none; /* Hidden by default */
      position: fixed;
@@ -58,9 +86,11 @@
      padding: 30px;
      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
      border-radius: 8px;
-     width: 300px;
+     width: 80%;
      text-align: center;
  }
+
+
 
  input[type="text"], input[type="password"] {
      width: 100%;
@@ -101,3 +131,13 @@
  #loginButton:hover {
      background-color: #0056b3;
  }
+ /*
+ .form-group{
+     display: flex;
+     align-items: center;
+     margin-bottom: 1rem;
+ }
+ label{
+     margin-right: 10px;
+ }
+ */

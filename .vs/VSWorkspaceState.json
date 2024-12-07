@@ -4,10 +4,13 @@
     "\\webDevTemplates",
     "\\webDevTemplates\\shopping",
     "\\webDevTemplates\\shopping\\admin",
+    "\\webDevTemplates\\shopping\\admin\\js",
     "\\webDevTemplates\\shopping\\assets",
+    "\\webDevTemplates\\shopping\\assets\\css",
     "\\webDevTemplates\\shopping\\assets\\js",
     "\\webDevTemplates\\shopping\\assets\\js\\modals",
     "\\webDevTemplates\\shopping\\assets\\js\\uiElements"
   ],
+  "SelectedNode": "\\js",
   "PreviewInSolutionExplorer": false
 }
