@@ -20,3 +20,25 @@ function refreshList() {
         hideLoading(); // Hide loading modal even on error
     });
 }
+function refreshList(divId) {
+    console.log("uid: ", localStorage.getItem('userUID'));
+    const itemList = document.getElementById(`allItemsDiv`); // Assuming you have an itemList container
+    itemList.innerHTML = ''; // Clear the existing list
+
+    showLoading('Refreshing inventory...'); // Show loading modal
+
+    return getAllFromInventory().then((items) => {
+        items.forEach(item => {
+            const listItem = document.createElement('li');
+            listItem.classList.add('editItem');
+            listItem.textContent = item.displayNameDateActive();
+            listItem.addEventListener('click', () => { openItem(item) });
+            itemList.appendChild(listItem);
+        });
+
+        hideLoading(); // Hide loading modal after the list is updated
+    }).catch((error) => {
+        console.log("Error fetching inventory: ", error);
+        hideLoading(); // Hide loading modal even on error
+    });
+}

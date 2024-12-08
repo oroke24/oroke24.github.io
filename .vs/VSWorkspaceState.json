@@ -6,9 +6,9 @@
     "\\webDevTemplates\\shopping\\admin",
     "\\webDevTemplates\\shopping\\admin\\js",
     "\\webDevTemplates\\shopping\\assets",
-    "\\webDevTemplates\\shopping\\assets\\js",
-    "\\webDevTemplates\\shopping\\assets\\js\\modals"
+    "\\webDevTemplates\\shopping\\assets\\css",
+    "\\webDevTemplates\\shopping\\assets\\js\\uiElements"
   ],
-  "SelectedNode": "\\webDevTemplates\\shopping\\assets\\js\\modals\\editItem.js",
+  "SelectedNode": "\\webDevTemplates\\shopping\\admin\\index.html",
   "PreviewInSolutionExplorer": false
 }

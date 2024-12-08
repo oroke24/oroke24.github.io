@@ -1,3 +1,4 @@
+/*
 header{
     font-size: 1.5em;
 }
@@ -103,8 +104,8 @@ label{
 }
 .input-container {
     display: grid;
-    grid-template-columns: 1fr auto; /* One column takes up remaining space, second column is auto-sized */
-    gap: 10px; /* Gap between items */
+    grid-template-columns: 1fr auto;
+    gap: 10px; /* Gap between items 
 }
 #maintenanceMessage{
     background-color: #BB7777;
@@ -135,3 +136,4 @@ label{
     width: 200px;
     height: 100px;
 }
+*/
