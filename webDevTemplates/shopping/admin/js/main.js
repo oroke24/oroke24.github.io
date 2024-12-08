@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () =>{
 	div1group1.appendChild(addNew);
 	div1group1.appendChild(itemList);
 
-	refreshList(itemList.id, 3);
+	refreshEditList(itemList.id, 2);
 	
 	//binding dropdown button to logic for hiding/showing its group(s)
 	 dropdownDiv1Button.addEventListener('click', function() {
@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () =>{
 	 addNew.addEventListener('click', function() {
 		 const newItem = new Item();//empty item
 		 editItem(newItem);//in js/modals/editItem
+
 	 });
 	/*
 	getAllFromInventory().then((items) =>{

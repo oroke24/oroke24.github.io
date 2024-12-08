@@ -62,7 +62,7 @@ function deleteItemHandler(event){
     //else alert(`failed deleting ${item.name}.`);
     editItemModal.style.display = 'none';
 };
-function editItem(item){
+function editItem(item, parentDiv){
     //Get elements
     const editItemModal = document.getElementById('editItemModal');
     const name = document.getElementById('name');

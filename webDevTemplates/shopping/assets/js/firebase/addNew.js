@@ -8,7 +8,7 @@ function addNewItem(item){
 		success.update({id:success.id});
 		//console.log("success adding new item.", success.id);
 		hideLoading();
-		refreshList();
+		refreshEditList('itemList', 2);
 	})
 	.catch((error) =>{
 		console.log("error adding document to db: ", error);
@@ -26,7 +26,7 @@ function updateItem(item){
 	.then((success) =>{
 		//console.log("success adding new item.", success.id);
 		hideLoading();
-		refreshList();
+		refreshEditList('itemList', 2);
 	})
 	.catch((error) =>{
 		console.log("error updating document to db: ", error);
