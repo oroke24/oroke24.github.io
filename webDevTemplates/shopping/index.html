@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="assets/css/custom.css">
     <link rel="stylesheet" href="assets/css/myModals.css">
     <link rel="stylesheet" href="assets/css/templatemo.css">
+    <link rel="stylesheet" href="assets/css/horizontalScroll.css">
 
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
@@ -118,6 +119,13 @@ https://templatemo.com/tm-559-zay-shop
     </div>
    </div>
     <!-- End register modal -->
+    <!-- viewItem modal -->
+    <div id="viewItemModal">
+        <div id="viewItemContainer">
+            <span class="close" id="closeViewItemModal">&times;</span>
+            <div id="itemDetails"></div>
+        </div>
+    </div>
 
     <!-- Start Banner Hero -->
     <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
@@ -192,6 +200,8 @@ https://templatemo.com/tm-559-zay-shop
                 <h1 class="h1">Categories</h1>
             </div>
         </div>
+        <div id="horizontalRoot"><div>
+        <!--
         <div class="row">
             <div class="col-12 col-md-4 p-5 mt-3">
                 <a href="#"><img src="./assets/img/category_img_01.jpg" class="rounded-circle img-fluid border"></a>
@@ -206,6 +216,7 @@ https://templatemo.com/tm-559-zay-shop
                 <h2 class="h5 text-center mt-3 mb-3">Accessories</h2>
             </div>
         </div>
+        -->
     </section>
     <!-- End Categories -->
 
@@ -274,8 +285,10 @@ https://templatemo.com/tm-559-zay-shop
     <script src="assets/js/uiElements/createToggleDropdown.js"></script>
     <script src="assets/js/uiElements/dropDownArea.js"></script>
     <script src="assets/js/uiElements/loadingMessage.js"></script>
+    <script src="assets/js/uiElements/horizontalScroll.js"></script>
     <script src="assets/js/modals/login.js"></script>
     <script src="assets/js/modals/register.js"></script>
+    <script src="assets/js/modals/viewItem.js"></script>
     <script src="assets/js/firebase/firebaseConnect.js"></script>
     <script src="assets/js/firebase/attachObserver.js"></script>
     <script src="assets/js/firebase/checkAdminStatus.js"></script>

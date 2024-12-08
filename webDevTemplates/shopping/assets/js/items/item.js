@@ -9,8 +9,17 @@ class Item{
 		this.isActive = isActive;
 		this.quantitySold = quantitySold;
 	}
+	display(listType){
+		if(listType == 0) return this.jsonObject(); //JSONObject
+		else if(listType == 1) return this.quickDisplay();
+		else if(listType == 2) return this.displayNameAndDate();
+		else return  this.displayNameDateActiveSold();
+	}
 	displayInfo() {
         return `name: ${this.name}, description: ${this.description}, price: ${this.price}, quantity: ${this.quantity}, createdOn: ${this.createdOn}, isActive: ${this.isActive}`;
+    }
+	quickDisplay() {
+        return `${this.name}, $${this.price} (${this.quantity} left)`;
     }
 	displayNameAndDate() {
         return `name: ${this.name},  as of ${this.createdOn}`;

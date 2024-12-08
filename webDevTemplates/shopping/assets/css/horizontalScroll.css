@@ -1,0 +1,50 @@
+.horizontal-scroll-container{
+	display: flex;
+	overflow-x: auto;
+	white-space: nowrap;
+	scroll-snap-type: x mandatory;
+	padding: 10px;
+}
+.horizontal-scroll-container::-webkit-scrollbar {
+	height: 8px;
+}
+.horizontal-scroll-container::-webkit-scrollbar-thumb{
+	background-color: #888;
+	border-radius: 4px;
+}
+.box{
+	flex: 0 0 auto;
+	width: 150px;
+	height: 150px;
+	margin-right:10px;
+	background-color: #05c3dd88;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	border-radius: 8px;
+	scroll-snap-align: start;
+}
+ .item{
+    cursor: pointer;
+    margin: 10px;
+    padding:5px;
+    border-radius: 8px;
+ }
+ /* Modal Item Detail Styling */
+.modal-item-detail {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+}
+.box div {
+    margin-bottom: 5px; /* Space between name and price */
+}
+
+/* Optional hover effect for boxes */
+.box:hover {
+    background-color: #e2e2e2;
+}

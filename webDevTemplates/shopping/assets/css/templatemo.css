@@ -47,6 +47,10 @@ body, ul, li, p, a, label, input, div {
      border-radius: 15px;
      cursor: pointer;
  }
+img {
+  max-width: 100%;   /* Image width won't exceed the parent container's width */
+  height: auto;      /* Maintain the aspect ratio */
+}
  button:hover {
      background-color: #05c3dd;
  }
@@ -197,6 +201,7 @@ body, ul, li, p, a, label, input, div {
 }
 
 #template-mo-zay-hero-carousel .carousel-item img {
+    max-width: 100%;
     height: 100%;
     object-fit: cover; /* Ensures the image covers the container without stretching */
 }

@@ -1,4 +1,5 @@
 function getAllFromInventory(){
+	getAllFromInventory
 	return db.collection('inventory').get()
 	.then((snapshot) =>{
 		const items = [];
