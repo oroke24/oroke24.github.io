@@ -1,7 +1,12 @@
 document.addEventListener('DOMContentLoaded', async () =>{
-	const items = await getAllFromInventory();
+	let items = await getAllFromInventory();
+	let activeItems = [];
+	items.forEach(item=>{
+		if(item.isActive) activeItems.push(item);
+	});
+	items = activeItems;
 
-	console.log("items: ", items);
+	//console.log("items: ", items);
 	const horizontalScrollRoot = document.getElementById('horizontalRoot');
 	const horizontalScrollDiv = horizontalScroll('horizontalScroll', items);
 	
@@ -18,8 +23,7 @@ document.addEventListener('DOMContentLoaded', async () =>{
 	//refreshList(allItemsDiv.id, 1);
 
 	allItemsButton.addEventListener('click', function(){
+		//refreshList(allItemsDiv.id, 1);
 		allItemsDiv.classList.toggle('show');
-		refreshList(allItemsDiv.id);
-
 	});
 });

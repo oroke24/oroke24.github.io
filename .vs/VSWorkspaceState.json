@@ -4,10 +4,11 @@
     "\\webDevTemplates",
     "\\webDevTemplates\\shopping",
     "\\webDevTemplates\\shopping\\admin",
+    "\\webDevTemplates\\shopping\\assets",
     "\\webDevTemplates\\shopping\\assets\\js",
-    "\\webDevTemplates\\shopping\\assets\\js\\items",
+    "\\webDevTemplates\\shopping\\assets\\js\\firebase",
     "\\webDevTemplates\\shopping\\assets\\js\\uiElements"
   ],
-  "SelectedNode": "\\webDevTemplates",
+  "SelectedNode": "\\webDevTemplates\\shopping\\assets\\js\\firebase\\addNew.js",
   "PreviewInSolutionExplorer": false
 }

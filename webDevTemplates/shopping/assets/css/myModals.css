@@ -88,6 +88,8 @@ textarea {
  }
 
 #editItemContainer {
+    display: inline-block;
+    align-items: end;
     background: white;
     width: 80%;  /* Set the width of the modal */
     max-height: 90%; /* Ensure the modal doesn’t exceed the viewport height */
@@ -169,7 +171,11 @@ button{
 #deleteButton{
     background-color: #A83512;
 }
-
+.rightAnchor {
+    display: flex;
+    justify-content: flex-end;  /* Aligns buttons to the right */
+    gap: 10px;  /* Adds spacing between the buttons */
+}
  /*
  .form-group{
      display: flex;

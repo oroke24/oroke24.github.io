@@ -6,7 +6,7 @@ function deleteItem(id) {
   return db.collection('inventory').doc(id).delete()
     .then(() => {
       hideLoading();
-      refreshList();
+      //refreshList();
       console.log(`Item with ID: ${id} deleted successfully.`);
       return true;
     })
