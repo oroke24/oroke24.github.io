@@ -196,7 +196,7 @@ img {
   #templatemo_main_nav .navbar-nav {max-width: 450px;}
  }
 #template-mo-zay-hero-carousel .carousel-inner {
-    height: 700px; /* You can adjust this height as needed */
+    height: auto; /* You can adjust this height as needed */
     overflow: hidden; /* Prevents overflow of images */
 }
 
