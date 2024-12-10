@@ -14,15 +14,19 @@ class ItemDataManager {
 	constructor(){
 		//this.items = getAllFromInventory(); 
 	}
-	//ADD NEW///////////////////////////////////////////////////////////////////////////
+	//ADD NEW ITEM///////////////////////////////////////////////////////////////////////////
 	addNewItem(item, parentDiv, listStyle = 1){
 		showLoading();
-		return db.collection('inventory').add(item)
+		return db.collection('inventory').add(item.jsonObject())
 		.then((success) =>{
 			item.id = success.id;
 			success.update({id:success.id});
 			hideLoading();
 			this.refreshList(parentDiv, listStyle);
+			console.log("in itemDataManager, images:", images);
+			item.images.forEach(imageUrl =>{
+				addNewImage(imageUrl, item);
+			});
 		})
 		.catch((error) =>{
 			console.log("error adding document to db: ", error);
@@ -47,12 +51,12 @@ class ItemDataManager {
 		});	
 	}
 	//DELETE///////////////////////////////////////////////////////////////////////////
-	deleteItem(id, parendDiv, listStyle = 1) {
+	deleteItem(id, parentDiv, listStyle = 1) {
 		showLoading();
 		  return db.collection('inventory').doc(id).delete()
 		    .then(() => {
 			  hideLoading();
-			  refreshList(parentDiv, listStyle);
+			  this.refreshList(parentDiv, listStyle);
 			  console.log(`Item with ID: ${id} deleted successfully.`);
 			  return true;
 			})
@@ -113,15 +117,20 @@ class ItemDataManager {
 		return true;
 	}
 	//ADD NEW IMAGE///////////////////////////////////////////////////////////////////////////
-	addNewImage(event){
-		const file = event.target.files[0];
+	addNewImage(file, item){
+		console.log('entering addNewImage.');
 		// Ensure a file was selected
 		if (!file) {
-        console.error('No file selected.');
-        return;
+			console.error('No file selected.');
+			return;
+		}
+		console.log("item.images.length: ", item.images.length);
+		if(item.images.length > 4){
+			console.log('This item has too many images to add more.')
+			return;
 		}
 
-		const storageRef = storage.ref().child('images/' + this.id  + '/' + file.name); // Create a reference to the image location
+		const storageRef = storage.ref().child('images/' + item.id  + '/' + file.name); // Create a reference to the image location
 		const uploadTask = storageRef.put(file);
 
 		// Monitor upload progress
@@ -129,20 +138,20 @@ class ItemDataManager {
 			(snapshot) => {
 			// Calculate and log the progress (percentage)
 			const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-			showLoading();
+			//showLoading();
 			console.log('Upload is ' + progress.toFixed(2) + '% done');
 			},
 			(error) => {
 			// Handle errors during upload
 			console.error('Error uploading file:', error);
 			//alert('Error Uploading file: ', error);
-			hideLoading();
+			//hideLoading();
 			},
 			() => {
 			// Handle completion
 			uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
 				console.log('File available at', downloadURL);
-				hideLoading();
+				//hideLoading();
 				// You can use this URL for displaying the image, saving it, etc.
 		});
 	}

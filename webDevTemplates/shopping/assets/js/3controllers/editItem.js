@@ -12,45 +12,53 @@ function editItem(item, parentDiv = null, listType = 1){
     const closeModal = document.getElementById('closeEditItemModal');
     const errorMessage = document.getElementById('editItemErrorMessage');
     const saveButtonContainer = document.createElement('div');
+    const imageBox = createImageBox();
     const imageUploadButton = createImageUploadButton();
+    const smallImages = horizontalImageList('smallImages', item);
 	const saveButton = createButton('Save as New');
 	const updateButton = createButton('Update');
     const deleteButton = createIconFromClass('fas', 'fa-trash');
+
+    //editItemContainer.classList.add('over-sticky');
 
     saveButtonContainer.style.width = '100%';
     saveButtonContainer.style.display = 'flex';
     saveButtonContainer.style.justifyContent = 'flex-end';
 
-    editItemContainer.insertBefore(imageUploadButton, createdOn);
-    editItemContainer.appendChild(saveButtonContainer);
-
     if(item.id){
 		saveButtonContainer.appendChild(updateButton);
         editItemContainer.insertBefore(deleteButton, createdOn);
     }
+
+    imageBox.appendChild(imageUploadButton); 
+    editItemContainer.insertBefore(imageBox, createdOn);
+    editItemContainer.insertBefore(smallImages, createdOn);
+    editItemContainer.appendChild(saveButtonContainer);
     saveButtonContainer.appendChild(saveButton);
+
     const buttons = [saveButton, updateButton, deleteButton];
     buttons.forEach(node=>{
         node.classList.add('rightAnchor');
     });
-
-
     imageUploadButton.addEventListener('change', (event) => {
-        window.itemDataManager.addNewImage(event); 
+		const file = event.target.files[0];
+        populateImage(file, imageBox.id);
+        item.images.push(file)
+        //window.itemDataManager.addNewImage(file, item); 
 	});
     saveButton.addEventListener('click', (e) => {
         const isReplacing = false;
         saveItemHandler(e, isReplacing, parentDiv, listType);
-        removeNodes(saveButton, updateButton, deleteButton);
+        removeNodes(saveButton, updateButton, deleteButton, imageBox, smallImages);
     });
     updateButton.addEventListener('click', (e) => {
         const isReplacing = true;
         saveItemHandler(e, isReplacing, parentDiv, listType);
-        removeNodes(saveButton, updateButton, deleteButton);
+        removeNodes(saveButton, updateButton, deleteButton, imageBox, smallImages);
     });
     deleteButton.addEventListener('click', (e) => {
         deleteItemHandler(e, parentDiv, listType);
-        removeNodes(saveButton, updateButton, deleteButton);
+        removeNodes(saveButton, updateButton, deleteButton, imageBox, smallImages);
     });
 
      // Close any previously opened modal before opening a new one
@@ -58,6 +66,7 @@ function editItem(item, parentDiv = null, listType = 1){
     
     //Populate fields with passed in item
     currentItem = item;
+    //currentItem.images = item.images;
     name.value = item.name;
     description.value = item.description;
     price.value = item.price;
@@ -83,14 +92,14 @@ function editItem(item, parentDiv = null, listType = 1){
     //Close the modal when the user clicks the close button
     closeModal.addEventListener('click', function() {
 	    editItemModal.style.display = 'none';
-        removeNodes(saveButton, updateButton, deleteButton);
+        removeNodes(saveButton, updateButton, deleteButton, imageBox, smallImages);
     });
 
     //Close the modal if the user clicks outside the modal container
 	window.addEventListener('click', function(event) {
 		if (event.target === editItemModal) {
 			editItemModal.style.display = 'none';
-            removeNodes(saveButton, updateButton, deleteButton);
+            removeNodes(saveButton, updateButton, deleteButton, imageBox, smallImages);
 		}
 	});
 }
@@ -119,7 +128,7 @@ function saveItemHandler(event, isReplacing = false, parentDiv, listType) {
 
     console.log("in saveButton, parentDiv: ", parentDiv);
     if(isReplacing) window.itemDataManager.updateItem(currentItem.jsonObject(), parentDiv, listType);
-    else window.itemDataManager.addNewItem(currentItem.jsonObject(), parentDiv, listType);//in js/firebase/addNew.js
+    else window.itemDataManager.addNewItem(currentItem, parentDiv, listType);//in js/firebase/addNew.js
     editItemModal.style.display = 'none';
 };
     

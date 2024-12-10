@@ -1,5 +1,5 @@
 class Item{
-	constructor(id = "", name = "", description = "", price = 0, quantity = 0, createdOn = "", isActive = false, quantitySold = 0, images=[]){
+	constructor(id = "", name = "", description = "", price = 0, quantity = 0, createdOn = "", isActive = false, quantitySold = 0, images=[1, 2, 3]){
 		this.id = id;
 		this.name = name;
 		this.description = description;

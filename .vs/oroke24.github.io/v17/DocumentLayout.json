@@ -3,12 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\jamie\\source\\repos\\oroke24\\oroke24.github.io\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jamie\\source\\repos\\oroke24\\oroke24.github.io\\webDevTemplates\\shopping\\assets\\css\\views\\templatemo.css||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:webDevTemplates\\shopping\\assets\\css\\views\\templatemo.css||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jamie\\source\\repos\\oroke24\\oroke24.github.io\\webDevTemplates\\shopping\\assets\\js\\3controllers\\editItem.js||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:webDevTemplates\\shopping\\assets\\js\\3controllers\\editItem.js||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jamie\\source\\repos\\oroke24\\oroke24.github.io\\webDevTemplates\\shopping\\assets\\js\\4backend\\ItemDataManager.js||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:webDevTemplates\\shopping\\assets\\js\\4backend\\ItemDataManager.js||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jamie\\source\\repos\\oroke24\\oroke24.github.io\\webDevTemplates\\shopping\\assets\\js\\2views\\createImageUploadButton.js||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:webDevTemplates\\shopping\\assets\\js\\2views\\createImageUploadButton.js||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jamie\\source\\repos\\oroke24\\oroke24.github.io\\webDevTemplates\\shopping\\index.html||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:webDevTemplates\\shopping\\index.html||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jamie\\source\\repos\\oroke24\\oroke24.github.io\\webDevTemplates\\shopping\\assets\\js\\4backend\\firebaseConnect.js||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:webDevTemplates\\shopping\\assets\\js\\4backend\\firebaseConnect.js||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jamie\\source\\repos\\oroke24\\oroke24.github.io\\webDevTemplates\\shopping\\assets\\css\\views\\templatemo.css||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:webDevTemplates\\shopping\\assets\\css\\views\\templatemo.css||{3B902123-F8A7-4915-9F01-361F908088D0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,26 +58,78 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
+              "Title": "createImageUploadButton.js",
+              "DocumentMoniker": "C:\\Users\\jamie\\source\\repos\\oroke24\\oroke24.github.io\\webDevTemplates\\shopping\\assets\\js\\2views\\createImageUploadButton.js",
+              "RelativeDocumentMoniker": "webDevTemplates\\shopping\\assets\\js\\2views\\createImageUploadButton.js",
+              "ToolTip": "C:\\Users\\jamie\\source\\repos\\oroke24\\oroke24.github.io\\webDevTemplates\\shopping\\assets\\js\\2views\\createImageUploadButton.js",
+              "RelativeToolTip": "webDevTemplates\\shopping\\assets\\js\\2views\\createImageUploadButton.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-12-10T11:56:21.068Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "editItem.js",
+              "DocumentMoniker": "C:\\Users\\jamie\\source\\repos\\oroke24\\oroke24.github.io\\webDevTemplates\\shopping\\assets\\js\\3controllers\\editItem.js",
+              "RelativeDocumentMoniker": "webDevTemplates\\shopping\\assets\\js\\3controllers\\editItem.js",
+              "ToolTip": "C:\\Users\\jamie\\source\\repos\\oroke24\\oroke24.github.io\\webDevTemplates\\shopping\\assets\\js\\3controllers\\editItem.js",
+              "RelativeToolTip": "webDevTemplates\\shopping\\assets\\js\\3controllers\\editItem.js",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-12-10T11:30:39.504Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "index.html",
               "DocumentMoniker": "C:\\Users\\jamie\\source\\repos\\oroke24\\oroke24.github.io\\webDevTemplates\\shopping\\index.html",
               "RelativeDocumentMoniker": "webDevTemplates\\shopping\\index.html",
               "ToolTip": "C:\\Users\\jamie\\source\\repos\\oroke24\\oroke24.github.io\\webDevTemplates\\shopping\\index.html",
               "RelativeToolTip": "webDevTemplates\\shopping\\index.html",
-              "ViewState": "AgIAAJwAAAAAAAAAAAAAAKkAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAANYAAAAAAAAAAAAAACQBAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2024-12-10T10:36:38.475Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "ItemDataManager.js",
+              "DocumentMoniker": "C:\\Users\\jamie\\source\\repos\\oroke24\\oroke24.github.io\\webDevTemplates\\shopping\\assets\\js\\4backend\\ItemDataManager.js",
+              "RelativeDocumentMoniker": "webDevTemplates\\shopping\\assets\\js\\4backend\\ItemDataManager.js",
+              "ToolTip": "C:\\Users\\jamie\\source\\repos\\oroke24\\oroke24.github.io\\webDevTemplates\\shopping\\assets\\js\\4backend\\ItemDataManager.js",
+              "RelativeToolTip": "webDevTemplates\\shopping\\assets\\js\\4backend\\ItemDataManager.js",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAAAIkAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-12-10T11:11:32.014Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "firebaseConnect.js",
+              "DocumentMoniker": "C:\\Users\\jamie\\source\\repos\\oroke24\\oroke24.github.io\\webDevTemplates\\shopping\\assets\\js\\4backend\\firebaseConnect.js",
+              "RelativeDocumentMoniker": "webDevTemplates\\shopping\\assets\\js\\4backend\\firebaseConnect.js",
+              "ToolTip": "C:\\Users\\jamie\\source\\repos\\oroke24\\oroke24.github.io\\webDevTemplates\\shopping\\assets\\js\\4backend\\firebaseConnect.js",
+              "RelativeToolTip": "webDevTemplates\\shopping\\assets\\js\\4backend\\firebaseConnect.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-12-10T11:27:07.139Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "templatemo.css",
               "DocumentMoniker": "C:\\Users\\jamie\\source\\repos\\oroke24\\oroke24.github.io\\webDevTemplates\\shopping\\assets\\css\\views\\templatemo.css",
               "RelativeDocumentMoniker": "webDevTemplates\\shopping\\assets\\css\\views\\templatemo.css",
               "ToolTip": "C:\\Users\\jamie\\source\\repos\\oroke24\\oroke24.github.io\\webDevTemplates\\shopping\\assets\\css\\views\\templatemo.css",
               "RelativeToolTip": "webDevTemplates\\shopping\\assets\\css\\views\\templatemo.css",
-              "ViewState": "AgIAAL4AAAAAAAAAAAAmwMkAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAMQAAAAAAAAAAAAmwM4AAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2024-12-10T10:33:00.811Z",
               "EditorCaption": ""
