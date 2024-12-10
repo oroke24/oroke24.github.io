@@ -50,6 +50,7 @@ body, ul, li, p, a, label, input, div {
 img {
   max-width: 100%;   /* Image width won't exceed the parent container's width */
   height: auto;      /* Maintain the aspect ratio */
+  object-fit: contain;
 }
  button:hover {
      background-color: #05c3dd;
