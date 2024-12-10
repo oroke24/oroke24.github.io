@@ -42,6 +42,11 @@
 }
 .box div {
     margin-bottom: 5px; /* Space between name and price */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-overflow: ellipsis; /* Truncate text with ellipsis if necessary */
+    max-width: 100%; /* Ensure text fits within the container */
+    white-space: normal; /* Allow text to break to the next line */
 }
 
 /* Optional hover effect for boxes */

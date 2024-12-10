@@ -6,9 +6,8 @@
     "\\webDevTemplates\\shopping\\admin",
     "\\webDevTemplates\\shopping\\assets",
     "\\webDevTemplates\\shopping\\assets\\js",
-    "\\webDevTemplates\\shopping\\assets\\js\\firebase",
-    "\\webDevTemplates\\shopping\\assets\\js\\uiElements"
+    "\\webDevTemplates\\shopping\\assets\\js\\firebase"
   ],
-  "SelectedNode": "\\webDevTemplates\\shopping\\assets\\js\\firebase\\addNew.js",
+  "SelectedNode": "\\webDevTemplates\\shopping\\assets\\js\\firebase\\attachObserver.js",
   "PreviewInSolutionExplorer": false
 }

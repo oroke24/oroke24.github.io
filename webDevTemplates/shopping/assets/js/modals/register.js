@@ -1,25 +1,3 @@
-/*HTML USE CASE EXAMPLE
-
-<!-- Button to Open the Modal -->
-<button id="registerButton">register</button>
-
-<!-- The Modal -->
-<div id="registerModal">
-    <div id="registerContainer">
-        <span class="close" id="closeModal">&times;</span>
-        <h2>register</h2>
-        <label for="username">Username:</label>
-        <input type="text" id="username" placeholder="Enter username">
-        <label for="password">Password:</label>
-        <input type="password" id="password" placeholder="Enter password">
-        <button id="submit>register</button>
-        <div class="error" id="errorMessage"></div>
-    </div>
-</div>
-
-END USE CASE EXAMPLE*/
-
-
 // Step 1: Get elements
 const registerButton = document.getElementById('submitRegister');
 const registerModal = document.getElementById('registerModal');
@@ -68,7 +46,7 @@ submit.addEventListener('click', function(event) {
     }else if (checkPass != password) {
         errorRegisterMessage.textContent = 'passwords must match.';
     }else{
-        register(username, password);
+        window.authorizationManager.register(username, password);
         errorRegisterMessage.textContent = ''; // Clear the error message
     }
 });

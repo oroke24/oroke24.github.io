@@ -111,15 +111,15 @@ function saveItemHandler(event, isReplacing = false) {
     currentItem.quantity = quantity.value;
     currentItem.isActive = isActive.checked;
 
-    if(isReplacing) updateItem(currentItem.jsonObject());
-    else addNewItem(currentItem.jsonObject());//in js/firebase/addNew.js
+    if(isReplacing) window.itemDataManager.updateItem(currentItem.jsonObject());
+    else window.itemDataManager.addNewItem(currentItem.jsonObject());//in js/firebase/addNew.js
     editItemModal.style.display = 'none';
 };
     
 function deleteItemHandler(event){
     event.preventDefault();
     if(!confirm(`Are you sure you want to delete ${currentItem.name}?`)) return; //base case
-    deleteItem(currentItem.id);
+    window.itemDataManager.deleteItem(currentItem.id);
     //else alert(`failed deleting ${item.name}.`);
     editItemModal.style.display = 'none';
 };

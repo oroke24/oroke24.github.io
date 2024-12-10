@@ -1,26 +1,4 @@
-/*HTML USE CASE EXAMPLE
-
-<!-- Button to Open the Modal -->
-<button id="loginButton">Login</button>
-
-<!-- The Modal -->
-<div id="loginModal">
-    <div id="loginContainer">
-        <span class="close" id="closeModal">&times;</span>
-        <h2>Login</h2>
-        <label for="email">email:</label>
-        <input type="text" id="email" placeholder="Enter email">
-        <label for="password">Password:</label>
-        <input type="password" id="password" placeholder="Enter password">
-        <input type="password" id="password" placeholder="Enter password">
-        <button id="submitLogin">Login</button>
-        <div class="error" id="errorMessage"></div>
-    </div>
-</div>
-
-END USE CASE EXAMPLE*/
-
-//step 0: on startup check for user
+//step 0: on startup check for user and create authorizationManager
 const uid = localStorage.getItem('userUID');
 if(uid) logoutButton.style.display = 'inline-block';
 
@@ -78,7 +56,7 @@ submitLogin.addEventListener('click', function(event) {
     if (email === '' || password === '') {
         errorMessage.textContent = 'Please fill in both fields.';
     }else{
-        login(email, password)
+        window.authorizationManager.login(email, password)
         .then((success) => {
             if(success){
                 errorMessage.textContent = '';

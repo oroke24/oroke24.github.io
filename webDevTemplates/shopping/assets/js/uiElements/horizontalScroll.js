@@ -10,6 +10,7 @@ function horizontalScroll(divId, items){
 
 			// Create name element
             const nameElement = document.createElement('div');
+			nameElement.style.overflow = 'hidden';
             nameElement.textContent = items[i].name;
 
             // Create price element

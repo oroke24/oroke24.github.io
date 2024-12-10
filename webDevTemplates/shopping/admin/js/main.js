@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () =>{
 	div1group1.appendChild(addNew);
 	div1group1.appendChild(itemList);
 
-	refreshEditList(itemList.id, 2);
+	refreshList(itemList.id, 2);
 	
 	//binding dropdown button to logic for hiding/showing its group(s)
 	 dropdownDiv1Button.addEventListener('click', function() {
@@ -28,19 +28,6 @@ document.addEventListener('DOMContentLoaded', () =>{
 		 editItem(newItem);//in js/modals/editItem
 
 	 });
-	/*
-	getAllFromInventory().then((items) =>{
-		items.forEach(item =>{
-			const listItem = document.createElement('li');
-			listItem.classList.add('editItem');
-			//console.log("during getAllFromInventory, my id is: ", item.id);
-			listItem.addEventListener('click', ()=>{editItem(item)});
-			listItem.textContent = item.displayNameDateActiveSold();
-			itemList.appendChild(listItem);
-			//itemObjects.push(item);
-		})	
-	});
-	*/
 
 });
 
