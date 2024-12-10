@@ -3,11 +3,10 @@
     "",
     "\\webDevTemplates",
     "\\webDevTemplates\\shopping",
-    "\\webDevTemplates\\shopping\\admin",
     "\\webDevTemplates\\shopping\\assets",
-    "\\webDevTemplates\\shopping\\assets\\js",
-    "\\webDevTemplates\\shopping\\assets\\js\\modals"
+    "\\webDevTemplates\\shopping\\assets\\js\\2views",
+    "\\webDevTemplates\\shopping\\assets\\js\\4backend"
   ],
-  "SelectedNode": "\\webDevTemplates\\shopping",
+  "SelectedNode": "\\webDevTemplates\\shopping\\index.html",
   "PreviewInSolutionExplorer": false
 }

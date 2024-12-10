@@ -199,7 +199,7 @@ body, ul, li, p, a, label, input, div {
   #templatemo_main_nav .navbar-nav {max-width: 450px;}
  }
 #template-mo-zay-hero-carousel .carousel-inner {
-    height: auto; /* You can adjust this height as needed */
+    height: 100%; /* You can adjust this height as needed */
     max-height: 100%;
     overflow: hidden; /* Prevents overflow of images */
 }
