@@ -4,24 +4,12 @@ class authorizationManager{
 	register(email, password);
 	login(email, password);
 	logout();
+	checkAdminStatus(uid);
 	}
 */
 class AuthorizationManager {
 	constructor(){}
-	/////////////////////////////////////////////////////////////////////////////
-	checkAdminStatus(){
-		//console.log("uid: ", uid);
-		if(!uid) return false;
-		return db.collection('adminList').where("uid", "==", uid).get()
-		.then(snapshot =>{
-			if(snapshot.empty) return false; //is not an admin
-			else return true;  //is an admin
-		})
-		.catch(error =>{
-		console.error("Error in checkAdminStatus: ", error);
-		});
-	}
-	/////////////////////////////////////////////////////////////////////////////
+	//REGISTER///////////////////////////////////////////////////////////////////////////
 	register(email, password){
 		 return firebase.auth().createUserWithEmailAndPassword(email, password)
 		.then((userCredential) => {
@@ -47,7 +35,7 @@ class AuthorizationManager {
 		    // ..
 		});
 	}
-	/////////////////////////////////////////////////////////////////////////////
+	//LOG IN///////////////////////////////////////////////////////////////////////////
 	login(email, password){
 		 return firebase.auth().signInWithEmailAndPassword(email, password)
 			.then((userCredential) => {
@@ -71,16 +59,29 @@ class AuthorizationManager {
 			return false;
 		});
 	}
-	/////////////////////////////////////////////////////////////////////////////
+	//LOGOUT///////////////////////////////////////////////////////////////////////////
 	logout(){
 		firebase.auth().signOut().then(() => {
-        // Clear UID from localStorage or sessionStorage
-		localStorage.removeItem('userUID');
-		sessionStorage.removeItem('userUID');
-		console.log('User signed out and UID cleared');
-	}).catch(error => {
-		console.error('Error signing out:', error);
-	});
+			// Clear UID from localStorage or sessionStorage
+			localStorage.removeItem('userUID');
+			sessionStorage.removeItem('userUID');
+			console.log('User signed out and UID cleared');
+			}).catch(error => {
+			console.error('Error signing out:', error);
+		});
+	}
+	//CHECK ADMIN STATUS///////////////////////////////////////////////////////////////////////////
+	checkAdminStatus(uid){
+		//console.log("uid: ", uid);
+		if(!uid) return false;
+		return db.collection('adminList').where("uid", "==", uid).get()
+		.then(snapshot =>{
+			if(snapshot.empty) return false; //is not an admin
+			else return true;  //is an admin
+		})
+		.catch(error =>{
+			console.error("Error in checkAdminStatus: ", error);
+		});
 	}
 
 }

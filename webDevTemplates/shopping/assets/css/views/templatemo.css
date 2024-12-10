@@ -47,11 +47,13 @@ body, ul, li, p, a, label, input, div {
      border-radius: 15px;
      cursor: pointer;
  }
-img {
-  max-width: 100%;   /* Image width won't exceed the parent container's width */
-  height: 100%;      /* Maintain the aspect ratio */
+/*img {
+  max-width: 100%;   /* Image width won't exceed the parent container's width *
+  height: 100%;      /* Maintain the aspect ratio *
   object-fit: cover;
 }
+*/
+
  button:hover {
      background-color: #05c3dd;
  }
@@ -198,14 +200,15 @@ img {
  }
 #template-mo-zay-hero-carousel .carousel-inner {
     height: auto; /* You can adjust this height as needed */
-    max-height: 400px;
+    max-height: 100%;
     overflow: hidden; /* Prevents overflow of images */
 }
 
 #template-mo-zay-hero-carousel .carousel-item img {
     max-width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures the image covers the container without stretching */
+    max-height: 100%;
+    height: auto;
+    object-fit: contain; /* Ensures the image covers the container without stretching */
 }
 
 /* Large devices (desktops, 992px and up)*/

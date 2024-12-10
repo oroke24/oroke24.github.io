@@ -20,7 +20,7 @@ loginButton.addEventListener('click', async function() {
     //console.log("uid: ", uid);
     if(uid){
         //already logged in
-        const isAdmin = await checkAdminStatus(uid);
+        const isAdmin = await window.authorizationManager.checkAdminStatus(uid);
         console.log("isAdmin = ", isAdmin);
         if(isAdmin) window.location.href = 'admin/index.html'; //send to admin page
         else window.location.href = 'profile.html'; //send to profile page

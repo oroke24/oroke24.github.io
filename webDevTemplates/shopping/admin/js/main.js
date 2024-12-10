@@ -1,6 +1,7 @@
 //Check if user is valid and admin
 const uid = localStorage.getItem('userUID');
-if(!uid || !checkAdminStatus(uid)) window.location.href = '../index.html';
+const isAdmin = window.authorizationManager.checkAdminStatus(uid);
+if(!uid || !isAdmin) window.location.href = '../index.html';
 //end check proceed to load page..
 document.addEventListener('DOMContentLoaded', () =>{
 	const rootDiv = document.getElementById('root');
@@ -16,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () =>{
 	div1group1.appendChild(addNew);
 	div1group1.appendChild(itemList);
 
-	refreshList(itemList.id, 2);
+	window.itemDataManager.refreshList(itemList.id, 2);
 	
 	//binding dropdown button to logic for hiding/showing its group(s)
 	 dropdownDiv1Button.addEventListener('click', function() {

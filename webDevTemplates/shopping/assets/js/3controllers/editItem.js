@@ -1,6 +1,6 @@
 let currentItem = null;//track current item
 
-function editItem(item){
+function editItem(item, parentDiv = null, listType = 1){
     const editItemModal = document.getElementById('editItemModal');
     const editItemContainer = document.getElementById('editItemContainer');
     const name = document.getElementById('name');
@@ -32,19 +32,22 @@ function editItem(item){
     });
 
     saveButton.addEventListener('click', (e) => {
-        saveItemHandler(e)
+        const isReplacing = false;
+        saveItemHandler(e, isReplacing, parentDiv, listType);
+        //refreshList(parentDiv, listType);
         removeNodes(saveButton, updateButton, deleteButton);
     });
     updateButton.addEventListener('click', (e) => {
         const isReplacing = true;
-        saveItemHandler(e, isReplacing);
+        saveItemHandler(e, isReplacing, parentDiv, listType);
         removeNodes(saveButton, updateButton, deleteButton);
+        //refreshList(parentDiv, listType);
     });
     deleteButton.addEventListener('click', (e) => {
-        deleteItemHandler(e)
+        deleteItemHandler(e, parentDiv, listType);
         removeNodes(saveButton, updateButton, deleteButton);
     });
-    console.log('in editItem, editItemContainer: ', editItemContainer);
+    //console.log('in editItem, editItemContainer: ', editItemContainer);
 
      // Close any previously opened modal before opening a new one
     editItemModal.style.display = 'none';
@@ -88,7 +91,7 @@ function editItem(item){
 		}
 	});
 }
-function saveItemHandler(event, isReplacing = false) {
+function saveItemHandler(event, isReplacing = false, parentDiv, listType) {
 	event.preventDefault(); // Prevent the form from submitting
 
     const name = document.getElementById('name');
@@ -111,15 +114,16 @@ function saveItemHandler(event, isReplacing = false) {
     currentItem.quantity = quantity.value;
     currentItem.isActive = isActive.checked;
 
-    if(isReplacing) window.itemDataManager.updateItem(currentItem.jsonObject());
-    else window.itemDataManager.addNewItem(currentItem.jsonObject());//in js/firebase/addNew.js
+    console.log("in saveButton, parentDiv: ", parentDiv);
+    if(isReplacing) window.itemDataManager.updateItem(currentItem.jsonObject(), parentDiv, listType);
+    else window.itemDataManager.addNewItem(currentItem.jsonObject(), parentDiv, listType);//in js/firebase/addNew.js
     editItemModal.style.display = 'none';
 };
     
-function deleteItemHandler(event){
+function deleteItemHandler(event, parentDiv, listType){
     event.preventDefault();
     if(!confirm(`Are you sure you want to delete ${currentItem.name}?`)) return; //base case
-    window.itemDataManager.deleteItem(currentItem.id);
+    window.itemDataManager.deleteItem(currentItem.id, parentDiv, listType);
     //else alert(`failed deleting ${item.name}.`);
     editItemModal.style.display = 'none';
 };
