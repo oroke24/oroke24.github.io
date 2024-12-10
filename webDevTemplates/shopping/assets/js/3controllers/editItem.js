@@ -12,15 +12,18 @@ function editItem(item, parentDiv = null, listType = 1){
     const closeModal = document.getElementById('closeEditItemModal');
     const errorMessage = document.getElementById('editItemErrorMessage');
     const saveButtonContainer = document.createElement('div');
+    const imageUploadButton = createImageUploadButton();
+	const saveButton = createButton('Save as New');
+	const updateButton = createButton('Update');
+    const deleteButton = createIconFromClass('fas', 'fa-trash');
+
     saveButtonContainer.style.width = '100%';
     saveButtonContainer.style.display = 'flex';
     saveButtonContainer.style.justifyContent = 'flex-end';
 
+    editItemContainer.insertBefore(imageUploadButton, createdOn);
     editItemContainer.appendChild(saveButtonContainer);
 
-	const saveButton = createButton('Save as New');
-	const updateButton = createButton('Update');
-    const deleteButton = createIconFromClass('fas', 'fa-trash');
     if(item.id){
 		saveButtonContainer.appendChild(updateButton);
         editItemContainer.insertBefore(deleteButton, createdOn);
@@ -31,29 +34,29 @@ function editItem(item, parentDiv = null, listType = 1){
         node.classList.add('rightAnchor');
     });
 
+
+    imageUploadButton.addEventListener('change', (event) => {
+        window.itemDataManager.addNewImage(event); 
+	});
     saveButton.addEventListener('click', (e) => {
         const isReplacing = false;
         saveItemHandler(e, isReplacing, parentDiv, listType);
-        //refreshList(parentDiv, listType);
         removeNodes(saveButton, updateButton, deleteButton);
     });
     updateButton.addEventListener('click', (e) => {
         const isReplacing = true;
         saveItemHandler(e, isReplacing, parentDiv, listType);
         removeNodes(saveButton, updateButton, deleteButton);
-        //refreshList(parentDiv, listType);
     });
     deleteButton.addEventListener('click', (e) => {
         deleteItemHandler(e, parentDiv, listType);
         removeNodes(saveButton, updateButton, deleteButton);
     });
-    //console.log('in editItem, editItemContainer: ', editItemContainer);
 
      // Close any previously opened modal before opening a new one
     editItemModal.style.display = 'none';
     
     //Populate fields with passed in item
-    //console.log("This item's id is: ", item.id);
     currentItem = item;
     name.value = item.name;
     description.value = item.description;
@@ -131,6 +134,9 @@ function resizeTextArea(textarea) {
     textarea.style.height = 'auto'; // Reset height to auto to allow shrinking
     textarea.style.height = `${textarea.scrollHeight}px`; // Adjust height based on content
 }
+
+
+
 
  
 

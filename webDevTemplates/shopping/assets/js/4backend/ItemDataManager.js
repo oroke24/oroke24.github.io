@@ -6,6 +6,8 @@ class itemDataManager{
 	deleteItem();
 	getAllFromInventory(id);
 	refreshList(divId, listType);
+	getImage();
+	addNewImage();
 	}
 */
 class ItemDataManager {
@@ -105,6 +107,46 @@ class ItemDataManager {
 	        console.log("Error fetching inventory: ", error);
 	        hideLoading(); // Hide loading modal even on error
 	    });
+	}
+	//LOAD IMAGES///////////////////////////////////////////////////////////////////////////
+	loadImage(){
+		return true;
+	}
+	//ADD NEW IMAGE///////////////////////////////////////////////////////////////////////////
+	addNewImage(event){
+		const file = event.target.files[0];
+		// Ensure a file was selected
+		if (!file) {
+        console.error('No file selected.');
+        return;
+		}
+
+		const storageRef = storage.ref().child('images/' + this.id  + '/' + file.name); // Create a reference to the image location
+		const uploadTask = storageRef.put(file);
+
+		// Monitor upload progress
+		uploadTask.on('state_changed', 
+			(snapshot) => {
+			// Calculate and log the progress (percentage)
+			const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+			showLoading();
+			console.log('Upload is ' + progress.toFixed(2) + '% done');
+			},
+			(error) => {
+			// Handle errors during upload
+			console.error('Error uploading file:', error);
+			//alert('Error Uploading file: ', error);
+			hideLoading();
+			},
+			() => {
+			// Handle completion
+			uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+				console.log('File available at', downloadURL);
+				hideLoading();
+				// You can use this URL for displaying the image, saving it, etc.
+		});
+	}
+  );
 	}
 }
 window.itemDataManager = new ItemDataManager();
