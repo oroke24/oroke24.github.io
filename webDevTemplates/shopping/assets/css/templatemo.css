@@ -198,7 +198,7 @@ img {
  }
 #template-mo-zay-hero-carousel .carousel-inner {
     height: auto; /* You can adjust this height as needed */
-    max-height: max-content;
+    max-height: 400px;
     overflow: hidden; /* Prevents overflow of images */
 }
 
