@@ -1,0 +1,8 @@
+ .dropdown-area {
+    display: none;
+}
+
+/* Show the element when the 'show' class is added */
+.dropdown-area.show {
+    display: block;
+}     

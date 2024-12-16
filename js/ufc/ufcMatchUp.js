@@ -1,15 +1,53 @@
+document.addEventListener('DOMContentLoaded', ()=>{
+
 var matchUp = [];
 var fighter1Div;
 var fighter2Div;
 var fighter1List;
 var fighter2List;
-var winnerDiv = document.createElement('div');
-var roundsDiv = document.createElement('div');
-var predictionDiv = document.createElement('div');
+var winnerDivContainer = document.createElement('div');
+var winnerDivDropButton = createToggleDropdown('Calculated Winner', 'winnerDivDropButton');
+var winnerDiv = dropDownArea('winnerDivContainer');
+
+var roundsDivContainer = document.createElement('div');
+var roundsDivDropButton = createToggleDropdown('What a round might look like', 'roundsDivDropButton');
+var roundsDiv = dropDownArea('roundsDivContainer');
+
+var predictionDivContainer = document.createElement('div');
+var predictionDivDropButton = createToggleDropdown('AI Prediction', 'predictionDivDropButton');
+var predictionDiv = dropDownArea('roundsDivContainer');
+
 var fighter1Search;
 var fighter2Search;
 var list1 = document.createElement('div');
 var list2 = document.createElement('div');
+const lockinButton = createButton("lock-in");
+
+lockinButton.style.display = 'none';
+
+//winnerDivBinding
+    winnerDivContainer.appendChild(winnerDivDropButton);
+    winnerDivDropButton.addEventListener('click', ()=>{
+        winnerDiv.classList.toggle('show');
+		//console.log('should show something');
+    });
+    winnerDivContainer.appendChild(winnerDiv);
+//end winnerDiv
+//roundsDivBinding
+    roundsDivContainer.appendChild(roundsDivDropButton);
+    roundsDivContainer.appendChild(roundsDiv);
+    roundsDivDropButton.addEventListener('click', ()=>{
+        roundsDiv.classList.toggle('show');
+    });
+//end roundsDiv
+//predictionDivBinding
+    predictionDivContainer.appendChild(predictionDivDropButton);
+    predictionDivContainer.appendChild(predictionDiv);
+    predictionDivDropButton.addEventListener('click', ()=>{
+        predictionDiv.classList.toggle('show');
+    });
+//end roundsDiv
+
 
 document.getElementById('matchUp').addEventListener('click', async (e) => {
     matchUp.length = 0;
@@ -39,15 +77,16 @@ async function lockInPrompt(list, fighter, slotToFill) {
 async function calculateWinner() {
     if (matchUp.length == 2) {
         let br = document.createElement('br');
-        mainContent.appendChild(br);
-        mainContent.appendChild(winnerDiv);
-        mainContent.appendChild(roundsDiv);
-        mainContent.appendChild(predictionDiv);
-        winnerDiv.style.display = "inline-block";
-        winnerDiv.style.margin = "0 auto";
-        winnerDiv.innerHTML = compareStats(matchUp[0], matchUp[1]); 
-        roundsDiv.innerHTML = simulateRound(matchUp[0], matchUp[1]);
-        predictionDiv.innerHTML = await predictFight(matchUp[0], matchUp[1], winnerDiv.innerHTML, roundsDiv.innerHTML);
+
+	    winnerDiv.innerHTML = compareStats(matchUp[0], matchUp[1]); 
+		roundsDiv.innerHTML = simulateRound(matchUp[0], matchUp[1]);
+
+	    mainContent.appendChild(winnerDivContainer);
+	    mainContent.appendChild(roundsDivContainer);
+	    mainContent.appendChild(predictionDivContainer);
+
+		predictionDiv.innerHTML = await predictFight(matchUp[0], matchUp[1], winnerDiv.innerHTML, roundsDiv.innerHTML);
+
     }
 }
 function findFighter(fighterSearch, list, fighter, slot) {
@@ -69,7 +108,9 @@ function findFighter(fighterSearch, list, fighter, slot) {
         listItem.addEventListener("click", () => { fighterSearch.value = item.name; fighterSearch.dispatchEvent(new Event('input')); });
         list.appendChild(listItem);
     })
-    if (filteredFighters.length == 1) lockInPrompt(list, filteredFighters[0], slot);
+    if (filteredFighters.length == 1){
+        lockInPrompt(list, filteredFighters[0], slot);
+    };
 }
 function populateMatchUpScreen() {
     ClearChildren(mainContent);
@@ -101,3 +142,4 @@ function populateMatchUpScreen() {
     mainContent.appendChild(fighter1Div);
     mainContent.appendChild(fighter2Div);
 }
+});
