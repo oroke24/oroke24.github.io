@@ -5,17 +5,25 @@ var fighter1Div;
 var fighter2Div;
 var fighter1List;
 var fighter2List;
+//creating dynamic views
 var winnerDivContainer = document.createElement('div');
 var winnerDivDropButton = createToggleDropdown('Calculated Winner', 'winnerDivDropButton');
-var winnerDiv = dropDownArea('winnerDivContainer');
+var winnerDiv = dropDownArea('winnerDiv');
 
 var roundsDivContainer = document.createElement('div');
 var roundsDivDropButton = createToggleDropdown('What a round might look like', 'roundsDivDropButton');
-var roundsDiv = dropDownArea('roundsDivContainer');
+var roundsDiv = dropDownArea('roundsDiv');
 
 var predictionDivContainer = document.createElement('div');
 var predictionDivDropButton = createToggleDropdown('AI Prediction', 'predictionDivDropButton');
-var predictionDiv = dropDownArea('roundsDivContainer');
+var predictionDiv = dropDownArea('predictionDiv');
+
+var betDivContainer = document.createElement('div');
+var betDivDropButton = createToggleDropdown('Bet AI', 'betDivDropButton');
+var betDiv = dropDownArea('betDiv');
+// end dynamic view init
+
+
 
 var fighter1Search;
 var fighter2Search;
@@ -47,6 +55,13 @@ lockinButton.style.display = 'none';
         predictionDiv.classList.toggle('show');
     });
 //end roundsDiv
+//betDivBinding
+    betDivContainer.appendChild(betDivDropButton);
+    betDivContainer.appendChild(betDiv);
+    betDivDropButton.addEventListener('click', ()=>{
+        betDiv.classList.toggle('show');
+    });
+//end roundsDiv
 
 
 document.getElementById('matchUp').addEventListener('click', async (e) => {
@@ -72,23 +87,36 @@ async function lockInPrompt(list, fighter, slotToFill) {
     list.appendChild(listItem);
     matchUp[slotToFill] = fighter;
     predictionDiv.innerHTML = `FightAI <strong>predictor</strong> is thinking. . .`;
+    betDiv.innerHTML = `<strong>BetAI</strong> is thinking. . .`;
     await calculateWinner();
 }
+//POPULATE VIEWS (Calculate Winner)//////////////////////////////////////////////////////
 async function calculateWinner() {
     if (matchUp.length == 2) {
         let br = document.createElement('br');
 
-	    winnerDiv.innerHTML = compareStats(matchUp[0], matchUp[1]); 
-		roundsDiv.innerHTML = simulateRound(matchUp[0], matchUp[1]);
-
 	    mainContent.appendChild(winnerDivContainer);
 	    mainContent.appendChild(roundsDivContainer);
 	    mainContent.appendChild(predictionDivContainer);
+	    mainContent.appendChild(betDivContainer);
+
+	    winnerDiv.innerHTML = compareStats(matchUp[0], matchUp[1]); 
+		roundsDiv.innerHTML = simulateRound(matchUp[0], matchUp[1]);
+		let betDivList = await bet(matchUp[0], matchUp[1]);
+		if(betDivList){ 
+            betDiv.classList.toggle('show');
+            betDiv.innerHTML = '';
+            betDiv.classList.add('center');
+            betDiv.appendChild(betDivList);
+            betDiv.classList.toggle('show');
+        }
 
 		predictionDiv.innerHTML = await predictFight(matchUp[0], matchUp[1], winnerDiv.innerHTML, roundsDiv.innerHTML);
+		//betDiv.innerHTML = (matchUp[0], matchUp[1]);
 
     }
 }
+//END VIEW//////////////////////////////////////////////////////
 function findFighter(fighterSearch, list, fighter, slot) {
     if(winnerDiv) winnerDiv.textContent = "";
     if(roundsDiv) roundsDiv.textContent = "";

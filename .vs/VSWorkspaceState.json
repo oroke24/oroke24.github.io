@@ -1,15 +1,12 @@
 {
   "ExpandedNodes": [
     "",
+    "\\js",
     "\\js\\ufc",
-    "\\js\\ufc\\views",
     "\\ufc",
-    "\\webDevTemplates",
     "\\webDevTemplates\\shopping",
-    "\\webDevTemplates\\shopping\\assets",
-    "\\webDevTemplates\\shopping\\assets\\js",
-    "\\webDevTemplates\\shopping\\assets\\js\\3controllers"
+    "\\webDevTemplates\\shopping\\assets"
   ],
-  "SelectedNode": "\\webDevTemplates\\shopping\\assets\\js\\main.js",
+  "SelectedNode": "\\js\\ufc\\ufcPredictFight.js",
   "PreviewInSolutionExplorer": false
 }

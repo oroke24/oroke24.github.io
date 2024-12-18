@@ -6,3 +6,7 @@
 .dropdown-area.show {
     display: block;
 }     
+
+.half-width{
+    width:50%;
+}

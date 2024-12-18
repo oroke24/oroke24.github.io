@@ -1,7 +1,7 @@
 function dropDownArea(){
 	// Create the dropdown area (div) that will contain child divs
 	 const area = document.createElement('div');
-	 area.classList.add('dropdown-area', 'w-100');
+	 area.classList.add('dropdown-area');
 	 //area.setAttribute('aria-labelledby', 'dropdownareaButton');
 	 
 	 return area;

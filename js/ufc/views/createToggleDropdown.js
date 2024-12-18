@@ -1,7 +1,7 @@
 function createToggleDropdown(name, buttonName) {
     // Create the dropdown div element
     const dropdownDiv = document.createElement('div');
-    dropdownDiv.classList.add('dropdown', 'w-100');
+    dropdownDiv.classList.add('dropdown');
     
     // Create the button element for the dropdown toggle
     const button = document.createElement('button');
