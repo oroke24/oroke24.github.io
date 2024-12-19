@@ -21,6 +21,7 @@ var predictionDiv = dropDownArea('predictionDiv');
 var betDivContainer = document.createElement('div');
 var betDivDropButton = createToggleDropdown('Bet AI', 'betDivDropButton');
 var betDiv = dropDownArea('betDiv');
+
 // end dynamic view init
 
 
@@ -29,9 +30,8 @@ var fighter1Search;
 var fighter2Search;
 var list1 = document.createElement('div');
 var list2 = document.createElement('div');
-const lockinButton = createButton("lock-in");
+//const lockinButton = createButton("lock-in");
 
-lockinButton.style.display = 'none';
 
 //winnerDivBinding
     winnerDivContainer.appendChild(winnerDivDropButton);
@@ -75,8 +75,8 @@ document.getElementById('matchUp').addEventListener('click', async (e) => {
     ClearChildren(list2);
     fighter1Search.value = "";
     fighter2Search.value = "";
-    fighter1Search.addEventListener("click", fighter1Search.focus());
     fighter2Search.addEventListener("click", fighter2Search.focus());
+    fighter1Search.addEventListener("click", fighter1Search.focus());
     fighter1Search.addEventListener("input", (fighter) => findFighter(fighter1Search, list1, fighter, 0));
     fighter2Search.addEventListener("input", (fighter) => findFighter(fighter2Search, list2, fighter, 1));
 });
