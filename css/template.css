@@ -19,7 +19,6 @@ div{
     border:dotted
 }
     */
-}
 @font-face {
     font-family: 'Metropolis';
     src: url('../fonts/Metropolis/Metropolis-Regular.woff2') format('woff2'),
@@ -955,7 +954,17 @@ blockquote::before {
   overflow: hidden;
   text-align: center;
 }
+.portfolio-row{
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px #44525d solid;
+  padding: 10px;
+  margin: 10px;
 
+}
 .testimonial-section::before {
   content: "";
   background-color: var(--primary-color);
