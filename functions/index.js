@@ -31,9 +31,9 @@ exports.submitBooking = functions.https.onRequest(async (req, res) => {
     // Create the email message
     const mailOptions = {
       // Customize the sender
-      from: "<noreply@washnrollmobilecleaning.com>",
-      to: "washnrollmobilecleaning.com",
-      subject: "Job for ${name}",
+      from: "washnrollmobilecleaning@gmail.com",
+      to: "washnrollmobilecleaning@gmail.com",
+      subject: "New Booking Request for "+name+" on "+date,
       html: `
         <h3>New Booking Request:</h3>
         <p><strong>Name:</strong> ${name}</p>

@@ -280,41 +280,6 @@
             </div>
         </section>
 
-
-
-
-
-        <section class="prices-section section-padding" id="section_5">
-            <div class="container">
-                <div class="row justify-content-center">
-
-                    <div class="col-lg-12 col-12 mb-5" align="center">
-                        <h2>Our Prices</h2>
-                    </div>
-
-                    <div class="col-lg-7 col-12">
-                        <div class="prices-block">
-                            <div class="prices-block-top">
-                                <a href="prices.html">
-                                    <img src="images/professional_photos/calculator_car.jpeg"
-                                        class="prices-image img-fluid" alt="">
-                                </a>
-
-                                <div class="prices-category-block">
-                                    <a href="prices.html" class="category-block-link" target="_blank">
-                                        Prices Page
-                                    </a>
-                                    <!--<a href="book_now.html" class="category-block-link">
-                                            Book Now
-                                        </a> -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <div class="cta-section services-block section-padding" align="center">
             <h2 class="mb-3">Services</h2>
             <div class="services-block-link">
@@ -357,38 +322,32 @@
         </div>
     </main>
     <!--///////////////////////BOOKING FORM/////////////////////-->
-    <section class="text-center mb-3" id="book-now">
+    <section class="text-center mt-5 mb-5 w-100 border-top" id="book-now">
         <h2>Book Now</h2>
-        <div>
-        <form class="custom-form" id="booking-form" action="https://us-central1-wnrmc-e91c3.cloudfunctions.net/submitBooking" method="POST">
-            <div>
-                <label for="time">Preferred Time:</label>
-                <input type="time" id="time" name="time">
-            </div>
-            <div>
-                <label for="date">Preferred Date:</label>
-                <input type="date" id="date" name="date">
-            </div>
-            <div>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div>
-                <label for="phone">Phone:</label>
-                <input type="tel" id="phone" name="phone">
-            </div>
-            <div>
-                <label for="message">Details:</label>
-                <textarea id="message" name="message"></textarea>
-            </div>
-            <button type="submit">Submit Booking Request</button>
-        </form>
+            <form class="custom-form text-center" id="booking-form"
+                action="https://us-central1-wnrmc-e91c3.cloudfunctions.net/submitBooking" method="POST">
+                <div class="mt-1">
+                    <input class="w-50 h4" type="date" id="date" name="date">
+                </div>
+                <div class="mt-1">
+                    <input class="w-50 h4" type="time" id="time" name="time">
+                </div>
+                <div class="mt-2">
+                    <input class="w-75 h4" type="text" id="name" name="name" placeholder="Name (required)" required>
+                </div>
+                <div class="mt-2">
+                    <input class="w-75 h4" type="email" id="email" name="email" placeholder="Email">
+                </div>
+                <div class="mt-2">
+                    <input class="w-75 h4" type="tel" id="phone" name="phone" placeholder="888-888-8888" required>
+                </div>
+                <div class="mt-2">
+                    <textarea class="w-75 h4" style="height: 100px;" id="message" name="message" placeholder="Details (call or text preference, Quick description, etc..)"></textarea>
+                </div>
+                <button style="font-size: larger; padding: 5px;"type="submit">Submit Booking Request</button>
+            </form>
 
-        <div id="form-response" style="display:none;"></div>
+            <div id="form-response" style="display:none;"></div>
     </section>
 
     <!--///////////////////////FOOTER/////////////////////-->
