@@ -327,9 +327,11 @@
             <form class="custom-form text-center" id="booking-form"
                 action="https://us-central1-wnrmc-e91c3.cloudfunctions.net/submitBooking" method="POST">
                 <div class="mt-1">
+                    <label for="date"><i class="bi-calendar-plus h4"></i></label>
                     <input class="w-50 h4" type="date" id="date" name="date">
                 </div>
                 <div class="mt-1">
+                    <label for="date"><i class="bi-clock h4"></i></label>
                     <input class="w-50 h4" type="time" id="time" name="time">
                 </div>
                 <div class="mt-2">
@@ -344,7 +346,7 @@
                 <div class="mt-2">
                     <textarea class="w-75 h4" style="height: 100px;" id="message" name="message" placeholder="Details (call or text preference, Quick description, etc..)"></textarea>
                 </div>
-                <button style="font-size: larger; padding: 5px;"type="submit">Submit Booking Request</button>
+                <button style="font-size: larger; padding: 15px;"type="submit">Submit Booking Request</button>
             </form>
 
             <div id="form-response" style="display:none;"></div>
