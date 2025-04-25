@@ -224,27 +224,27 @@
                     <div class="col-lg-10 col-12 text-center mx-auto">
                         <h2 class="mb-4">Welcome to Wash n Roll</h2>
                     </div>
-                    
+
                     <div class="row w-100 text-center mt-5 border-top border-bottom">
                         <h3 class="mt-5"><a href="tel: 971-448-4232">971-448-4232</a></h3>
-                    <div class="w-50 col-lg-3 col-md-6 col-12 mb-3 mb-lg-0 mb-md-4">
-                        <div class="featured-block d-flex justify-content-center align-items-center">
-                            <a href="tel: 971-448-4232" class="d-block">
-                                <span class="bi-telephone featured-block-image img-fluid"
-                                    style="font-size: 80px; color:#dc3c2e;"></span>
-                                <p class="featured-block-text">Call<br></p>
-                            </a>
+                        <div class="w-50 col-lg-3 col-md-6 col-12 mb-3 mb-lg-0 mb-md-4">
+                            <div class="featured-block d-flex justify-content-center align-items-center">
+                                <a href="tel: 971-448-4232" class="d-block">
+                                    <span class="bi-telephone featured-block-image img-fluid"
+                                        style="font-size: 80px; color:#dc3c2e;"></span>
+                                    <p class="featured-block-text">Call<br></p>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="w-50 col-lg-3 col-md-6 col-12 mb-3 mb-lg-0 mb-md-4">
-                        <div class="featured-block d-flex justify-content-center align-items-center">
-                            <a href="sms: 971-448-4232" class="d-block">
-                                <span class="bi-chat-text featured-block-image img-fluid"
-                                    style="font-size: 80px; color:#6bd92f;"></span>
-                                <p class="featured-block-text">Text <br></p>
-                            </a>
+                        <div class="w-50 col-lg-3 col-md-6 col-12 mb-3 mb-lg-0 mb-md-4">
+                            <div class="featured-block d-flex justify-content-center align-items-center">
+                                <a href="sms: 971-448-4232" class="d-block">
+                                    <span class="bi-chat-text featured-block-image img-fluid"
+                                        style="font-size: 80px; color:#6bd92f;"></span>
+                                    <p class="featured-block-text">Text <br></p>
+                                </a>
+                            </div>
                         </div>
-                    </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-12 mb-3 mb-lg-0 mb-md-4">
                         <div class="featured-block d-flex justify-content-center align-items-center">
@@ -356,6 +356,39 @@
             <br>
         </div>
     </main>
+    <!--///////////////////////BOOKING FORM/////////////////////-->
+    <section class="text-center mt-3 mb-3" id="book-now">
+        <h2>Book Now</h2>
+        <form class="custom-form" id="booking-form" action="https://us-central1-wnrmc-e91c3.cloudfunctions.net/submitBooking" method="POST">
+            <div>
+                <label for="time">Preferred Time:</label>
+                <input type="time" id="time" name="time">
+            </div>
+            <div>
+                <label for="date">Preferred Date:</label>
+                <input type="date" id="date" name="date">
+            </div>
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            <div>
+                <label for="message">Details:</label>
+                <textarea id="message" name="message"></textarea>
+            </div>
+            <button type="submit">Submit Booking Request</button>
+        </form>
+
+        <div id="form-response" style="display:none;"></div>
+    </section>
 
     <!--///////////////////////FOOTER/////////////////////-->
     <footer class="site-footer">
@@ -473,6 +506,7 @@
     <script src="js/employeeLock.js"></script>
     <script src="js/firebase/firebaseObject.js"></script>
     <script src="js/firebase/firebaseKeys.js"></script>
+    <script src="js/bookingForm.js"></script>
 
 </body>
 
