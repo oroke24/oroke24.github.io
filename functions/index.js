@@ -48,10 +48,10 @@ exports.submitBooking = functions.https.onRequest(async (req, res) => {
     // Send the email
     await transporter.sendMail(mailOptions);
     // Send a success response back to the client
-    res.status(200).send({message: "Booking request submitted successfully!"});
+    res.status(200).send({message: "Submitted! We'll contact you shortly."});
   } catch (error) {
     console.error("Error sending email:", error);
     res.status(500)
-        .send({error: "Oops, something went wrong, try call/text/email"});
+        .send({error: "Oops, something went wrong, give us a call/text or email."});
   }
 });
