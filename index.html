@@ -225,7 +225,10 @@
                         <h2 class="mb-4">Welcome to Wash n Roll</h2>
                     </div>
 
+                    <!--// Marketing Flyer-->
                     <div class="text-center"><img class="w-75" src="images/marketing/FlyerMothersDay2025.png"></div>
+
+
 
                     <div class="row w-100 text-center mt-5 border-top border-bottom">
                         <div class="w-50 col-lg-3 col-md-6 col-12 mb-lg-0 mb-md-4">
@@ -322,10 +325,15 @@
             </div>
             <br>
         </div>
-    </main>
-    <!--///////////////////////BOOKING FORM/////////////////////-->
-    <section class="text-center mt-5 mb-5 w-100 border-top" id="book-now">
-        <h2>Book Now</h2>
+        <!--// MyMap for Wnr -->
+        <div style="width:inherit; max-width:inherit; height:460px; overflow:hidden; text-align: center">
+            <iframe src="https://www.google.com/maps/d/embed?mid=1QIffqKeog-b6bIQ0JdFvlyykAfHTsu8&ehbc=2E312F"
+                width="640" height="500" style="margin-top:-70px; border:5px solid #399ec7; border-radius: 8px;">
+            </iframe>
+        </div>
+        <!--///////////////////////BOOKING FORM/////////////////////-->
+        <section class="text-center mt-5 mb-5 w-100 border-top" id="book-now">
+            <h2>Book Now</h2>
             <form class="custom-form text-center" id="booking-form"
                 action="https://us-central1-wnrmc-e91c3.cloudfunctions.net/submitBooking" method="POST">
                 <div class="mt-1">
@@ -346,14 +354,16 @@
                     <input class="w-75 h4" type="tel" id="phone" name="phone" placeholder="888-888-8888" required>
                 </div>
                 <div class="mt-2">
-                    <textarea class="w-75 h4" style="height: 100px;" id="message" name="message" placeholder="Details (call or text preference, Quick description, etc..)"></textarea>
+                    <textarea class="w-75 h4" style="height: 100px;" id="message" name="message"
+                        placeholder="Details (call or text preference, Quick description, etc..)"></textarea>
                 </div>
-                <button style="font-size: larger; padding: 15px;"type="submit">Submit Booking Request</button>
+                <button style="font-size: larger; padding: 15px;" type="submit">Submit Booking Request</button>
             </form>
 
             <div id="form-response" style="display:none;"></div>
-    </section>
+        </section>
 
+    </main>
     <!--///////////////////////FOOTER/////////////////////-->
     <footer class="site-footer">
         <div class="container">
