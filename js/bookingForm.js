@@ -4,11 +4,21 @@ const formResponseDiv = document.getElementById('form-response');
 bookingForm.addEventListener('submit', async (event) => {
   event.preventDefault(); // Prevent the default form submission
 
+  //getting reCAPTCHA
+  const recaptchaToken = grecaptcha.getResonse();
+  if (!recaptchaToken) {
+    formResponseDiv.textContent = 'Please complete the CAPTCHA';
+    formResponseDiv.style.display = 'block';
+    return;
+  }
+
   const formData = new FormData(bookingForm);
   const formDataObject = {};
   formData.forEach((value, key) => {
     formDataObject[key] = value;
   });
+
+  formDataObject["g-recaptcha-response"] = recaptchaToken;
 
   try {
     const response = await fetch(bookingForm.action, {

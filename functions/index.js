@@ -1,5 +1,6 @@
 const functions = require("firebase-functions");
 const nodemailer = require("nodemailer");
+const axios = require("axios");
 
 // Configure your email transport.
 // Replace with your actual email service details.
@@ -23,6 +24,20 @@ exports.submitBooking = functions.https.onRequest(async (req, res) => {
     if (req.method === "OPTIONS") {
       res.status(204).send("");
       return;
+    }
+
+    //reCAPTCHA verification
+    const captchaToken = req.body["g-recaptcha-response"];
+    const secretKey = "6LeBUEwrAAAAAHaTXHwxe9k7fvwlftviaefw0pgo";
+
+    if(!captchaToken){
+      return res.status(400).send({error: "Missing reCAPTCHA token"});
+    }
+    const captchaVerifyURL = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${captchaToken}`;
+    const captchaResponse = await axios.post(captchaVerifyURL);
+
+    if(!captchaResponse.data.success){
+      return res.status(403).send({error: "Failed CAPTCHA verification"})
     }
 
     // Get the form data from the request body

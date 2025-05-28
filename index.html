@@ -20,6 +20,8 @@
     <link href="css/template.css" rel="stylesheet">
     <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore-compat.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
     <!--
 
     TemplateMo 581 Kind Heart Charity
@@ -370,6 +372,9 @@
                 <div class="mt-2">
                     <textarea class="w-75 h4" style="height: 100px;" id="message" name="message"
                         placeholder="Details (call or text preference, Quick description, etc..)"></textarea>
+                </div>
+                <div style="width: 100%; text-align: center;">
+                <div class="g-recaptcha" data-sitekey="6LeBUEwrAAAAAC4_wQ5h1jwPTTPO3OwCrKDTtMJD" style="display: inline-block;"></div>
                 </div>
                 <button style="font-size: larger; padding: 15px;" type="submit">Submit Booking Request</button>
             </form>
