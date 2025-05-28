@@ -1,14 +1,21 @@
 const bookingForm = document.getElementById('booking-form');
 const formResponseDiv = document.getElementById('form-response');
+const submitBtn = document.getElementById('submit-btn');
+const spinner = document.getElementById('loading-spinner');
 
 bookingForm.addEventListener('submit', async (event) => {
   event.preventDefault(); // Prevent the default form submission
 
+  spinner.style.display = 'inline-block';
+  submitBtn.disabled = true;
+
   //getting reCAPTCHA
-  const recaptchaToken = grecaptcha.getResonse();
+  const recaptchaToken = grecaptcha.getResponse();
   if (!recaptchaToken) {
     formResponseDiv.textContent = 'Please complete the CAPTCHA';
     formResponseDiv.style.display = 'block';
+    spinner.style.display = 'none';
+    submitBtn.disabled = false;
     return;
   }
 
@@ -44,4 +51,6 @@ bookingForm.addEventListener('submit', async (event) => {
     formResponseDiv.textContent = 'Failed to submit booking request. Please check your connection.';
     formResponseDiv.style.display = 'block';
   }
+  spinner.style.display = 'none';
+  submitBtn.disabled = false;
 });
