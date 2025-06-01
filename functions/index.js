@@ -26,29 +26,31 @@ exports.submitBooking = functions.https.onRequest(async (req, res) => {
       return;
     }
 
-    //reCAPTCHA verification
+    // reCAPTCHA verification
     const captchaToken = req.body["g-recaptcha-response"];
     const secretKey = "6LeBUEwrAAAAAHaTXHwxe9k7fvwlftviaefw0pgo";
 
-    if(!captchaToken){
+    if (!captchaToken) {
       return res.status(400).send({error: "Missing reCAPTCHA token"});
     }
-    const captchaVerifyURL = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${captchaToken}`;
+    const captchaVerifyURL = `https://www.google.com/recaptcha/api/siteverify?
+                              secret=${secretKey}&response=${captchaToken}`;
     const captchaResponse = await axios.post(captchaVerifyURL);
 
-    if(!captchaResponse.data.success){
-      return res.status(403).send({error: "Failed CAPTCHA verification"})
+    if (!captchaResponse.data.success) {
+      return res.status(403).send({error: "Failed CAPTCHA verification"});
     }
 
     // Get the form data from the request body
-    const {name, email, phone, date, time, message, selectedServices, totalPrice} = req.body;
+    const {name, email, phone, date, time, message, selectedServices,
+      totalPrice} = req.body;
 
     // Create the email message
     const mailOptions = {
       // Customize the sender
       from: "washnrollmobilecleaning@gmail.com",
       to: "washnrollmobilecleaning@gmail.com",
-      subject: "New Booking Request for "+name+" on "+date,
+      subject: "New Booking Request for " + name + " on " + date,
       html: `
         <h3>New Booking Request:</h3>
         <p><strong>Name:</strong> ${name}</p>
@@ -57,7 +59,8 @@ exports.submitBooking = functions.https.onRequest(async (req, res) => {
         <p><strong>Preferred Date:</strong> ${date || "N/A"}</p>
         <p><strong>Preferred Time:</strong> ${time || "N/A"}</p>
         <p><strong>Message:</strong><br>${message || "No message"}</p>
-        <p><strong>Selected Services:</strong><br>${selectedServices || "No message"}</p>
+        <p><strong>Selected Services:</strong>
+        <br>${selectedServices || "No message"}</p>
         <p><strong>Total Price: </strong><br>${totalPrice || "No message"}</p>
       `,
     };
@@ -69,6 +72,8 @@ exports.submitBooking = functions.https.onRequest(async (req, res) => {
   } catch (error) {
     console.error("Error sending email:", error);
     res.status(500)
-        .send({error: "Oops, something went wrong, give us a call/text or email."});
+        .send({
+          error: "Oops, something went wrong, give us a call/text or email.",
+        });
   }
 });
