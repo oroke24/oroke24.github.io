@@ -1,6 +1,6 @@
 const functions = require("firebase-functions");
 const nodemailer = require("nodemailer");
-const axios = require("axios");
+// const axios = require("axios");
 
 // Configure your email transport.
 // Replace with your actual email service details.
@@ -26,6 +26,7 @@ exports.submitBooking = functions.https.onRequest(async (req, res) => {
       return;
     }
 
+    /*
     // reCAPTCHA verification
     const captchaToken = req.body["g-recaptcha-response"];
     const secretKey = "6LeBUEwrAAAAAHaTXHwxe9k7fvwlftviaefw0pgo";
@@ -40,6 +41,7 @@ exports.submitBooking = functions.https.onRequest(async (req, res) => {
     if (!captchaResponse.data.success) {
       return res.status(403).send({error: "Failed CAPTCHA verification"});
     }
+      */
 
     // Get the form data from the request body
     const {name, email, phone, date, time, message, selectedServices,
