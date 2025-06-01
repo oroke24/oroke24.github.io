@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Tab image -->
+    <link rel="icon" href="images/logo.png">
+
+    <title>Wash n Roll Mobile Cleaning</title>
+
+    <!-- CSS FILES -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/template.css" rel="stylesheet">
+    <link href="css/loading.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <!--/////////////////HEADER/////////////////////-->
+    <header class="site-header">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-8 col-12 d-flex flex-wrap">
+                    <p class="d-flex me-4 mb-0">
+                        <i class="bi-geo-alt me-2"></i>
+                        Colton, OR, USA
+                    </p>
+
+                    <p class="d-flex mb-0 ">
+                        <i class="bi-telephone me-2"></i>
+
+                        <a href="tel: 971-448-4232" class="site-footer-link">
+                            (971) 448-4232
+                        </a>
+                    </p>
+                </div>
+
+                <div class="col-lg-3 col-12 ms-auto d-lg-block d-none">
+                    <ul class="social-icon">
+                        <li class="social-icon-item">
+                            <a href="https://www.linkedin.com/in/jamie-oroke-041692135/"
+                                class="social-icon-link bi-linkedin" target="_blank"></a>
+                        </li>
+
+                        <li class="social-icon-item">
+                            <a href="https://www.instagram.com/washnroll_mobilecleaning/"
+                                class="social-icon-link bi-instagram" target="_blank"></a>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <!--/////////////////NAVIGATION/////////////////////-->
+    <nav class="navbar navbar-expand-lg bg-light shadow-lg col-12">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" class="logo img-fluid" alt="Wash n Roll Mobile Cleaning">
+                <span>
+                    Wash n Roll
+                    <small>Mobile Cleaning</small>
+                </span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="videos.html">Videos</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="prices.html">Prices</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#bottom">Contact</a>
+                    </li>
+                    <li class="social-icon-item">
+                        <a class="nav-link" href="portfolio.html">Our Portfolio</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--/////////////////MAIN/////////////////////-->
+    <main>
+        <section class="calculator-section py-5">
+            <div class="container">
+                <h2 class="text-center mb-4">Build Your Custom Detail Package!</h2>
+                <p class="text-center text-muted mb-5">Select the services you want, and see your total update
+                    instantly.</p>
+
+                <div id="calculatorBody" class="card calculator-card">
+                    <div class="card-body">
+                        <div id="servicesList">
+                        </div>
+
+                        <div class="total-section">
+                            <h4 class="mb-0">Total: <span id="totalPrice">$0.00</span></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="text-center mt-5 mb-5 w-100 border-top card" id="book-now">
+            <div class="card-body">
+                <h2>Book Now</h2>
+                <form class="custom-form text-center" id="booking-form"
+                    action="https://us-central1-wnrmc-e91c3.cloudfunctions.net/submitBooking" method="POST">
+                    <div class="mt-1">
+                        <label for="date"><i class="bi-calendar-plus h4"></i></label>
+                        <input class="w-50 h4" type="date" id="date" name="date">
+                    </div>
+                    <div class="mt-1">
+                        <label for="time"><i class="bi-clock h4"></i></label>
+                        <input class="w-50 h4" type="time" id="time" name="time">
+                    </div>
+                    <div class="mt-2">
+                        <input class="w-75 h4" type="text" id="name" name="name" placeholder="Name (required)" required>
+                    </div>
+                    <div class="mt-2">
+                        <input class="w-75 h4" type="email" id="email" name="email" placeholder="Email">
+                    </div>
+                    <div class="mt-2">
+                        <input class="w-75 h4" type="tel" id="phone" name="phone" placeholder="888-888-8888" required>
+                    </div>
+                    <div class="mt-2">
+                        <textarea class="w-75 h4" style="height: 100px;" id="message" name="message"
+                            placeholder="Details (call or text preference, Quick description, etc..)"></textarea>
+                    </div>
+                    <div class="mt-4">
+                        <h5 class="mb-2">Your Selected Package:</h5>
+                        <ul id="displayedServicesList" class="list-unstyled">
+                            <li>No services selected yet.</li>
+                        </ul>
+                        <div id="displayedTotalDisplay" class="mb-3">
+                            Estimated Total: <span id="finalBookingTotal">$0.00</span>
+                        </div>
+                    </div>
+                    <div style="width: 100%; text-align: center;">
+                        <div class="g-recaptcha" data-sitekey="6LeBUEwrAAAAAC4_wQ5h1jwPTTPO3OwCrKDTtMJD"
+                            style="display: inline-block;"></div>
+                    </div>
+                    <input type="hidden" name="selectedServices" id="selectedServicesInput">
+                    <input type="hidden" name="totalPrice" id="totalPriceInput">
+
+                    <button style="font-size: larger; padding: 15px;" type="submit" id="submit-btn">
+                        Submit Booking Request
+                        <span id="loading-spinner" class="spinner" style="display: none;"></span>
+                    </button>
+                </form>
+
+                <div id="form-response" style="display:none;"></div>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/cleaningCalculator/calculatorView.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="js/bookingForm.js"></script>
+</body>
+
+</html>

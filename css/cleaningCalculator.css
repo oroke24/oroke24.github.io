@@ -1,0 +1,64 @@
+.calculator-card {
+    max-width: 600px;
+    margin: 50px auto 20px auto;
+    /* Adjust margin-bottom */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.service-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.service-item:last-child {
+    border-bottom: none;
+}
+
+.total-section {
+    border-top: 2px solid #007bff;
+    padding-top: 20px;
+    margin-top: 20px;
+    text-align: right;
+}
+
+.form-check-label {
+    cursor: pointer;
+    width: 100%;
+    /* Make label clickable across the whole item */
+}
+
+/* Styles for the booking form */
+#book-now {
+    max-width: 600px;
+    margin: 30px auto 50px auto;
+    /* Adjust margin-top for spacing */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.custom-form input,
+.custom-form textarea {
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+
+.custom-form label {
+    margin-right: 10px;
+}
+
+.custom-form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-weight: bold;
+}

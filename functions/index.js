@@ -41,7 +41,7 @@ exports.submitBooking = functions.https.onRequest(async (req, res) => {
     }
 
     // Get the form data from the request body
-    const {name, email, phone, date, time, message} = req.body;
+    const {name, email, phone, date, time, message, selectedServices, totalPrice} = req.body;
 
     // Create the email message
     const mailOptions = {

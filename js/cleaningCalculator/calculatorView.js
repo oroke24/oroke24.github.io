@@ -1,0 +1,104 @@
+// js/script.js
+
+document.addEventListener('DOMContentLoaded', function () {
+    let currentTotal = 0; // Initialize a variable to hold the total price
+    let selectedServices = [];
+
+    const servicesList = document.getElementById('servicesList');
+    const totalPriceSpan = document.getElementById('totalPrice');
+    const totalFinal = document.getElementById('finalBookingTotal');
+
+    const bookingForm = document.getElementById('booking-form');
+    const selectedServicesListInput = document.getElementById('selectedServicesInput');
+    const calculatedTotalInput = document.getElementById('totalPriceInput');
+    const displayedServicesList = document.getElementById('displayedServicesList');
+
+
+    const services = [
+        { id: 'exteriorWash', name: 'Exterior Wash & Dry', price: 50.00 },
+        { id: 'interiorCleanAndProtect', name: 'Interior Clean and Protect', price: 50.00 },
+        { id: 'windowCleaning', name: 'Window Cleaning (Interior & Exterior)', price: 20.00 },
+        { id: 'petHairRemoval', name: 'Pet Hair Removal', price: 60.00 },
+        { id: 'leatherFabricConditioning', name: 'Leather or Fabric Conditioning', price: 60.00 },
+        { id: 'odorElimination', name: 'Odor Elimination & Deodorizer', price: 25.00 },
+        { id: 'waxApplication', name: 'Carnauba Wax Application', price: 100.00 },
+        { id: 'tireDressing', name: 'Tire & Wheel Dressing', price: 20.00 },
+        { id: 'headlightRestoration', name: 'Headlight Restoration', price: 45.00 },
+        { id: 'engineBayDetail', name: 'Engine Bay Detail', price: 80.00 },
+    ];
+
+    // Function to render the services into the HTML
+    function renderServices() {
+        servicesList.innerHTML = ''; // Clear existing content
+        services.forEach(service => {
+            const serviceItem = document.createElement('div');
+            serviceItem.classList.add('service-item'); // Add custom styling class
+
+            serviceItem.innerHTML = `
+    <div class="form-check form-switch d-flex justify-content-between align-items-center w-100">
+        <div>
+            <input class="form-check-input" type="checkbox" role="switch"
+                id="switch${service.id}" data-price="${service.price}" data-name="${service.name}">
+            <label class="form-check-label ms-2" for="switch${service.id}">
+                ${service.name}
+            </label>
+        </div>
+        <span class="service-price">$${service.price.toFixed(2)}</span>
+    </div>
+`;
+            servicesList.appendChild(serviceItem);
+
+            // Add event listener to the switch
+            const switchInput = serviceItem.querySelector(`#switch${service.id}`);
+            switchInput.addEventListener('change', updateTotalPrice);
+        });
+    }
+
+    // Function to update the total price
+    function updateTotalPrice() {
+        currentTotal = 0; // Reset total
+        selectedServices = [];
+        const switches = servicesList.querySelectorAll('input[type="checkbox"]');
+
+        switches.forEach(sw => {
+            if (sw.checked) {
+                const price = parseFloat(sw.dataset.price);
+                const name = sw.dataset.name;
+                currentTotal += price;
+                selectedServices.push({ name: name, price: price })
+            }
+        });
+
+        // Update the displayed total
+        totalPriceSpan.textContent = `$${currentTotal.toFixed(2)}`;
+        totalFinal.textContent = `$${currentTotal.toFixed(2)}`;
+
+        if (selectedServicesListInput) {
+            selectedServicesListInput.value = JSON.stringify(selectedServices);
+        }
+        if (calculatedTotalInput){
+            calculatedTotalInput.value = currentTotal.toFixed(2);
+        }
+
+        displayedServicesList.innerHTML = '';
+        if (selectedServices.length === 0) {
+            displayedServicesList.innerHTML = '<li>No Services selected yet.</li>'
+        } else {
+            selectedServices.forEach(s => {
+                const li = document.createElement('li');
+                li.textContent = `${s.name} - $${s.price.toFixed(2)}`;
+                displayedServicesList.appendChild(li);
+            });
+        }
+    }
+
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', function (event) {
+            console.log('Form submitting with total: ', calculatedTotalInput.value);
+            console.log('Form submitting with services: ', selectedServicesListInput.value);
+        });
+    }
+    // Initial render of services when the page loads
+    renderServices();
+    updateTotalPrice(); // Calculate initial total (should be 0)
+});
