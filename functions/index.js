@@ -57,6 +57,8 @@ exports.submitBooking = functions.https.onRequest(async (req, res) => {
         <p><strong>Preferred Date:</strong> ${date || "N/A"}</p>
         <p><strong>Preferred Time:</strong> ${time || "N/A"}</p>
         <p><strong>Message:</strong><br>${message || "No message"}</p>
+        <p><strong>Selected Services:</strong><br>${selectedServices || "No message"}</p>
+        <p><strong>Total Price: </strong><br>${totalPrice || "No message"}</p>
       `,
     };
 
