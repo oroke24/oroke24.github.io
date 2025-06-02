@@ -133,10 +133,20 @@
         </section>
         <section class="text-center mt-5 mb-5 w-100 border-top card" id="book-now">
             <div class="card-body">
-                <h2>Book Now</h2>
                 <form class="custom-form text-center" id="booking-form"
                     action="https://us-central1-wnrmc-e91c3.cloudfunctions.net/submitBooking" method="POST">
                     <div class="mt-1">
+                        <h5 class="mb-2">Your Selected Package:</h5>
+                        <ul id="displayedServicesList" class="list-unstyled">
+                            <li>No services selected yet.</li>
+                        </ul>
+                        <div id="displayedTotalDisplay" class="mb-3">
+                            Estimated Total: <span id="finalBookingTotal">$0.00</span>
+                        </div>
+                    </div>
+                    <h2>Book Now? <i class="bi bi-arrow-down-circle-fill"></i></h2>
+                    <h5>(You only pay once the job is done)</h5>
+                    <div class="mt-4">
                         <label for="date"><i class="bi-calendar-plus h4"></i></label>
                         <input class="w-50 h4" type="date" id="date" name="date">
                     </div>
@@ -156,15 +166,6 @@
                     <div class="mt-2">
                         <textarea class="w-75 h4" style="height: 100px;" id="message" name="message"
                             placeholder="Details (call or text preference, Quick description, etc..)"></textarea>
-                    </div>
-                    <div class="mt-4">
-                        <h5 class="mb-2">Your Selected Package:</h5>
-                        <ul id="displayedServicesList" class="list-unstyled">
-                            <li>No services selected yet.</li>
-                        </ul>
-                        <div id="displayedTotalDisplay" class="mb-3">
-                            Estimated Total: <span id="finalBookingTotal">$0.00</span>
-                        </div>
                     </div>
                     <div style="width: 100%; text-align: center;">
                         <div class="g-recaptcha" data-sitekey="6LeBUEwrAAAAAC4_wQ5h1jwPTTPO3OwCrKDTtMJD"

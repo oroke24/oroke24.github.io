@@ -79,6 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let percentage = 6;
         let expensiveDiscount = (Math.floor(currentTotal / 100).toFixed(0) * percentage);
         if (promoCode.value === "clean15" || promoCode.value === "Clean15") promo = 15; // 15%
+        if (promoCode.value === "holiday30" || promoCode.value === "Holiday30") promo = 30; // 30%
         //if(promoCode.value === "clean25") promo = 25; // 15%
         console.log('promo discount: ', promo);
         console.log('expensiveDiscount: ', expensiveDiscount);
@@ -102,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
         totalPriceSpan.textContent = `$${newTotal.toFixed(2)}`;
-        totalFinal.textContent = `$${newTotal.toFixed(2)}`;
+        totalFinal.textContent = `$${currentTotal}-$${amountOff}(${expensiveDiscount + promo}%) = $${newTotal.toFixed(2)}`;
 
         if (selectedServicesListInput) {
             selectedServicesListInput.value = selectedServices
@@ -110,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .join('\n\n\n');
         }
         if (calculatedTotalInput) {
-            calculatedTotalInput.value = Total.toFixed(2);
+            calculatedTotalInput.value = `$${currentTotal}-$${amountOff}(${expensiveDiscount + promo}%) = $${newTotal.toFixed(2)}`;
         }
 
         displayedServicesList.innerHTML = '';
