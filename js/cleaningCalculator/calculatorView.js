@@ -21,9 +21,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     promoCode.addEventListener('input', updateTotalPrice)
     const services = [
-        { id: 'exteriorWash', name: 'Exterior Wash & Dry', price: 50.00 },
-        { id: 'interiorCleanAndProtect', name: 'Interior Clean and Protect', price: 50.00 },
-        { id: 'windowCleaning', name: 'Window Cleaning (Interior & Exterior)', price: 20.00 },
+        { id: 'exteriorWash', name: 'Exterior Wash & Dry', price: 60.00 },
+        { id: 'interiorCleanAndProtect', name: 'Interior Clean and Protect', price: 60.00 },
         { id: 'petHairRemoval', name: 'Pet Hair Removal', price: 60.00 },
         { id: 'leatherFabricConditioning', name: 'Leather or Fabric Conditioning', price: 60.00 },
         { id: 'odorElimination', name: 'Odor Elimination & Deodorizer', price: 15.00 },
@@ -55,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             serviceItem.innerHTML += `
     <div class="form-check form-switch d-flex justify-content-between align-items-center w-100">
-        <div style="margin: 12px; padding: 4px; font-size:1.3em">
+        <div style="margin: 4px; padding: 4px; font-size:1.3em">
             <input class="form-check-input" type="checkbox" role="switch"
                 id="switch${service.id}" data-price="${service.price}" data-name="${service.name}">
             <label class="form-check-label ms-2" for="switch${service.id}">
