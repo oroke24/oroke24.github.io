@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
         totalPriceSpan.textContent = `$${newTotal.toFixed(2)}`;
-        totalFinal.textContent = `$${currentTotal}-$${amountOff}(${expensiveDiscount + promo}%) = $${newTotal.toFixed(2)}`;
+        totalFinal.textContent = `$${currentTotal}-$${amountOff.toFixed(2)}(${expensiveDiscount + promo}%) = $${newTotal.toFixed(2)}`;
 
         if (selectedServicesListInput) {
             selectedServicesListInput.value = selectedServices
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .join('\n\n\n');
         }
         if (calculatedTotalInput) {
-            calculatedTotalInput.value = `$${currentTotal}-$${amountOff}(${expensiveDiscount + promo}%) = $${newTotal.toFixed(2)}`;
+            calculatedTotalInput.value = `$${currentTotal}-$${amountOff.toFixed(2)}(${expensiveDiscount + promo}%) = $${newTotal.toFixed(2)}`;
         }
 
         displayedServicesList.innerHTML = '';
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             selectedServices.forEach(s => {
                 const li = document.createElement('li');
-                li.textContent = `${s.name} - $${s.price.toFixed(2)}`;
+                li.textContent = `${s.name}`;
                 displayedServicesList.appendChild(li);
             });
         }
