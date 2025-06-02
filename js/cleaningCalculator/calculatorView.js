@@ -26,21 +26,34 @@ document.addEventListener('DOMContentLoaded', function () {
         { id: 'windowCleaning', name: 'Window Cleaning (Interior & Exterior)', price: 20.00 },
         { id: 'petHairRemoval', name: 'Pet Hair Removal', price: 60.00 },
         { id: 'leatherFabricConditioning', name: 'Leather or Fabric Conditioning', price: 60.00 },
-        { id: 'odorElimination', name: 'Odor Elimination & Deodorizer', price: 25.00 },
-        { id: 'waxApplication', name: 'Carnauba Wax Application', price: 100.00 },
+        { id: 'odorElimination', name: 'Odor Elimination & Deodorizer', price: 15.00 },
         { id: 'tireDressing', name: 'Tire & Wheel Dressing', price: 20.00 },
-        { id: 'headlightRestoration', name: 'Headlight Restoration', price: 45.00 },
-        { id: 'engineBayDetail', name: 'Engine Bay Detail', price: 80.00 },
+        { id: 'headlightRestoration', name: 'Headlight Restoration', price: 60.00 },
+        { id: 'engineBayDetail', name: 'Engine Bay Detail', price: 50.00 },
+        { id: 'seatRemoval', name: 'Seat Removal', price: 75.00 },
+        { id: 'sprayWaxApplication', name: 'Spray Wax Application (adds thin layer)', price: 25.00 },
+        { id: 'ceramicCoating', name: 'Ceramic Coating Application (seals)', price: 30.00 },
+        { id: 'polishApplication', name: 'Compound Polish Application (removes layer)', price: 100.00 },
+        { id: 'waxApplication', name: 'Carnauba Wax Application (adds layer)', price: 100.00 },
     ];
 
     // Function to render the services into the HTML
     function renderServices() {
         servicesList.innerHTML = ''; // Clear existing content
-        services.forEach(service => {
+        let title = document.createElement('div');
+        title.classList="text-center"
+        services.forEach((service, i) => {
+            
+            /*
+            if(i === 0) {
+                title.innerText = "Common choices";
+                servicesList.appendChild(title);
+            }
+                */
             const serviceItem = document.createElement('div');
             serviceItem.classList.add('service-item'); // Add custom styling class
 
-            serviceItem.innerHTML = `
+            serviceItem.innerHTML += `
     <div class="form-check form-switch d-flex justify-content-between align-items-center w-100">
         <div style="margin: 12px; padding: 4px; font-size:1.3em">
             <input class="form-check-input" type="checkbox" role="switch"
