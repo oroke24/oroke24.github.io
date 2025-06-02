@@ -107,10 +107,10 @@ document.addEventListener('DOMContentLoaded', function () {
         if (selectedServicesListInput) {
             selectedServicesListInput.value = selectedServices
             .map(service => `${service.name} ${service.price.toFixed(2)}`)
-            .join('\n\n');
+            .join('\n\n\n');
         }
         if (calculatedTotalInput) {
-            calculatedTotalInput.value = currentTotal.toFixed(2);
+            calculatedTotalInput.value = Total.toFixed(2);
         }
 
         displayedServicesList.innerHTML = '';
