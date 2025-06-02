@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             serviceItem.innerHTML = `
     <div class="form-check form-switch d-flex justify-content-between align-items-center w-100">
-        <div>
+        <div style="margin: 12px; padding: 4px; font-size:1.3em">
             <input class="form-check-input" type="checkbox" role="switch"
                 id="switch${service.id}" data-price="${service.price}" data-name="${service.name}">
             <label class="form-check-label ms-2" for="switch${service.id}">
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log('expensiveDiscount: ', expensiveDiscount);
 
         // Update the displayed totals
-        subTotalHidden.textContent = `$${currentTotal.toFixed(2)}`;
+        subTotalHidden.value = `$${currentTotal.toFixed(2)}`;
         subTotal.textContent = `$${currentTotal.toFixed(2)}`;
 
         let discountLines = [];
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         discounts.innerText = discountLines.join('\n');
-        discountsHidden.textContent = discounts.innerText;
+        discountsHidden.value = discounts.innerText;
         let amountOff = (expensiveDiscount + promo) / 100 * currentTotal;
         let newTotal = currentTotal - amountOff;
 
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (selectedServicesListInput) {
             selectedServicesListInput.value = selectedServices
             .map(service => `${service.name} ${service.price.toFixed(2)}`)
-            .join('\n');
+            .join('\n\n');
         }
         if (calculatedTotalInput) {
             calculatedTotalInput.value = currentTotal.toFixed(2);
