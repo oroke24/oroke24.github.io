@@ -45,7 +45,7 @@ exports.submitBooking = functions.https.onRequest(async (req, res) => {
 
     // Get the form data from the request body
     const {name, email, phone, date, time, message, selectedServices,
-      totalPrice} = req.body;
+      subTotal, discounts, totalPrice} = req.body;
 
     // Create the email message
     const mailOptions = {
@@ -63,6 +63,8 @@ exports.submitBooking = functions.https.onRequest(async (req, res) => {
         <p><strong>Message:</strong><br>${message || "No message"}</p>
         <p><strong>Selected Services:</strong>
         <br>${selectedServices || "No message"}</p>
+        <p><strong>SubTotal Price: </strong><br>${subTotal || "No message"}</p>
+        <p><strong>Discounts: </strong><br>${discounts || "No message"}</p>
         <p><strong>Total Price: </strong><br>${totalPrice || "No message"}</p>
       `,
     };

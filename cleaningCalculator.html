@@ -118,7 +118,14 @@
                         </div>
 
                         <div class="total-section">
-                            <h4 class="mb-0">Total: <span id="totalPrice">$0.00</span></h4>
+                            <h2 class="mb-2 mt-5">SubTotal: <span id="subTotal">$0.00</span></h2>
+                            <input 
+                                style="border-radius: 8px; padding:5px"
+                                id="promoCode" 
+                                placeholder="Have a promo code? ">
+                            </input>
+                            <div id="discounts"></div>
+                            <h1 class="mb-0 mt-2">Total: <span id="totalPrice">$0.00</span></h1>
                         </div>
                     </div>
                 </div>
@@ -165,6 +172,8 @@
                     </div>
                     <input type="hidden" name="selectedServices" id="selectedServicesInput">
                     <input type="hidden" name="totalPrice" id="totalPriceInput">
+                    <input type="hidden" name="subTotalPrice" id="subTotalHidden">
+                    <input type="hidden" name="discounts" id="discountsHidden">
 
                     <button style="font-size: larger; padding: 15px;" type="submit" id="submit-btn">
                         Submit Booking Request

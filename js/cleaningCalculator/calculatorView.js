@@ -5,7 +5,12 @@ document.addEventListener('DOMContentLoaded', function () {
     let selectedServices = [];
 
     const servicesList = document.getElementById('servicesList');
+    const subTotal = document.getElementById('subTotal');
+    const promoCode = document.getElementById('promoCode');
+    const discounts = document.getElementById('discounts');
     const totalPriceSpan = document.getElementById('totalPrice');
+    const subTotalHidden = document.getElementById('subTotalHidden');
+    const discountsHidden = document.getElementById('discountsHidden');
     const totalFinal = document.getElementById('finalBookingTotal');
 
     const bookingForm = document.getElementById('booking-form');
@@ -14,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const displayedServicesList = document.getElementById('displayedServicesList');
 
 
+    promoCode.addEventListener('input', updateTotalPrice)
     const services = [
         { id: 'exteriorWash', name: 'Exterior Wash & Dry', price: 50.00 },
         { id: 'interiorCleanAndProtect', name: 'Interior Clean and Protect', price: 50.00 },
@@ -69,9 +75,31 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        // Update the displayed total
-        totalPriceSpan.textContent = `$${currentTotal.toFixed(2)}`;
-        totalFinal.textContent = `$${currentTotal.toFixed(2)}`;
+        let promo = 0;
+        let percentage = 6;
+        let expensiveDiscount = (Math.floor(currentTotal/100).toFixed(0) * percentage);
+        if(promoCode.value === "clean15" || promoCode.value === "Clean15") promo = 15; // 15%
+        //if(promoCode.value === "clean25") promo = 25; // 15%
+        console.log('promo discount: ', promo);
+        console.log('expensiveDiscount: ', expensiveDiscount);
+
+        // Update the displayed totals
+        subTotalHidden.textContent = `$${currentTotal.toFixed(2)}`;
+        subTotal.textContent = `$${currentTotal.toFixed(2)}`;
+
+        discounts.innerText = `
+            ${expensiveDiscount > 0 ? `- ${expensiveDiscount}% OFF! (at or over $${(expensiveDiscount / percentage) * 100})`: "" }
+            ${promo > 0 ? `- ${promo}% OFF! (promo)`: ""}\n
+        `;
+
+        discountsHidden.textContent = `${discounts.innerText}`;
+        
+        let amountOff = (expensiveDiscount + promo)/100 * currentTotal;
+        let newTotal = currentTotal - amountOff;
+
+
+        totalPriceSpan.textContent = `$${newTotal.toFixed(2)}`;
+        totalFinal.textContent = `$${newTotal.toFixed(2)}`;
 
         if (selectedServicesListInput) {
             selectedServicesListInput.value = JSON.stringify(selectedServices);
