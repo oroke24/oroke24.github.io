@@ -105,7 +105,9 @@ document.addEventListener('DOMContentLoaded', function () {
         totalFinal.textContent = `$${newTotal.toFixed(2)}`;
 
         if (selectedServicesListInput) {
-            selectedServicesListInput.value = JSON.stringify(selectedServices);
+            selectedServicesListInput.value = selectedServices
+            .map(service => `${service.name} ${service.price.toFixed(2)}`)
+            .join('\n');
         }
         if (calculatedTotalInput) {
             calculatedTotalInput.value = currentTotal.toFixed(2);
