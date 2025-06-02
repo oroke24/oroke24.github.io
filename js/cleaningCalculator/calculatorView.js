@@ -77,8 +77,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         let promo = 0;
         let percentage = 6;
-        let expensiveDiscount = (Math.floor(currentTotal/100).toFixed(0) * percentage);
-        if(promoCode.value === "clean15" || promoCode.value === "Clean15") promo = 15; // 15%
+        let expensiveDiscount = (Math.floor(currentTotal / 100).toFixed(0) * percentage);
+        if (promoCode.value === "clean15" || promoCode.value === "Clean15") promo = 15; // 15%
         //if(promoCode.value === "clean25") promo = 25; // 15%
         console.log('promo discount: ', promo);
         console.log('expensiveDiscount: ', expensiveDiscount);
@@ -87,14 +87,17 @@ document.addEventListener('DOMContentLoaded', function () {
         subTotalHidden.textContent = `$${currentTotal.toFixed(2)}`;
         subTotal.textContent = `$${currentTotal.toFixed(2)}`;
 
-        discounts.innerText = `
-            ${expensiveDiscount > 0 ? `- ${expensiveDiscount}% OFF! (at or over $${(expensiveDiscount / percentage) * 100})`: "" }
-            ${promo > 0 ? `- ${promo}% OFF! (promo)`: ""}\n
-        `;
+        let discountLines = [];
+        if (expensiveDiscount > 0) {
+            discountLines.push(`- ${expensiveDiscount}% OFF! (at or over $${(expensiveDiscount / percentage) * 100})`);
+        }
+        if (promo > 0) {
+            discountLines.push(`- ${promo}% OFF! (promo code applied)`);
+        }
 
-        discountsHidden.textContent = `${discounts.innerText}`;
-        
-        let amountOff = (expensiveDiscount + promo)/100 * currentTotal;
+        discounts.innerText = discountLines.join('\n');
+        discountsHidden.textContent = discounts.innerText;
+        let amountOff = (expensiveDiscount + promo) / 100 * currentTotal;
         let newTotal = currentTotal - amountOff;
 
 
@@ -104,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (selectedServicesListInput) {
             selectedServicesListInput.value = JSON.stringify(selectedServices);
         }
-        if (calculatedTotalInput){
+        if (calculatedTotalInput) {
             calculatedTotalInput.value = currentTotal.toFixed(2);
         }
 
