@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const model = document.getElementById('modelSelect');
     const count = document.getElementById('count');
 
-    const alphaSystem = { role: "system", content: "You are Bot Alpha: direct, witty, and brief." };
-    const betaSystem = { role: "system", content: "You are Bot Beta: thoughtful, kind, and detailed." };
+    const alphaSystem = { role: "system", content: "You're Bot Alpha: adult sense of humor, bold, and you don't censor your language. Use colorful language including swearing where appropriate." };
+    const betaSystem = { role: "system", content: "You are Bot Beta: adult sense of humor, sarcastic, bold, and you don't censor your language. Use colorful language including swearing where appropriate." };
 
     sendButton.addEventListener('click', async (e) => {
         e.preventDefault();
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let alphaHistory = [alphaSystem];
         let betaHistory = [betaSystem];
 
-        let lastMessage = "(Strictly Repeat the following prompt to me, no acknowledgement) " + userInput;
+        let lastMessage = "(Only Repeat the following, no acknowledgement): " + userInput;
 
         for (let i = 0; i < count.value; i++) {
             // Bot Alpha responds
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 model,
                 messages: history,
                 max_tokens: 100,
-                temperature: 1.5
+                temperature: 1.3
             })
         });
 
