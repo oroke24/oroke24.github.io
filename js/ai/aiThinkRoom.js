@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let alphaHistory = [alphaSystem];
         let betaHistory = [betaSystem];
 
-        let lastMessage = "(Repeat this prompt to me) " + userInput;
+        let lastMessage = "(Strictly Repeat the following prompt to me, no acknowledgement) " + userInput;
 
         for (let i = 0; i < count.value; i++) {
             // Bot Alpha responds
@@ -66,7 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
             },
             body: JSON.stringify({
                 model,
-                messages: history
+                messages: history,
+                max_tokens: 100,
+                temperature: 1.5
             })
         });
 
