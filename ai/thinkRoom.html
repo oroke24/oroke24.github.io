@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap-icons.css" rel="stylesheet">
+    <link href="../css/template.css" rel="stylesheet">
+    <link href="../css/ai.css" rel="stylesheet" />
+    <title>Wash n Roll Mobile Cleaning - AI Think Room</title>
+    <link rel="icon" href="../images/logo.png"><!--Tab image-->
+    <!--Linking Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+</head>
+
+<body>
+    <!--/////////////////NAVIGATION/////////////////////-->
+    <div style="margin:30px; font-size:2em">
+        <a href="index.html" style="color:#FFFFFF;">
+            <i class="bi bi-house-fill"></i>
+            Home
+        </a>
+        <a href="art.html" style="color:#FFFFFF; float:inline-end;">
+            AI Art
+            <i class="bi bi-brush"></i>
+        </a>
+    </div>
+    <!--////////////////////MAIN////////////////////////-->
+    <main>
+        <div class="container" style="margin-top:20px; ">
+            <h1 style="text-align:center">AI Think Room</h1>
+            <h5 style="text-align:center">Bots conversate based on your input.</h5>
+            <div class="row" style="width:50%; margin:auto;">
+                <a class="custom-btn" href="thinkRoom.html" style=" text-align:center; color:#FFFFFF;">Refresh</a>
+            </div>
+            <div class="chat-container">
+                <div id="chatHistory" class="chat-history">
+                    <div id="loadingSpinner" class="spinner-border text-primary" role="status" style="display: none;">
+                        <span class="sr"></span>
+                    </div>
+                </div>
+                <div class="col d-flex" style="visibility: hidden;">
+                    <label for="modelSelect" style="text-align:center;">Model</label>
+                    <select id="modelSelect">
+                        <option value="gpt-4o">gpt-4o</option>
+                        <option value="gpt-3.5-turbo">gpt-3.5-turbo</option>
+                        <option value="gpt-4o">gpt-4o</option>
+                    </select>
+                </div>
+                <div class="input-container">
+                    <textarea id="inputText" placeholder="type initial message here.."></textarea>
+                    <div class="row d-flex p-2 m-2">
+                        <label for="count" style="text-align:center; justify-items: center;">Turns</label>
+                        <select id="count">
+                            <option value="3">3</option>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                        </select>
+                    </div>
+                    <button class="custom-btn" id="sendButton">
+                        <i class="bi-arrow-up-circle"></i>
+                    </button>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h6 id="currentAssistant1" style="text-align:center; color:#FAFAFA; margin-top:20px;">"</h6>
+                        <h6 id="currentAssistant2" style="text-align:center; color:#FAFAFA; margin-top:20px;">"</h6>
+                    </div>
+                    <!--
+                    <div class="col">
+                        <textarea id="assistantType" placeholder="describe the role of the assistant (fashion agent, software developer, etc.).."></textarea>
+                    </div>
+                    -->
+                </div>
+            </div>
+        </div>
+    </main>
+    <!--////////////////////SCRIPTS////////////////////////-->
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/firebase/firebaseObject.js"></script>
+    <script src="../js/firebase/firebaseKeys.js"></script>
+    <script src="../js/ai/aiThinkRoom.js"></script>
+    <!--  <script src="../js/downForMaintenance.js"></script>  -->
+</body>
+
+</html>
