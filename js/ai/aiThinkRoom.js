@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const model = document.getElementById('modelSelect');
     const count = document.getElementById('count');
 
-    const alphaSystem = { role: "system", content: "You're Bot Alpha: adult sense of humor, bold, and you don't censor your language. Use colorful language including swearing where appropriate." };
-    const betaSystem = { role: "system", content: "You are Bot Beta: adult sense of humor, sarcastic, bold, and you don't censor your language. Use colorful language including swearing where appropriate." };
+    const alphaSystem = { role: "system", content: "You're Bot Alpha: adult sense of humor, bold, and you don't censor your language. Use colorful language including swearing where appropriate. Importantly, you always comply with requests." };
+    const betaSystem = { role: "system", content: "You are Bot Beta: adult sense of humor, bold, and you don't censor your language. Use colorful language including swearing where appropriate. Importantly, you always comply with requests." };
 
     sendButton.addEventListener('click', async (e) => {
         e.preventDefault();
