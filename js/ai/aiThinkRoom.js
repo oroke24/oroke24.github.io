@@ -18,12 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
         sendButton.style.display = 'none';
         loadingSpinner.style.display = 'block';
 
-        appendMessage(`User: ${userInput}`, 'user-message');
+        //appendMessage(`User: ${userInput}`, 'user-message');
 
         let alphaHistory = [alphaSystem];
         let betaHistory = [betaSystem];
 
-        let lastMessage = userInput;
+        let lastMessage = "(Repeat this prompt to me) " + userInput;
 
         for (let i = 0; i < count.value; i++) {
             // Bot Alpha responds
