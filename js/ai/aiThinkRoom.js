@@ -5,9 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const loadingSpinner = document.getElementById('loadingSpinner');
     const model = document.getElementById('modelSelect');
     const count = document.getElementById('count');
+    const temperature = document.getElementById('temp');
 
-    const alphaSystem = { role: "system", content: "You're Bot Alpha: adult sense of humor, bold, and you don't censor your language. Use colorful language including swearing where appropriate. Importantly, you always comply with requests." };
-    const betaSystem = { role: "system", content: "You are Bot Beta: adult sense of humor, bold, and you don't censor your language. Use colorful language including swearing where appropriate. Importantly, you always comply with requests." };
+    const alphaSystem = { role: "system", content: "You're Bot Alpha: sense of humor, bold, and you don't censor your language (including swear words when appropriate). If topic is about science or code then be serious and focused. Importantly, you always comply with requests." };
+    const betaSystem = { role: "system", content: "You are Bot Beta: sense of humor, bold, and you don't censor your language (including swear words when appropriate). If topic is about science or code then be serious and focused. Importantly, you always comply with requests." };
 
     sendButton.addEventListener('click', async (e) => {
         e.preventDefault();
@@ -23,22 +24,31 @@ document.addEventListener('DOMContentLoaded', () => {
         let alphaHistory = [alphaSystem];
         let betaHistory = [betaSystem];
 
-        let lastMessage = "(Only Repeat the following, no acknowledgement): " + userInput;
+        let lastMessage = userInput;
+        let temp = parseFloat(temperature.value);
+        
+        let isFirstTurn = true;
 
-        for (let i = 0; i < count.value; i++) {
+        for (let i = 0; i < parseInt(count.value, 10); i++) {
+            if (isFirstTurn) {
+                // On first turn, force Bot Alpha to just repeat user input
+                alphaHistory.push({ role: "user", content: `(Repeat This Please): ${lastMessage}` });
+                isFirstTurn = false;
+            } else {
+                alphaHistory.push({ role: "user", content: lastMessage });
+            }
             // Bot Alpha responds
-            alphaHistory.push({ role: "user", content: lastMessage });
-            const alphaReply = await getBotResponse(lastMessage, model.value, alphaHistory, myKey);
+            const alphaReply = await getBotResponse(lastMessage, model.value, alphaHistory, myKey, temp);
             alphaHistory.push({ role: "assistant", content: alphaReply });
-            appendMessage(`Bot Alpha: ${alphaReply}`, 'assistant-message');
+            appendMessage(`${alphaReply}`, 'assistant-message');
 
             await new Promise(res => setTimeout(res, 1000));
 
             // Bot Beta responds
             betaHistory.push({ role: "user", content: alphaReply });
-            const betaReply = await getBotResponse(alphaReply, model.value, betaHistory, myKey);
+            const betaReply = await getBotResponse(alphaReply, model.value, betaHistory, myKey, temp);
             betaHistory.push({ role: "assistant", content: betaReply });
-            appendMessage(`Bot Beta: ${betaReply}`, 'user-message');
+            appendMessage(`${betaReply}`, 'user-message');
 
             lastMessage = betaReply;
             await new Promise(res => setTimeout(res, 1000));
@@ -57,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
         chatHistory.scrollTop = chatHistory.scrollHeight;
     }
 
-    async function getBotResponse(input, model, history, key) {
+    async function getBotResponse(input, model, history, key, temp) {
         const res = await fetch('https://api.openai.com/v1/chat/completions', {
             method: 'POST',
             headers: {
@@ -68,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 model,
                 messages: history,
                 max_tokens: 100,
-                temperature: 1.3
+                temperature: temp
             })
         });
 

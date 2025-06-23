@@ -49,10 +49,9 @@
                         <option value="gpt-4o">gpt-4o</option>
                     </select>
                 </div>
-                <div class="input-container">
-                    <textarea id="inputText" placeholder="type initial message here.."></textarea>
-                    <div class="row d-flex p-2 m-2">
-                        <label for="count" style="text-align:center; justify-items: center;">Turns</label>
+                <div class="row">
+                    <div class="col-3 mb-3 text-center">
+                        <label for="count" style="width: 100%; text-align:center; justify-items: center;">Turns</label>
                         <select id="count">
                             <option value="3">3</option>
                             <option value="5">5</option>
@@ -60,10 +59,24 @@
                             <option value="15">15</option>
                         </select>
                     </div>
+                    <div class="col-9 mb-3 text-center">
+                        <label for="temp" style="width: 100%; text-align:center; justify-items: center;">Temp</label>
+                        <select id="temp">
+                            <option value="0.0">0.0: Deterministic (serious)</option>
+                            <option value="0.3">0.3: Focused, Low creativity</option>
+                            <option selected value="0.7">0.7: Balanced</option>
+                            <option value="1.0">1.0: More diverse, creative, risk-taking</option>
+                            <option value="1.5">1.5: Very random, loose logic, more surprise</option>
+                            <option value="2.0">2.0: Max creativity, often chaotic</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-container">
+                    <textarea id="inputText" placeholder="type initial message here.."></textarea>
+                </div>
                     <button class="custom-btn" id="sendButton">
                         <i class="bi-arrow-up-circle"></i>
                     </button>
-                </div>
                 <div class="row">
                     <div class="col">
                         <h6 id="currentAssistant1" style="text-align:center; color:#FAFAFA; margin-top:20px;">"</h6>
