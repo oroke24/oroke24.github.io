@@ -1,6 +1,31 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
+  // Basic anti-spam checks: honeypot and minimum submission time
+  $honeypot = isset($_POST['website']) ? trim($_POST['website']) : '';
+  $form_time = isset($_POST['form_time']) ? intval($_POST['form_time']) : 0;
+  $now = time();
+
+  // ensure logs directory exists
+  $logsDir = __DIR__ . '/logs';
+  if (!is_dir($logsDir)) {
+    @mkdir($logsDir, 0755, true);
+  }
+
+  // If honeypot is filled, treat as spam and stop.
+  if ($honeypot !== '') {
+    @file_put_contents($logsDir . '/spam_log.txt', date('c') . " - honeypot hit - " . ($_SERVER['REMOTE_ADDR'] ?? 'unknown') . " - ". json_encode($_POST) . "\n", FILE_APPEND);
+    header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request');
+    exit;
+  }
+
+  // If the form was submitted too quickly (e.g. less than 5 seconds), treat as bot
+  if ($form_time && ($now - $form_time) < 5) {
+    @file_put_contents($logsDir . '/spam_log.txt', date('c') . " - too-fast submit - " . ($_SERVER['REMOTE_ADDR'] ?? 'unknown') . " - delta=" . ($now - $form_time) . " - " . json_encode($_POST) . "\n", FILE_APPEND);
+    header($_SERVER['SERVER_PROTOCOL'] . ' 400 Bad Request');
+    exit;
+  }
+
   $firstName = $_POST['firstName'];
   $lastName = $_POST['lastName'];
   $phone = filter_input(INPUT_POST, "phone", FILTER_VALIDATE_INT);

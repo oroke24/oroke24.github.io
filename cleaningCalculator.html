@@ -171,6 +171,10 @@
                         <div class="g-recaptcha" data-sitekey="6LeBUEwrAAAAAC4_wQ5h1jwPTTPO3OwCrKDTtMJD"
                             style="display: inline-block;"></div>
                     </div>
+                    <!-- Honeypot to trap bots: should stay empty. Hidden from users. -->
+                    <input type="text" name="website" id="website_hp" style="display:none" autocomplete="off">
+                    <!-- Hidden timestamp to detect too-fast submissions -->
+                    <input type="hidden" name="form_time" id="form_time" value="">
                     <input type="hidden" name="selectedServices" id="selectedServicesInput">
                     <input type="hidden" name="totalPrice" id="totalPriceInput">
                     <input type="hidden" name="subTotal" id="subTotalHidden">
@@ -193,6 +197,27 @@
     <script src="js/cleaningCalculator/calculatorView.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="js/bookingForm.js"></script>
+    <script>
+        // set form_time when the page loads and before submit
+        document.addEventListener('DOMContentLoaded', function () {
+            var ft = document.getElementById('form_time');
+            if (ft) ft.value = Math.floor(Date.now() / 1000);
+            var form = document.getElementById('booking-form');
+            if (form) {
+                form.addEventListener('submit', function () {
+                    if (ft && !ft.value) ft.value = Math.floor(Date.now() / 1000);
+                    // quick client-side honeypot check to avoid unnecessary submit
+                    var hp = document.getElementById('website_hp');
+                    if (hp && hp.value.trim() !== '') {
+                        // Hide spinner and optionally show a message if you have UI for that
+                        console.warn('Honeypot filled — blocking submit.');
+                        event && event.preventDefault && event.preventDefault();
+                        return false;
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
