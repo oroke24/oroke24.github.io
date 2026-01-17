@@ -2,12 +2,20 @@ const bookingForm = document.getElementById('booking-form');
 const formResponseDiv = document.getElementById('form-response');
 const submitBtn = document.getElementById('submit-btn');
 const spinner = document.getElementById('loading-spinner');
+const CheckPriceValid = document.getElementById('totalPriceInput');
+
 
 bookingForm.addEventListener('submit', async (event) => {
   event.preventDefault(); // Prevent the default form submission
 
   spinner.style.display = 'inline-block';
   submitBtn.disabled = true;
+  
+  //Checking if user selected any services
+  if(!CheckPriceValid || CheckPriceValid == "No Message"){
+    alert("Must select services.");
+    return;
+  }
 
   //getting reCAPTCHA
   const recaptchaToken = grecaptcha.getResponse();
