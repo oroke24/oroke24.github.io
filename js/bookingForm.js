@@ -5,6 +5,7 @@ const spinner = document.getElementById('loading-spinner');
 const CheckPriceValid = document.getElementById('totalPriceInput');
 
 
+
 bookingForm.addEventListener('submit', async (event) => {
   event.preventDefault(); // Prevent the default form submission
 
@@ -12,8 +13,9 @@ bookingForm.addEventListener('submit', async (event) => {
   submitBtn.disabled = true;
   
   //Checking if user selected any services
-  console.log("TotalPriceInput = ", CheckPriceValid);
-  if(!CheckPriceValid || CheckPriceValid == "No Message"){
+    //console.log("booking-form = ", bookingForm);
+    //console.log("TotalPriceInput = ", CheckPriceValid);
+  if(!CheckPriceValid || CheckPriceValid.value == "$0-$0.00(0%) = $0.00" ||CheckPriceValid.value == "No Message"){
     alert("Must select services.");
     return;
   }
