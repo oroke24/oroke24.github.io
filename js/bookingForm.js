@@ -12,6 +12,7 @@ bookingForm.addEventListener('submit', async (event) => {
   submitBtn.disabled = true;
   
   //Checking if user selected any services
+  console.log("TotalPriceInput = ", CheckPriceValid);
   if(!CheckPriceValid || CheckPriceValid == "No Message"){
     alert("Must select services.");
     return;
