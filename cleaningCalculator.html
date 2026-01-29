@@ -119,9 +119,7 @@
 
                         <div class="total-section">
                             <h2 class="mb-2 mt-5">SubTotal: <span id="subTotal">$0.00</span></h2>
-                            <input 
-                                style="border-radius: 8px; padding:5px"
-                                id="promoCode" 
+                            <input style="border-radius: 8px; padding:5px" id="promoCode"
                                 placeholder="Have a promo code? ">
                             </input>
                             <div id="discounts"></div>
@@ -144,8 +142,48 @@
                             Estimated Total: <span id="finalBookingTotal">$0.00</span>
                         </div>
                     </div>
-                    <h2>Book Now? <i class="bi bi-arrow-down-circle-fill"></i></h2>
+                    <h2>Book Now? Email or call us<i class="bi bi-arrow-down-circle-fill"></i></h2>
                     <h5>(You only pay once the job is done)</h5>
+                    <div class="row w-100 text-center mt-5 border-top border-bottom justify-content-center">
+                        <!--Call button-->
+                        <div class="w-25 col-lg-3 col-md-6 col-12 mb-lg-0 mb-md-4">
+                            <div class="featured-block d-flex justify-content-center align-items-center">
+                                <a href="tel: 971-448-4232" class="d-block">
+                                    <span class="bi-telephone featured-block-image img-fluid"
+                                        style="font-size: 80px; color:#dc3c2e;"></span>
+                                    <p class="featured-block-text">Call<br></p>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Text button-->
+                        <div class="w-25 col-lg-3 col-md-6 col-12 mb-lg-0 mb-md-4">
+                            <div class="featured-block d-flex justify-content-center align-items-center">
+                                <a href="sms: 971-448-4232" class="d-block">
+                                    <span class="bi-chat-text featured-block-image img-fluid"
+                                        style="font-size: 80px; color:#6bd92f;"></span>
+                                    <p class="featured-block-text">Text <br></p>
+                                </a>
+                            </div>
+                        </div>
+                        <h3 class="mb-5"><a href="tel: 971-448-4232">971-448-4232</a></h3>
+                        <!-- Email button-->
+                        <div class="w-25 col-lg-3 col-md-6 col-12 mb-lg-0 mb-md-4 text-center">
+                            <div class="featured-block d-flex justify-content-center align-items-center">
+                                <a href="mailto: washnrollmobilecleaning@gmail.com" class="d-block">
+                                    <span class="bi-envelope featured-block-image img-fluid"
+                                        style="font-size: 80px; color:#6bd92f;"></span>
+                                    <p class="featured-block-text">Email <br></p>
+                                </a>
+                            </div>
+                            <h3 class="d-flex mb-0 text-center justify-content-center w-100">
+                                <i class="bi-envelope me-2"></i>
+                                <a href="mailto:washnrollmobilecleaning@gmail.com">
+                                    washnrollmobilecleaning@gmail.com</a>
+                                </h3>
+                        </div>
+                    </div>
+
+                    <!-- Removing automatic email button, too much spam.
                     <div class="mt-4">
                         <label for="date"><i class="bi-calendar-plus h4"></i></label>
                         <input class="w-50 h4" type="date" id="date" name="date">
@@ -171,9 +209,9 @@
                         <div class="g-recaptcha" data-sitekey="6LeBUEwrAAAAAC4_wQ5h1jwPTTPO3OwCrKDTtMJD"
                             style="display: inline-block;"></div>
                     </div>
-                    <!-- Honeypot to trap bots: should stay empty. Hidden from users. -->
                     <input type="text" name="website" id="website_hp" style="display:none" autocomplete="off">
-                    <!-- Hidden timestamp to detect too-fast submissions -->
+                -->
+                    <!-- Hidden timestamp to detect too-fast submissions
                     <input type="hidden" name="form_time" id="form_time" value="">
                     <input type="hidden" name="selectedServices" id="selectedServicesInput">
                     <input type="hidden" name="totalPrice" id="totalPriceInput">
@@ -184,6 +222,8 @@
                         Submit Booking Request
                         <span id="loading-spinner" class="spinner" style="display: none;"></span>
                     </button>
+                -->
+                    <!-- Instead, letting-->
                 </form>
 
                 <div id="form-response" style="display:none;"></div>
