@@ -40,9 +40,9 @@ document.addEventListener('DOMContentLoaded', function () {
     function renderServices() {
         servicesList.innerHTML = ''; // Clear existing content
         let title = document.createElement('div');
-        title.classList="text-center"
+        title.classList = "text-center"
         services.forEach((service, i) => {
-            
+
             /*
             if(i === 0) {
                 title.innerText = "Common choices";
@@ -119,8 +119,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (selectedServicesListInput) {
             selectedServicesListInput.value = selectedServices
-            .map(service => `${service.name} ${service.price.toFixed(2)}`)
-            .join('\n\n\n');
+                .map(service => `${service.name} ${service.price.toFixed(2)}`)
+                .join('\n\n\n');
         }
         if (calculatedTotalInput) {
             calculatedTotalInput.value = `$${currentTotal}-$${amountOff.toFixed(2)}(${expensiveDiscount + promo}%) = $${newTotal.toFixed(2)}`;
@@ -136,13 +136,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 displayedServicesList.appendChild(li);
             });
         }
-    }
-
-    if (bookingForm) {
-        bookingForm.addEventListener('submit', function (event) {
-            console.log('Form submitting with total: ', calculatedTotalInput.value);
-            console.log('Form submitting with services: ', selectedServicesListInput.value);
-        });
     }
     // Initial render of services when the page loads
     renderServices();
